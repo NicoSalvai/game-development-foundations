@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://0r4c06buxeca"]
+
+[ext_resource type="Script" uid="uid://dd2l0pvp7dii6" path="res://Scenes/Pipe/Pipes.gd" id="1_6nvds"]
+[ext_resource type="PackedScene" uid="uid://d4l10ch0ivjuv" path="res://Scenes/Pipe/Laser.tscn" id="1_doa0s"]
+[ext_resource type="PackedScene" uid="uid://b88yhsolmki6j" path="res://Scenes/Pipe/Pipe.tscn" id="2_6nvds"]
+[ext_resource type="AudioStream" uid="uid://4g5wq03jaitt" path="res://Assets/audio/score.wav" id="4_faodf"]
+
+[node name="Pipes" type="Node2D" unique_id=1473128426]
+script = ExtResource("1_6nvds")
+
+[node name="Laser" parent="." unique_id=1115964376 instance=ExtResource("1_doa0s")]
+
+[node name="Upper Pipe" parent="." unique_id=284719105 instance=ExtResource("2_6nvds")]
+position = Vector2(0, -80)
+rotation = 3.1415927
+
+[node name="Lower Pipe" parent="." unique_id=790638765 instance=ExtResource("2_6nvds")]
+position = Vector2(0, 80)
+
+[node name="ScreenNotifier" type="VisibleOnScreenNotifier2D" parent="." unique_id=1867235782]
+position = Vector2(94, 0)
+
+[node name="TtlTimer" type="Timer" parent="." unique_id=1831727037]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="." unique_id=1178079677]
+stream = ExtResource("4_faodf")

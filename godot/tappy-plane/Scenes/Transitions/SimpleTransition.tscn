@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://v0e1coifjli3"]
+
+[ext_resource type="Texture2D" uid="uid://c31f78wg2mt14" path="res://Assets/background/sky.png" id="1_50jk3"]
+[ext_resource type="Script" uid="uid://cu4mt4cxks0ta" path="res://Scenes/Transitions/SimpleTransition.gd" id="1_ap4ug"]
+[ext_resource type="FontFile" uid="uid://csh6mrpsh5ngw" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_qpeui"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ap4ug"]
+font = ExtResource("2_qpeui")
+font_size = 64
+font_color = Color(1, 0.58240116, 0.4829566, 1)
+outline_size = 8
+outline_color = Color(0.5568628, 0, 0.05882353, 1)
+
+[node name="SimpleTransition" type="Control" unique_id=1265760712]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ap4ug")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1310064980]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_50jk3")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2058167809]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="LoadingLabel" type="Label" parent="MarginContainer" unique_id=81222595]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Loading..."
+label_settings = SubResource("LabelSettings_ap4ug")
+horizontal_alignment = 1
+vertical_alignment = 1

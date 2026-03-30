@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bgct782f5dh4j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ton1c"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_27f1k"]
+
+[node name="Barrier" type="StaticBody2D" unique_id=377493287]
+
+[node name="Top" type="CollisionShape2D" parent="." unique_id=1162625089]
+position = Vector2(0, -10)
+shape = SubResource("WorldBoundaryShape2D_ton1c")
+
+[node name="Bottom" type="CollisionShape2D" parent="." unique_id=374637238]
+position = Vector2(0, 862)
+shape = SubResource("WorldBoundaryShape2D_27f1k")

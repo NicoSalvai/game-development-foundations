@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://dp8sqrwh8i225"]
+
+[ext_resource type="Texture2D" uid="uid://c31f78wg2mt14" path="res://Assets/background/sky.png" id="1_p8rbg"]
+[ext_resource type="Script" uid="uid://c7qm2e8vgbvd5" path="res://Scenes/Main/Main.gd" id="1_w20t6"]
+[ext_resource type="LabelSettings" uid="uid://b20oal6jb2he1" path="res://Resources/RedLabelSettings.tres" id="2_qtv3y"]
+[ext_resource type="FontFile" uid="uid://csh6mrpsh5ngw" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="3_cmk6n"]
+[ext_resource type="LabelSettings" uid="uid://d37cojur45y73" path="res://Resources/RedLabel24.tres" id="4_i3fi7"]
+[ext_resource type="AudioStream" uid="uid://32lmdategmuy" path="res://Assets/audio/bgm_menu.mp3" id="5_o8wgc"]
+
+[sub_resource type="Animation" id="Animation_o8wgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressSpaceLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w20t6"]
+resource_name = "flashing_label"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressSpaceLabel:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.4627451)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aw1lf"]
+_data = {
+&"RESET": SubResource("Animation_o8wgc"),
+&"flashing_label": SubResource("Animation_w20t6")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8wgc"]
+font = ExtResource("3_cmk6n")
+font_size = 48
+font_color = Color(1, 0.982452, 0.9802416, 1)
+outline_size = 8
+outline_color = Color(0.5568628, 0, 0.05882353, 1)
+
+[node name="Main" type="Control" unique_id=1286126156]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w20t6")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=959880258]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p8rbg")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=302892050]
+root_node = NodePath("../MarginContainer")
+libraries/ = SubResource("AnimationLibrary_aw1lf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1259446946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=2078320340]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "TAPPY
+PLANE"
+label_settings = ExtResource("2_qtv3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressSpaceLabel" type="Label" parent="MarginContainer" unique_id=1719321418]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space
+ to Play"
+label_settings = SubResource("LabelSettings_o8wgc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="MarginContainer" unique_id=1596843629]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "High Score "
+label_settings = ExtResource("4_i3fi7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer" unique_id=1724371924]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "0000"
+label_settings = ExtResource("4_i3fi7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=776431509]
+stream = ExtResource("5_o8wgc")
+volume_db = -8.16
+autoplay = true
