@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://yat87n71dea2"]
+
+[ext_resource type="LabelSettings" uid="uid://ckalmbgk3jsto" path="res://Resources/ScoreLabel.tres" id="1_gf1pl"]
+[ext_resource type="LabelSettings" uid="uid://dek4mn6suwtta" path="res://Resources/Label32.tres" id="1_u5l4m"]
+[ext_resource type="Script" uid="uid://bw3qgngpy1n8g" path="res://Scenes/Game/GameUi.gd" id="1_v2m22"]
+
+[node name="GameUI" type="Control" unique_id=1600647282]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v2m22")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=70738939]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Player1Score" type="Label" parent="MarginContainer" unique_id=512963160]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Score 1"
+label_settings = ExtResource("1_gf1pl")
+
+[node name="Player2Score" type="Label" parent="MarginContainer" unique_id=528450301]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Score 2"
+label_settings = ExtResource("1_gf1pl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1422891710]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WinnerLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=390078647]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Winner is !
+Press Space to go back."
+label_settings = ExtResource("1_u5l4m")
+horizontal_alignment = 1
+
+[node name="PointForLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1932023060]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Point For Player"
+label_settings = ExtResource("1_u5l4m")
+
+[node name="PressSpaceToStartLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=689749737]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space to Start"
+label_settings = ExtResource("1_u5l4m")
+
+[node name="Timer" type="Timer" parent="." unique_id=1566441800]
+wait_time = 2.0
+one_shot = true

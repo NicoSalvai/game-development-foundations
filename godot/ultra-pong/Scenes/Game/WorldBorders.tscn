@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://uuctvarwb55"]
+
+[ext_resource type="Script" uid="uid://c1krx00j0m48c" path="res://Scenes/Game/WorldBorders.gd" id="1_ond17"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jghrk"]
+
+[node name="WorldBorders" type="StaticBody2D" unique_id=55825744]
+script = ExtResource("1_ond17")
+
+[node name="TopBorder" type="CollisionShape2D" parent="." unique_id=1488645034]
+position = Vector2(0, 24)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_jghrk")
+
+[node name="BottomBorder" type="CollisionShape2D" parent="." unique_id=1206955991]
+position = Vector2(0, 624)
+shape = SubResource("WorldBoundaryShape2D_jghrk")

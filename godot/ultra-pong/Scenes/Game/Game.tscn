@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dngxc8xpwndd0"]
+
+[ext_resource type="Script" uid="uid://cvlu2x205b0g5" path="res://Scenes/Game/Game.gd" id="1_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://uuctvarwb55" path="res://Scenes/Game/WorldBorders.tscn" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://yat87n71dea2" path="res://Scenes/Game/GameUi.tscn" id="3_xbxml"]
+
+[node name="Game" type="Node2D" unique_id=1336459353]
+process_mode = 3
+script = ExtResource("1_ln2h6")
+
+[node name="WorldBorders" parent="." unique_id=55825744 instance=ExtResource("2_gwu2e")]
+
+[node name="Container" type="Node" parent="." unique_id=1603011669]
+process_mode = 1
+
+[node name="Player1SpawnPoint" type="Marker2D" parent="Container" unique_id=272003898]
+position = Vector2(30, 324)
+
+[node name="Player2SpawnPoint" type="Marker2D" parent="Container" unique_id=1942101187]
+position = Vector2(1122, 324)
+
+[node name="BallSpawnPoint" type="Marker2D" parent="Container" unique_id=650292527]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=939446163]
+process_mode = 3
+
+[node name="GameUI" parent="CanvasLayer" unique_id=1600647282 instance=ExtResource("3_xbxml")]
