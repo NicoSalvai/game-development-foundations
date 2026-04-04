@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://kawvk32tt1x7"]
+
+[ext_resource type="Script" uid="uid://c8p0riixjw60o" path="res://Scripts/LevelBase.gd" id="1_3lxj6"]
+[ext_resource type="Texture2D" uid="uid://d0h8tl5wxu6iu" path="res://Assets/scene/colored_castle.png" id="1_5ufo3"]
+[ext_resource type="PackedScene" uid="uid://uidfsm6s7nw4" path="res://Scenes/Water/Water.tscn" id="3_78m1b"]
+[ext_resource type="PackedScene" uid="uid://bd21dabd3m375" path="res://Scenes/GameUI/GameUI.tscn" id="5_lmtt4"]
+
+[node name="LevelBase" type="Node" unique_id=1297700717]
+process_mode = 3
+script = ExtResource("1_3lxj6")
+
+[node name="Container" type="Node" parent="." unique_id=1736336502]
+process_mode = 1
+
+[node name="Sprite2DBackground" type="Sprite2D" parent="Container" unique_id=43440745]
+position = Vector2(0, -245.25)
+scale = Vector2(1.225, 1.225)
+texture = ExtResource("1_5ufo3")
+centered = false
+
+[node name="Water" parent="Container" unique_id=1406139861 instance=ExtResource("3_78m1b")]
+position = Vector2(736, 656)
+
+[node name="Spawn" type="Marker2D" parent="Container" unique_id=133764930]
+position = Vector2(121, 240)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=278568831]
+
+[node name="GameUI" parent="CanvasLayer" unique_id=1603819753 instance=ExtResource("5_lmtt4")]

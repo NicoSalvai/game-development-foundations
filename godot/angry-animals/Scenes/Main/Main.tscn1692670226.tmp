@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cs25yy3dbkrts"]
+
+[ext_resource type="Texture2D" uid="uid://diintowtp2sf7" path="res://Assets/env/MainBG.png" id="1_p8rbg"]
+[ext_resource type="PackedScene" uid="uid://dwn52soe6sy0y" path="res://Scenes/Main/LevelButton.tscn" id="2_qtv3y"]
+[ext_resource type="AudioStream" uid="uid://bqtciqf2g4d7w" path="res://Assets/audio/birdsong.wav" id="3_cmk6n"]
+[ext_resource type="FontFile" uid="uid://de6l4ame7505i" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="4_i3fi7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8wgc"]
+font = ExtResource("4_i3fi7")
+font_size = 86
+font_color = Color(0.68831694, 0.938376, 0.96879727, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.67058825)
+
+[node name="Main" type="Control" unique_id=1092627285]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1755756897]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p8rbg")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2083345284]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 48
+
+[node name="LevelButton" parent="HBoxContainer" unique_id=1775540160 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HBoxContainer" unique_id=1337970740 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="HBoxContainer" unique_id=1615891656 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+level_number = 3
+
+[node name="BirdPlayer" type="AudioStreamPlayer" parent="." unique_id=723551639]
+stream = ExtResource("3_cmk6n")
+autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=1185933712]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 97.0
+offset_right = 894.0
+offset_bottom = 184.0
+text = "angry animals"
+label_settings = SubResource("LabelSettings_o8wgc")
