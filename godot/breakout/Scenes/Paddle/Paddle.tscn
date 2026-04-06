@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cvstwnwbs75xl"]
+
+[ext_resource type="Texture2D" uid="uid://damisqw4xmur6" path="res://Assets/paddleBlu.png" id="1_p4bap"]
+[ext_resource type="Script" uid="uid://3vx1r8v44m13" path="res://Scripts/Paddle.gd" id="1_wuola"]
+[ext_resource type="PackedScene" uid="uid://276d4maavj0v" path="res://Scenes/Paddle/PlayerController.tscn" id="3_kqrbk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqrbk"]
+size = Vector2(70, 14)
+
+[node name="Paddle" type="CharacterBody2D" unique_id=545204977]
+collision_layer = 3
+script = ExtResource("1_wuola")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910790869]
+shape = SubResource("RectangleShape2D_kqrbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861417925]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_p4bap")
+
+[node name="PlayerController" parent="." unique_id=989105725 instance=ExtResource("3_kqrbk")]

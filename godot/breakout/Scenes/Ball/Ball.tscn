@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dpwwvkfv48suw"]
+
+[ext_resource type="Script" uid="uid://bhxgncgnt37gk" path="res://Scripts/Ball.gd" id="1_rcvud"]
+[ext_resource type="Texture2D" uid="uid://dqtkn8dv4d6sv" path="res://Assets/ballGrey.png" id="2_xo6r3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xo6r3"]
+radius = 5.0990195
+
+[node name="Ball" type="CharacterBody2D" unique_id=1902869406]
+collision_layer = 4
+script = ExtResource("1_rcvud")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=403283980]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_xo6r3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1726075825]
+shape = SubResource("CircleShape2D_xo6r3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=631334992]

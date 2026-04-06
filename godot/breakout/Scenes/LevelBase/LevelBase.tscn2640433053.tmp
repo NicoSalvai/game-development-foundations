@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://o8skjhu0xv6d"]
+
+[ext_resource type="Script" uid="uid://c81mwnbedkah" path="res://Scripts/LevelBase.gd" id="1_txgif"]
+[ext_resource type="PackedScene" uid="uid://j1ui0naiwe3d" path="res://Scenes/LevelBase/WorldBorders.tscn" id="2_bgw71"]
+[ext_resource type="PackedScene" uid="uid://c3amp7s86psgj" path="res://Scenes/Brick/BrickGrid.tscn" id="4_3lxj6"]
+
+[node name="LevelBase" type="Node" unique_id=1953973058]
+script = ExtResource("1_txgif")
+
+[node name="WorldBorders" parent="." unique_id=1372804252 instance=ExtResource("2_bgw71")]
+
+[node name="Container" type="Node" parent="." unique_id=769617397]
+
+[node name="BrickGrid" parent="Container" unique_id=1996288179 instance=ExtResource("4_3lxj6")]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bk07tfw3b1pej"]
+
+[ext_resource type="Texture2D" uid="uid://c7kdnwb3yx3y6" path="res://Assets/Heart.png" id="1_crou1"]
+
+[node name="Hearth" type="TextureRect" unique_id=1761557946]
+texture = ExtResource("1_crou1")

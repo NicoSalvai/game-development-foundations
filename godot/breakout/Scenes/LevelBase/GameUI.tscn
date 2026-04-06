@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bak2kq3emhkec"]
+
+[ext_resource type="Script" uid="uid://bhh6vcagltras" path="res://Scripts/GameUi.gd" id="1_qu5wn"]
+[ext_resource type="LabelSettings" uid="uid://bfwcmvswvfph4" path="res://Resources/Fonts/Pink16.tres" id="2_82x3g"]
+[ext_resource type="LabelSettings" uid="uid://d3x0m0cwbwr43" path="res://Resources/Fonts/Green48.tres" id="2_cw25j"]
+[ext_resource type="FontFile" uid="uid://b3q2o5yj64pp1" path="res://Assets/font/Kenney Future.ttf" id="3_8035b"]
+[ext_resource type="LabelSettings" uid="uid://bvmjalivo5rj3" path="res://Resources/Fonts/Blue24.tres" id="5_iw303"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_82x3g"]
+font = ExtResource("3_8035b")
+font_size = 48
+font_color = Color(0.8087679, 0.11748072, 0.19162169, 1)
+outline_size = 2
+outline_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.85490197)
+
+[node name="GameUI" type="Control" unique_id=452908675]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qu5wn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=377489755]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScoreHB" type="HBoxContainer" parent="MarginContainer" unique_id=120128865]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/ScoreHB" unique_id=102269307]
+layout_mode = 2
+text = "Score"
+label_settings = ExtResource("2_82x3g")
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/ScoreHB" unique_id=1550620858]
+layout_mode = 2
+text = "0000"
+label_settings = ExtResource("2_82x3g")
+
+[node name="LivesHB" type="HBoxContainer" parent="MarginContainer" unique_id=1424362464]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/LivesHB" unique_id=1211071724]
+layout_mode = 2
+text = "Lives"
+label_settings = ExtResource("2_82x3g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=547847501]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WinLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1005193981]
+visible = false
+layout_mode = 2
+text = "You won!"
+label_settings = ExtResource("2_cw25j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressSpaceLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=267875046]
+visible = false
+layout_mode = 2
+text = "Press space to continue"
+label_settings = ExtResource("5_iw303")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=343613244]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="LostLabel" type="Label" parent="MarginContainer/VBoxContainer2" unique_id=1049941456]
+visible = false
+layout_mode = 2
+text = "Game Over"
+label_settings = SubResource("LabelSettings_82x3g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressSpaceLabel" type="Label" parent="MarginContainer/VBoxContainer2" unique_id=267073569]
+visible = false
+layout_mode = 2
+text = "Press space to restart"
+label_settings = ExtResource("5_iw303")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=2035751622]
+one_shot = true

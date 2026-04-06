@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bb4bx73glocut"]
+
+[ext_resource type="Script" uid="uid://dynuqug4ukafn" path="res://Scripts/PowerUp.gd" id="1_3hf71"]
+[ext_resource type="Texture2D" uid="uid://d2x0hqyxkbe0i" path="res://Assets/ballBlue.png" id="1_rbyb8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ol06n"]
+radius = 5.0
+
+[node name="PowerUp" type="Area2D" unique_id=899007663]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_3hf71")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=803762371]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rbyb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1594575424]
+shape = SubResource("CircleShape2D_ol06n")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1285900154]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

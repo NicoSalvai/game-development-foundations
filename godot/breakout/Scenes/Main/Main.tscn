@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b202l1ov5s5yg"]
+
+[ext_resource type="Script" uid="uid://bh6uhkjy27w06" path="res://Scripts/Main.gd" id="1_cmk6n"]
+[ext_resource type="FontFile" uid="uid://b3q2o5yj64pp1" path="res://Assets/font/Kenney Future.ttf" id="1_p8rbg"]
+[ext_resource type="PackedScene" uid="uid://bx453p6chwtvg" path="res://Scenes/Main/Button.tscn" id="2_qtv3y"]
+[ext_resource type="PackedScene" uid="uid://2k6emwy6y011" path="res://Scenes/Main/LevelButton.tscn" id="4_i3fi7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qtv3y"]
+font = ExtResource("1_p8rbg")
+font_size = 48
+font_color = Color(3.657937e-06, 0.70538235, 0.9323454, 1)
+outline_size = 3
+outline_color = Color(0.21333781, 0.0910346, 0.9999998, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.85490197)
+
+[node name="Main" type="Control" unique_id=1576987432]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cmk6n")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1918668364]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=966211501]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=289086159]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Breakout"
+label_settings = SubResource("LabelSettings_qtv3y")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=305373]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Menu" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=14619670]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="NewGame" parent="MarginContainer/VBoxContainer/MarginContainer/Menu" unique_id=1751896363 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+label_text = "New Game"
+
+[node name="LevelSelect" parent="MarginContainer/VBoxContainer/MarginContainer/Menu" unique_id=67722689 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+label_text = "Level Select"
+
+[node name="Exit" parent="MarginContainer/VBoxContainer/MarginContainer/Menu" unique_id=1583713053 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+label_text = "Exit"
+
+[node name="LevelMenu" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1328005927]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/LevelMenu" unique_id=880063996]
+layout_mode = 2
+
+[node name="LevelSelectMenu" type="HFlowContainer" parent="MarginContainer/VBoxContainer/MarginContainer/LevelMenu/VBoxContainer" unique_id=1415234278]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="Level1" parent="MarginContainer/VBoxContainer/MarginContainer/LevelMenu/VBoxContainer/LevelSelectMenu" unique_id=1178161982 instance=ExtResource("4_i3fi7")]
+layout_mode = 2
+level = 1
+
+[node name="Level2" parent="MarginContainer/VBoxContainer/MarginContainer/LevelMenu/VBoxContainer/LevelSelectMenu" unique_id=884690444 instance=ExtResource("4_i3fi7")]
+layout_mode = 2
+level = 2
+
+[node name="Level3" parent="MarginContainer/VBoxContainer/MarginContainer/LevelMenu/VBoxContainer/LevelSelectMenu" unique_id=1870540472 instance=ExtResource("4_i3fi7")]
+layout_mode = 2
+level = 3
+
+[node name="BackButton" parent="MarginContainer/VBoxContainer/MarginContainer/LevelMenu/VBoxContainer" unique_id=671069524 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+label_text = "Back"

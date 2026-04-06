@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://j1ui0naiwe3d"]
+
+[ext_resource type="Script" uid="uid://b6pocxxtuph86" path="res://Scripts/WorldBorders.gd" id="1_kvtnn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dcsne"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kvtnn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2e6ex"]
+
+[node name="WorldBorders" type="StaticBody2D" unique_id=1372804252]
+script = ExtResource("1_kvtnn")
+
+[node name="LeftBorder" type="CollisionShape2D" parent="." unique_id=1446511078]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_dcsne")
+
+[node name="RightBorder" type="CollisionShape2D" parent="." unique_id=1253136526]
+position = Vector2(1152, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_kvtnn")
+
+[node name="TopBorder" type="CollisionShape2D" parent="." unique_id=650017672]
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_2e6ex")

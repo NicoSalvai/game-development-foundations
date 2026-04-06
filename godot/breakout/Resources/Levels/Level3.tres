@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bhbjtsutbmg13"]
+
+[ext_resource type="Script" uid="uid://bp3tmto3tasu4" path="res://Scripts/Classes/BrickDefinition.gd" id="1_mrk7l"]
+[ext_resource type="Script" uid="uid://bfhm4d1bj6ov6" path="res://Scripts/Classes/LevelData.gd" id="2_dmrbn"]
+
+[sub_resource type="Resource" id="Resource_mrk7l"]
+script = ExtResource("1_mrk7l")
+max_health = 2
+points = 20
+color = 3
+metadata/_custom_type_script = "uid://bp3tmto3tasu4"
+
+[sub_resource type="Resource" id="Resource_o536s"]
+script = ExtResource("1_mrk7l")
+max_health = 2
+points = 20
+color = 3
+metadata/_custom_type_script = "uid://bp3tmto3tasu4"
+
+[sub_resource type="Resource" id="Resource_dufl6"]
+script = ExtResource("1_mrk7l")
+metadata/_custom_type_script = "uid://bp3tmto3tasu4"
+
+[sub_resource type="Resource" id="Resource_hcoko"]
+script = ExtResource("1_mrk7l")
+metadata/_custom_type_script = "uid://bp3tmto3tasu4"
+
+[sub_resource type="Resource" id="Resource_k6lws"]
+script = ExtResource("1_mrk7l")
+metadata/_custom_type_script = "uid://bp3tmto3tasu4"
+
+[sub_resource type="Resource" id="Resource_vu2sm"]
+script = ExtResource("1_mrk7l")
+max_health = 2
+points = 20
+color = 3
+metadata/_custom_type_script = "uid://bp3tmto3tasu4"
+
+[sub_resource type="Resource" id="Resource_dmrbn"]
+script = ExtResource("1_mrk7l")
+max_health = 2
+points = 20
+color = 3
+metadata/_custom_type_script = "uid://bp3tmto3tasu4"
+
+[resource]
+script = ExtResource("2_dmrbn")
+columns = 7
+bricks = Array[ExtResource("1_mrk7l")]([SubResource("Resource_mrk7l"), SubResource("Resource_o536s"), SubResource("Resource_dufl6"), SubResource("Resource_hcoko"), SubResource("Resource_k6lws"), SubResource("Resource_vu2sm"), SubResource("Resource_dmrbn")])
+metadata/_custom_type_script = "uid://bfhm4d1bj6ov6"

@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://d3x0m0cwbwr43"]
+
+[ext_resource type="FontFile" uid="uid://b3q2o5yj64pp1" path="res://Assets/font/Kenney Future.ttf" id="1_jmhd5"]
+
+[resource]
+font = ExtResource("1_jmhd5")
+font_size = 48
+font_color = Color(0.13689762, 0.5764557, 1.732707e-06, 1)
+outline_size = 2
+outline_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.85490197)
