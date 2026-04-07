@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cyjy1e7ig20xf"]
+
+[ext_resource type="Script" uid="uid://dkxhjy8w3g2v5" path="res://Scripts/Scorer.gd" id="1_3b22r"]
+[ext_resource type="AudioStream" uid="uid://bnfexjvmrii35" path="res://Assets/sounds/sfx_sounds_fanfare3.wav" id="2_voqrw"]
+
+[node name="Scorer" type="Node" unique_id=1684783938]
+script = ExtResource("1_3b22r")
+
+[node name="RevealTimer" type="Timer" parent="." unique_id=464085604]
+wait_time = 2.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2061776920]
+stream = ExtResource("2_voqrw")

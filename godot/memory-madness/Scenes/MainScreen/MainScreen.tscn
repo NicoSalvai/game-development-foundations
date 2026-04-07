@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bicqkuuncsk81"]
+
+[ext_resource type="LabelSettings" uid="uid://x7qnxwtwvrqd" path="res://Resources/Labels/LabelGreen48.tres" id="1_cnqt4"]
+[ext_resource type="Script" uid="uid://dfqax3pjj2x6c" path="res://Scripts/MainScreen.gd" id="1_ke8gl"]
+[ext_resource type="PackedScene" uid="uid://bf08jgtyxo0kr" path="res://Scenes/MainScreen/FrontSprite.tscn" id="3_ke8gl"]
+
+[node name="MainScreen" type="Control" unique_id=2085728060]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ke8gl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=487293353]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2901961, 0.38431373, 1, 0.2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=894018562]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.0
+offset_top = -132.0
+offset_right = 266.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 108
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1008611108]
+layout_mode = 2
+text = "MEMORY MADNESS"
+label_settings = ExtResource("1_cnqt4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainerLevels" type="HBoxContainer" parent="VBoxContainer" unique_id=1174726620]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="HBoxContainerFrontSprites" type="HBoxContainer" parent="VBoxContainer" unique_id=2095640023]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 48
+
+[node name="FrontSprite" parent="VBoxContainer/HBoxContainerFrontSprites" unique_id=1635044716 instance=ExtResource("3_ke8gl")]
+layout_mode = 2
+
+[node name="FrontSprite2" parent="VBoxContainer/HBoxContainerFrontSprites" unique_id=13764221 instance=ExtResource("3_ke8gl")]
+layout_mode = 2
+
+[node name="FrontSprite3" parent="VBoxContainer/HBoxContainerFrontSprites" unique_id=1856700002 instance=ExtResource("3_ke8gl")]
+layout_mode = 2
+
+[node name="FrontSprite4" parent="VBoxContainer/HBoxContainerFrontSprites" unique_id=1322116770 instance=ExtResource("3_ke8gl")]
+layout_mode = 2
+
+[node name="FrontSprite5" parent="VBoxContainer/HBoxContainerFrontSprites" unique_id=1927534681 instance=ExtResource("3_ke8gl")]
+layout_mode = 2

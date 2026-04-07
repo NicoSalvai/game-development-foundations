@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bxxekj6faa77a"]
+
+[ext_resource type="Script" uid="uid://clrbtudw6hu72" path="res://Scripts/Master.gd" id="1_1t0lv"]
+[ext_resource type="Texture2D" uid="uid://bwqn55ww4rkf2" path="res://Assets/images/backgroundEmpty.png" id="1_h6g34"]
+[ext_resource type="PackedScene" uid="uid://bicqkuuncsk81" path="res://Scenes/MainScreen/MainScreen.tscn" id="2_o4rt4"]
+[ext_resource type="PackedScene" uid="uid://bwliesedvreqm" path="res://Scenes/Game/Game.tscn" id="3_7tgqy"]
+[ext_resource type="PackedScene" uid="uid://uoaecja156uc" path="res://Scenes/SoundController/SoundController.tscn" id="5_qemos"]
+
+[node name="Master" type="Control" unique_id=926648038]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1t0lv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=775289681]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h6g34")
+expand_mode = 1
+
+[node name="MainScreen" parent="." unique_id=2085728060 instance=ExtResource("2_o4rt4")]
+layout_mode = 1
+
+[node name="Game" parent="." unique_id=1237811927 instance=ExtResource("3_7tgqy")]
+visible = false
+layout_mode = 1
+
+[node name="SoundController" parent="." unique_id=823035251 instance=ExtResource("5_qemos")]

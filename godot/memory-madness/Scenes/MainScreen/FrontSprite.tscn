@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bf08jgtyxo0kr"]
+
+[ext_resource type="Texture2D" uid="uid://b45q0hwlpa7yn" path="res://Assets/glitch/bag_moving_box.png" id="1_wywsv"]
+[ext_resource type="Script" uid="uid://cauv6vur805y0" path="res://Scripts/FrontSprite.gd" id="2_q3kg8"]
+
+[node name="FrontSprite" type="TextureRect" unique_id=1635044716]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_wywsv")
+script = ExtResource("2_q3kg8")
