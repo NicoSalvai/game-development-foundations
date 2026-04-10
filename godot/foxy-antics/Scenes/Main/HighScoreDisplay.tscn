@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvwy5n1pvtcvt"]
+
+[ext_resource type="Script" uid="uid://cm6af7y1p6kin" path="res://Scripts/HighScoreDisplay.gd" id="1_4t363"]
+[ext_resource type="LabelSettings" uid="uid://d38kuadkmpo17" path="res://Resources/Labels/BlueLabael24.tres" id="2_4t363"]
+
+[node name="HighScoreDisplay" type="VBoxContainer" unique_id=731490920]
+script = ExtResource("1_4t363")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1139152417]
+layout_mode = 2
+text = "0800"
+label_settings = ExtResource("2_4t363")
+horizontal_alignment = 1
+
+[node name="DateLabel" type="Label" parent="." unique_id=1262861822]
+layout_mode = 2
+text = "02/01/2024"
+label_settings = ExtResource("2_4t363")
+horizontal_alignment = 1

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cya7qpxdk6x3i"]
+
+[ext_resource type="Script" uid="uid://cugtpwveap5j7" path="res://Scripts/MovingPlatformTween.gd" id="1_qa3u4"]
+[ext_resource type="Texture2D" uid="uid://c0tknw7lkxwyc" path="res://Assets/tiles/Terrain (16x16).png" id="1_ysd43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa3u4"]
+size = Vector2(48, 8)
+
+[node name="MovingPlatformTween" type="AnimatableBody2D" unique_id=335007982]
+collision_mask = 0
+script = ExtResource("1_qa3u4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1805414948]
+texture = ExtResource("1_ysd43")
+region_enabled = true
+region_rect = Rect2(0, 64, 48, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=98529091]
+shape = SubResource("RectangleShape2D_qa3u4")

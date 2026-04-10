@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://jc35mjvuauka"]
+
+[ext_resource type="PackedScene" uid="uid://dv45a0st5sn46" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_bmpsp"]
+[ext_resource type="Script" uid="uid://cviayv2qrix1x" path="res://Scripts/Eagle.gd" id="2_grwlx"]
+[ext_resource type="Texture2D" uid="uid://bsmbgkormcoyw" path="res://Assets/enemies/eagle/eagle-attack.png" id="2_ndn0f"]
+[ext_resource type="PackedScene" uid="uid://hvt3oy4qwnij" path="res://Scenes/Bullet/Shooter.tscn" id="4_d4hd3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndn0f"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grwlx"]
+atlas = ExtResource("2_ndn0f")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4hd3"]
+atlas = ExtResource("2_ndn0f")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia7dr"]
+atlas = ExtResource("2_ndn0f")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_057u3"]
+atlas = ExtResource("2_ndn0f")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5t8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grwlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4hd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia7dr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_057u3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_grwlx"]
+radius = 11.510864
+
+[node name="Eagle" unique_id=701836123 instance=ExtResource("1_bmpsp")]
+collision_mask = 0
+script = ExtResource("2_grwlx")
+fly_speed = Vector2(35, 15)
+points = 2
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=288480016]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ndn0f")
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=524479078]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_s5t8c")
+
+[node name="CollisionShape2D" parent="HitBox" parent_id_path=PackedInt32Array(1461898602) index="0" unique_id=233932333]
+position = Vector2(-0.5, 2.5)
+shape = SubResource("CircleShape2D_grwlx")
+debug_color = Color(0.8745098, 0.2627451, 0.5647059, 0.41960785)
+
+[node name="TurnTimer" type="Timer" parent="." index="4" unique_id=1404219398]
+wait_time = 3.0
+
+[node name="PlayerDetector" type="RayCast2D" parent="." index="5" unique_id=706553065]
+target_position = Vector2(0, 300)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Shooter" parent="." index="6" unique_id=640358973 instance=ExtResource("4_d4hd3")]
+speed = 200.0
+bullet_key = 3
+shoot_cooldown = 0.5
+
+[connection signal="timeout" from="TurnTimer" to="." method="_on_turn_timer_timeout"]

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://du118fo2omc5e"]
+
+[ext_resource type="Script" uid="uid://bl4dkqs6gjjik" path="res://Scripts/Main.gd" id="1_o8wgc"]
+[ext_resource type="Texture2D" uid="uid://c8ctumxmuftjv" path="res://Assets/backgrounds/game_background_3/game_background_3.1.png" id="1_p8rbg"]
+[ext_resource type="LabelSettings" uid="uid://4tix5nmum33u" path="res://Resources/Labels/HeaderLabelPink96.tres" id="2_cmk6n"]
+[ext_resource type="AudioStream" uid="uid://bnleclmgogvt" path="res://Assets/sound/Farm Frolics.ogg" id="2_qtv3y"]
+
+[node name="Main" type="Control" unique_id=1875473192]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8wgc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1488943345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p8rbg")
+expand_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=894125915]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.21568628)
+
+[node name="Label" type="Label" parent="." unique_id=2088934097]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -48.5
+offset_right = 270.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Foxy Antics"
+label_settings = ExtResource("2_cmk6n")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1886866779]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 40
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=176147451]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 24
+columns = 5
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1798355696]
+stream = ExtResource("2_qtv3y")
+volume_db = -15.26
+autoplay = true

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d3yiep2dpm7p7"]
+
+[ext_resource type="Script" uid="uid://oa8drub7vpc7" path="res://Scripts/MovingPlatform.gd" id="1_8blg4"]
+[ext_resource type="Texture2D" uid="uid://c0tknw7lkxwyc" path="res://Assets/tiles/Terrain (16x16).png" id="1_fvlou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8blg4"]
+size = Vector2(48, 8)
+
+[node name="MovingPlatform" type="PathFollow2D" unique_id=1185399179]
+rotates = false
+script = ExtResource("1_8blg4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=74729036]
+texture = ExtResource("1_fvlou")
+region_enabled = true
+region_rect = Rect2(0, 64, 48, 9)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=861220532]
+collision_mask = 0
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1080830814]
+shape = SubResource("RectangleShape2D_8blg4")

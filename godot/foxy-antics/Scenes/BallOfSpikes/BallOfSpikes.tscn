@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bmpdumf5ti06w"]
+
+[ext_resource type="Script" uid="uid://c14xrga0r1fvx" path="res://Scripts/BallOfSpikes.gd" id="1_1vet8"]
+[ext_resource type="Texture2D" uid="uid://bjr7h1jkt5qqk" path="res://Assets/danger/spiked_ball.png" id="1_dlb8w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1vet8"]
+
+[node name="BallOfSpikes" type="PathFollow2D" unique_id=1264380929]
+rotation = -0.05234787
+rotates = false
+script = ExtResource("1_1vet8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1216524053]
+texture = ExtResource("1_dlb8w")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1011380957]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=702063920]
+shape = SubResource("CircleShape2D_1vet8")

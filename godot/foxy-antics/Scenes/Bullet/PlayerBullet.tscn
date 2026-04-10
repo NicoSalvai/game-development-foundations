@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dym33peixhod8"]
+
+[ext_resource type="PackedScene" uid="uid://bobvqgajf0m5s" path="res://Scenes/Bullet/BaseBullet.tscn" id="1_kpv7l"]
+[ext_resource type="Texture2D" uid="uid://blm2qm3sw4tgx" path="res://Assets/items/bullet1.png" id="2_tj7yp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tj7yp"]
+radius = 4.0
+
+[node name="PlayerBullet" unique_id=8259206 instance=ExtResource("1_kpv7l")]
+collision_layer = 8
+collision_mask = 5
+
+[node name="Sprite2D" parent="." index="0" unique_id=1906176004]
+texture = ExtResource("2_tj7yp")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=683255045]
+shape = SubResource("CircleShape2D_tj7yp")
