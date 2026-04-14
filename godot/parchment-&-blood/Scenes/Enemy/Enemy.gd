@@ -1,8 +1,6 @@
 class_name Enemy
 extends CharacterBody2D
 
-const SMOOTH_FACTOR = 4.0
-const STOP_SPEED = 1000.0
 
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var visuals: Node2D = $Visuals

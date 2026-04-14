@@ -71,6 +71,7 @@ shoot={
 2d_physics/layer_5="enemy_hit_box"
 2d_physics/layer_6="player"
 2d_physics/layer_7="enemy"
+2d_physics/layer_8="arrow_walls"
 
 [physics]
 

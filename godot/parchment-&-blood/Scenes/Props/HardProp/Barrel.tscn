@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://5whpa24y7i6o"]
+
+[ext_resource type="PackedScene" uid="uid://bkqvhiaenom3s" path="res://Scenes/Props/Prop.tscn" id="1_f7wq3"]
+[ext_resource type="Texture2D" uid="uid://7u8tyx7o4tv8" path="res://Assets/Props/barrel.png" id="2_jygc2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jygc2"]
+radius = 14.0
+
+[node name="Barrel" unique_id=2106693791 instance=ExtResource("1_f7wq3")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=475862166]
+texture = ExtResource("2_jygc2")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1990792468]
+shape = SubResource("CircleShape2D_jygc2")

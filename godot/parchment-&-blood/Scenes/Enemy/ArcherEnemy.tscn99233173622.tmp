@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://crb1delpgmmqr" path="res://Assets/Items/weapon_bow.png" id="4_bphtv"]
 [ext_resource type="Texture2D" uid="uid://bjd4elvys643j" path="res://Assets/Items/weapon_arrow.png" id="5_bphtv"]
 [ext_resource type="AnimationLibrary" uid="uid://cq3kdy6bucf5p" path="res://Resources/Archer/Archer.res" id="7_5oe2w"]
-[ext_resource type="PackedScene" uid="uid://c6b38keewvbea" path="res://Scenes/Utils/MoveComponent.tscn" id="8_vxgbq"]
 
 [node name="ArcherEnemy" unique_id=1678258344 instance=ExtResource("1_2nxvw")]
 script = ExtResource("2_gy52t")
+speed = 100.0
 
 [node name="Shooter" parent="." index="0" unique_id=1922546449 instance=ExtResource("2_oauc6")]
 type = 1
@@ -37,7 +37,3 @@ texture = ExtResource("5_bphtv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=596403313]
 libraries/Archer = ExtResource("7_5oe2w")
-
-[node name="MoveComponent" parent="." index="6" unique_id=1821496291 instance=ExtResource("8_vxgbq")]
-speed = 100.0
-limit_to_goal = 500.0

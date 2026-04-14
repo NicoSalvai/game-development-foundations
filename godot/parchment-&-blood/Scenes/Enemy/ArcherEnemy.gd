@@ -2,19 +2,15 @@ class_name ArcherEnemy
 extends Enemy
 
 
-const DISTANCE_TO_PLAYER_LIMIT = 500.0
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shooter: Shooter = $Shooter
 @onready var debug_label: Label = $DebugLabel
+@onready var move_component: MoveComponent = $MoveComponent
 
 
 var _is_aiming: bool = false
 var _finished_aiming: bool = false
-var _direction: Vector2 = Vector2.ZERO
-var _speed: float = 100.0
 var _orthogonal_speed_factor: float = 0.0
-var _distance_to_player: float = 500.0
 
 func _ready() -> void:
 	super._ready()
@@ -24,28 +20,13 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	_distance_to_player = global_position.distance_to(_player_ref.global_position)
+	move_component.update_limit(_player_ref.global_position)
+	move_component.direction_to_or_zero(_player_ref.global_position, _sees_player)
+	move_component.orthogonal_strafe(_orthogonal_speed_factor)
+	velocity = move_component.move_in_direction_with_limit(delta, velocity)
 	handle_shoot()
 	handle_aiming()
-	handle_direction()
-	handle_movement(delta)
 	move_and_slide()
-
-
-func handle_movement(delta: float) -> void:
-	if _direction != Vector2.ZERO and _distance_to_player > DISTANCE_TO_PLAYER_LIMIT:
-		velocity = lerp(velocity, _direction * _speed, SMOOTH_FACTOR * delta)
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, STOP_SPEED * delta)
-
-
-func handle_direction() -> void:
-	if _sees_player:
-		var straight_direction = global_position.direction_to(_player_ref.global_position)
-		_direction = straight_direction + (straight_direction.orthogonal() * _orthogonal_speed_factor)
-		_direction = _direction.normalized()
-	else:
-		_direction = Vector2.ZERO
 
 
 func handle_shoot() -> void:
@@ -60,7 +41,7 @@ func shoot() -> void:
 
 
 func handle_aiming() -> void:
-	if _sees_player and !_is_aiming and _distance_to_player <= DISTANCE_TO_PLAYER_LIMIT:
+	if _sees_player and !_is_aiming and move_component.has_reached_limit():
 		animation_player.play("Archer/aim")
 		_is_aiming = true
 	elif !_sees_player and _is_aiming:

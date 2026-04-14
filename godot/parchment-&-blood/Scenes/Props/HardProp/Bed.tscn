@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://5qq6egqkr1ny"]
+
+[ext_resource type="PackedScene" uid="uid://bkqvhiaenom3s" path="res://Scenes/Props/Prop.tscn" id="1_trufp"]
+[ext_resource type="Texture2D" uid="uid://cpuw5wsncwehx" path="res://Assets/Props/bed.png" id="2_trufp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ypec"]
+size = Vector2(38, 58)
+
+[node name="Chair" unique_id=2106693791 instance=ExtResource("1_trufp")]
+collision_layer = 1
+
+[node name="Sprite2D" parent="." index="0" unique_id=475862166]
+texture = ExtResource("2_trufp")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1990792468]
+shape = SubResource("RectangleShape2D_3ypec")

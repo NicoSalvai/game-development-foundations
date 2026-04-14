@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ijwrexcxhouo" path="res://Assets/Items/weapon_sword.png" id="2_bwerl"]
 [ext_resource type="Script" uid="uid://31ncpgdl30fu" path="res://Scenes/Enemy/SwordEnemy.gd" id="2_rm6cf"]
 [ext_resource type="PackedScene" uid="uid://mw780vyvp0ld" path="res://Scenes/Utils/HitBox.tscn" id="3_m2aaf"]
+[ext_resource type="PackedScene" uid="uid://c6b38keewvbea" path="res://Scenes/Utils/MoveComponent.tscn" id="5_y7x28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm6cf"]
 size = Vector2(26, 6)
@@ -114,3 +115,7 @@ debug_color = Color(0.86861545, 0.33159474, 0.32588723, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=1852430107]
 libraries/ = SubResource("AnimationLibrary_y7x28")
+
+[node name="MoveComponent" parent="." index="5" unique_id=1622457272 instance=ExtResource("5_y7x28")]
+speed = 200.0
+limit_to_goal = 50.0

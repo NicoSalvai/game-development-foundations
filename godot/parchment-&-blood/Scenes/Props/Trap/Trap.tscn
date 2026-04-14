@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://crrwlh76243ac"]
+
+[ext_resource type="PackedScene" uid="uid://bkqvhiaenom3s" path="res://Scenes/Props/Prop.tscn" id="1_ahyl4"]
+[ext_resource type="Script" uid="uid://ph3jytgkfff3" path="res://Scenes/Utils/HitBox.gd" id="2_48fdr"]
+
+[node name="Trap" unique_id=2106693791 instance=ExtResource("1_ahyl4")]
+
+[node name="HitBox" type="Area2D" parent="." index="2" unique_id=979576213]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_48fdr")
+metadata/_custom_type_script = "uid://ph3jytgkfff3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=1669331173]

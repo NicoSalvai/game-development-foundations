@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bhpjrdxgax5pk"]
+
+[ext_resource type="PackedScene" uid="uid://bkqvhiaenom3s" path="res://Scenes/Props/Prop.tscn" id="1_y5xn7"]
+[ext_resource type="Texture2D" uid="uid://g40s0mjdf4d1" path="res://Assets/Props/barrels_stacked.png" id="2_5tu8k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a4rx2"]
+radius = 16.0
+height = 60.0
+
+[node name="Barrels" unique_id=2106693791 instance=ExtResource("1_y5xn7")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=475862166]
+texture = ExtResource("2_5tu8k")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1990792468]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_a4rx2")

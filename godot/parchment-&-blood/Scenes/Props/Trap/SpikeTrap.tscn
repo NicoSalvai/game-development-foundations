@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://d1gwt1tthchpy"]
+
+[ext_resource type="PackedScene" uid="uid://crrwlh76243ac" path="res://Scenes/Props/Trap/Trap.tscn" id="1_7dh2m"]
+[ext_resource type="Texture2D" uid="uid://d01wcwipnfvx7" path="res://Assets/Props/trap.png" id="2_47jn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxupp"]
+radius = 14.035668
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47jn4"]
+radius = 20.0
+
+[node name="SpikeTrap" unique_id=2106693791 instance=ExtResource("1_7dh2m")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=475862166]
+texture = ExtResource("2_47jn4")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1990792468]
+shape = SubResource("CircleShape2D_uxupp")
+
+[node name="CollisionShape2D" parent="HitBox" parent_id_path=PackedInt32Array(979576213) index="0" unique_id=1669331173]
+shape = SubResource("CircleShape2D_47jn4")
+debug_color = Color(0.807209, 0.38634473, 0.4108927, 0.41960785)

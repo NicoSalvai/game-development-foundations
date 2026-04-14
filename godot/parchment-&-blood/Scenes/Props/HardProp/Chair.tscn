@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b07aidl8fayla"]
+
+[ext_resource type="PackedScene" uid="uid://bkqvhiaenom3s" path="res://Scenes/Props/Prop.tscn" id="1_fa4mf"]
+[ext_resource type="Texture2D" uid="uid://c2s0gmcug3kik" path="res://Assets/Props/chair.png" id="2_jpf3n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cyphg"]
+radius = 15.033297
+
+[node name="Chair" unique_id=2106693791 instance=ExtResource("1_fa4mf")]
+collision_layer = 1
+
+[node name="Sprite2D" parent="." index="0" unique_id=475862166]
+texture = ExtResource("2_jpf3n")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1990792468]
+shape = SubResource("CircleShape2D_cyphg")

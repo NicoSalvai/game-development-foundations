@@ -6,4 +6,4 @@
 
 [node name="HitBox" parent="." index="3" unique_id=100481482]
 collision_layer = 8
-collision_mask = 5
+collision_mask = 132
