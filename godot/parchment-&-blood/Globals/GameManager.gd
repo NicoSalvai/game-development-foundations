@@ -1,6 +1,7 @@
 extends Node
 
 const MAIN = preload("uid://bhmkere5244cv")
+const CREDITS = preload("res://Scenes/Credits/Credits.tscn")
 const LEVELS: Array[PackedScene] = [
 	preload("uid://bdni7pkykkcak"),
 	preload("uid://dybx28b1d3ke0"),
@@ -29,6 +30,5 @@ func load_next_level() -> void:
 
 
 func load_credits_scene() -> void:
-	print("Credits")
 	selected_level = 0
-	load_main_scene()
+	get_tree().change_scene_to_packed(CREDITS)
