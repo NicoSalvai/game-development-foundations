@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://dlwd4b3mppr0k"]
+
+[ext_resource type="Script" uid="uid://ctohtp5x2gy20" path="res://Classes/Waves/WaveEnemy.gd" id="1_np748"]
+[ext_resource type="Script" uid="uid://cyvwc4nwxx5mt" path="res://Classes/Waves/WaveData.gd" id="2_5i3aa"]
+
+[sub_resource type="Resource" id="Resource_j6j3i"]
+script = ExtResource("1_np748")
+type = 1
+count = 4
+directions = Array[int]([0])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_y3oa2"]
+script = ExtResource("1_np748")
+type = 2
+count = 3
+directions = Array[int]([1])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[resource]
+script = ExtResource("2_5i3aa")
+enemies = Array[ExtResource("1_np748")]([SubResource("Resource_j6j3i"), SubResource("Resource_y3oa2")])
+metadata/_custom_type_script = "uid://cyvwc4nwxx5mt"

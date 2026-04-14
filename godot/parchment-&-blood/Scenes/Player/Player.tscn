@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://b5fc5yny07krf"]
+
+[ext_resource type="Script" uid="uid://dvwqowre7en30" path="res://Scenes/Player/Player.gd" id="1_h54ih"]
+[ext_resource type="Texture2D" uid="uid://i7pw6ohn6gyu" path="res://Assets/Characters/green_character.png" id="1_s0eop"]
+[ext_resource type="Texture2D" uid="uid://dkxbfmrnve032" path="res://Assets/Characters/green_hand.png" id="3_jmcll"]
+[ext_resource type="Script" uid="uid://bvdej6ngvcosd" path="res://Scenes/Player/PlayerController.gd" id="3_ude3g"]
+[ext_resource type="AnimationLibrary" uid="uid://cq3kdy6bucf5p" path="res://Resources/Archer/Archer.res" id="4_ji083"]
+[ext_resource type="Texture2D" uid="uid://crb1delpgmmqr" path="res://Assets/Items/weapon_bow.png" id="4_t26db"]
+[ext_resource type="Texture2D" uid="uid://n88xfswmfdof" path="res://Assets/Items/weapon_bow_arrow.png" id="5_fk5o5"]
+[ext_resource type="Texture2D" uid="uid://bjd4elvys643j" path="res://Assets/Items/weapon_arrow.png" id="6_825xp"]
+[ext_resource type="PackedScene" uid="uid://c618756v282a2" path="res://Scenes/Utils/HurtBox.tscn" id="7_825xp"]
+[ext_resource type="PackedScene" uid="uid://d10eakbgb5xe8" path="res://Scenes/Arrow/Shooter.tscn" id="8_fk5o5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0eop"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_825xp"]
+radius = 14.0
+
+[node name="Player" type="CharacterBody2D" unique_id=6746153]
+collision_layer = 32
+collision_mask = 97
+script = ExtResource("1_h54ih")
+
+[node name="Shooter" parent="." unique_id=1922546449 instance=ExtResource("8_fk5o5")]
+
+[node name="PlayerController" type="Node" parent="." unique_id=778874688]
+script = ExtResource("3_ude3g")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1718449165]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=388989399]
+libraries/ = ExtResource("4_ji083")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=140104595]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1993005825]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_s0eop")
+
+[node name="LeftArm" type="Node2D" parent="Visuals" unique_id=1874396711]
+position = Vector2(5, -22)
+
+[node name="WeaponBowArrow" type="Sprite2D" parent="Visuals/LeftArm" unique_id=1533111811]
+visible = false
+position = Vector2(11, -0.929)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_fk5o5")
+
+[node name="WeaponBow" type="Sprite2D" parent="Visuals/LeftArm" unique_id=2021176800]
+position = Vector2(11, -2)
+scale = Vector2(0.34999996, 0.34999996)
+texture = ExtResource("4_t26db")
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/LeftArm" unique_id=1915543485]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_jmcll")
+
+[node name="RightArm" type="Node2D" parent="Visuals" unique_id=482073891]
+position = Vector2(5, 22)
+
+[node name="WeaponArrow" type="Sprite2D" parent="Visuals/RightArm" unique_id=687010845]
+visible = false
+z_index = -1
+position = Vector2(10, 5.9604645e-08)
+rotation = 1.5707964
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_825xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/RightArm" unique_id=1602895399]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_jmcll")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785602066]
+shape = SubResource("CircleShape2D_s0eop")
+
+[node name="HurtBox" parent="." unique_id=1907525708 instance=ExtResource("7_825xp")]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=196907060]
+shape = SubResource("CircleShape2D_825xp")
+debug_color = Color(0.86861545, 0.33159474, 0.32588723, 0.41960785)
+
+[node name="DebugLabel" type="Label" parent="." unique_id=598919635]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 4

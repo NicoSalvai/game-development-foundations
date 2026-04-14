@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://xfoyut0n1lyv"]
+
+[ext_resource type="Script" uid="uid://p83wrxhe71ti" path="res://Scenes/Utils/LifeTimer.gd" id="1_dwdxk"]
+
+[node name="LifeTimer" type="Timer" unique_id=1218807759]
+one_shot = true
+script = ExtResource("1_dwdxk")

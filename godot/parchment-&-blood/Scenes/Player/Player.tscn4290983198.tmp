@@ -1,0 +1,266 @@
+[gd_scene format=3 uid="uid://b5fc5yny07krf"]
+
+[ext_resource type="Script" uid="uid://dvwqowre7en30" path="res://Scenes/Player/Player.gd" id="1_h54ih"]
+[ext_resource type="Texture2D" uid="uid://i7pw6ohn6gyu" path="res://Assets/Characters/green_character.png" id="1_s0eop"]
+[ext_resource type="Texture2D" uid="uid://dkxbfmrnve032" path="res://Assets/Characters/green_hand.png" id="3_jmcll"]
+[ext_resource type="Script" uid="uid://bvdej6ngvcosd" path="res://Scenes/Player/PlayerController.gd" id="3_ude3g"]
+[ext_resource type="Texture2D" uid="uid://crb1delpgmmqr" path="res://Assets/Items/weapon_bow.png" id="4_t26db"]
+[ext_resource type="Texture2D" uid="uid://n88xfswmfdof" path="res://Assets/Items/weapon_bow_arrow.png" id="5_fk5o5"]
+[ext_resource type="Texture2D" uid="uid://bjd4elvys643j" path="res://Assets/Items/weapon_arrow.png" id="6_825xp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s0eop"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ft8w5"]
+radius = 13.0
+
+[sub_resource type="Animation" id="Animation_t26db"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../LeftArm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, -22)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../LeftArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 22)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../LeftArm/WeaponBowArrow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../LeftArm/WeaponBow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fk5o5"]
+resource_name = "aim"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../LeftArm:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5, -22), Vector2(20, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../LeftArm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.9913470151327793]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 22), Vector2(5, 22), Vector2(17.925, 4.495), Vector2(13.33, 9.05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.5515240436302086, -0.55152404]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../LeftArm/WeaponBowArrow:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../LeftArm/WeaponBow:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_825xp"]
+_data = {
+&"RESET": SubResource("Animation_t26db"),
+&"aim": SubResource("Animation_fk5o5")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=6746153]
+collision_layer = 0
+script = ExtResource("1_h54ih")
+
+[node name="DebugLabel" type="Label" parent="." unique_id=598919635]
+top_level = true
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785602066]
+shape = SubResource("CircleShape2D_s0eop")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=140104595]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1993005825]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_s0eop")
+
+[node name="HurtBox" type="Area2D" parent="Visuals" unique_id=1528142122]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" unique_id=1818485039]
+shape = SubResource("CircleShape2D_ft8w5")
+debug_color = Color(0.9151925, 0.24891135, 0.38903666, 0.41960785)
+
+[node name="LeftArm" type="Node2D" parent="Visuals" unique_id=1874396711]
+position = Vector2(5, -22)
+
+[node name="WeaponBowArrow" type="Sprite2D" parent="Visuals/LeftArm" unique_id=1533111811]
+visible = false
+position = Vector2(11, -0.929)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_fk5o5")
+
+[node name="WeaponBow" type="Sprite2D" parent="Visuals/LeftArm" unique_id=2021176800]
+position = Vector2(11, -2)
+scale = Vector2(0.34999996, 0.34999996)
+texture = ExtResource("4_t26db")
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/LeftArm" unique_id=1915543485]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_jmcll")
+
+[node name="RightArm" type="Node2D" parent="Visuals" unique_id=482073891]
+position = Vector2(5, 22)
+
+[node name="WeaponArrow" type="Sprite2D" parent="Visuals/RightArm" unique_id=687010845]
+visible = false
+position = Vector2(10, 5.9604645e-08)
+rotation = 1.5707964
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("6_825xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/RightArm" unique_id=1602895399]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_jmcll")
+
+[node name="PlayerController" type="Node" parent="." unique_id=778874688]
+script = ExtResource("3_ude3g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=388989399]
+root_node = NodePath("../Visuals/RightArm/WeaponArrow")
+libraries/ = SubResource("AnimationLibrary_825xp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1718449165]

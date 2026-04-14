@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bkjwy0yhhcoar"]
+
+[ext_resource type="Script" uid="uid://brmb1ua0g6wqh" path="res://Scenes/Enemy/Enemy.gd" id="1_02vxf"]
+[ext_resource type="Texture2D" uid="uid://bo3eh68k4e7at" path="res://Assets/Characters/red_character.png" id="1_fw0yv"]
+[ext_resource type="PackedScene" uid="uid://c618756v282a2" path="res://Scenes/Utils/HurtBox.tscn" id="3_e0oyi"]
+[ext_resource type="Texture2D" uid="uid://bbyyjt0yx32u2" path="res://Assets/Characters/red_hand.png" id="4_seemo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jkxs"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_02vxf"]
+radius = 14.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1678258344]
+collision_layer = 64
+collision_mask = 97
+script = ExtResource("1_02vxf")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=210877523]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1956308805]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_fw0yv")
+
+[node name="LeftArm" type="Node2D" parent="Visuals" unique_id=921119680]
+position = Vector2(5, -22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/LeftArm" unique_id=101180413]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_seemo")
+
+[node name="RightArm" type="Node2D" parent="Visuals" unique_id=1466534798]
+position = Vector2(5, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals/RightArm" unique_id=679571309]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_seemo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540184440]
+shape = SubResource("CircleShape2D_3jkxs")
+
+[node name="HurtBox" parent="." unique_id=1907525708 instance=ExtResource("3_e0oyi")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=441822149]
+shape = SubResource("CircleShape2D_02vxf")
+debug_color = Color(0.86861545, 0.33159474, 0.32588723, 0.41960785)
+
+[node name="DebugLabel" type="Label" parent="." unique_id=1103234529]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0

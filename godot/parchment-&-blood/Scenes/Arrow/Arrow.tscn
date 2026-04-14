@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://pk4aw3cxreky"]
+
+[ext_resource type="Texture2D" uid="uid://bjd4elvys643j" path="res://Assets/Items/weapon_arrow.png" id="1_2l3kg"]
+[ext_resource type="Script" uid="uid://dj4a5bmyh4dhw" path="res://Scenes/Arrow/Arrow.gd" id="1_hwrk4"]
+[ext_resource type="PackedScene" uid="uid://xfoyut0n1lyv" path="res://Scenes/Utils/LifeTimer.tscn" id="3_aaqag"]
+[ext_resource type="PackedScene" uid="uid://mw780vyvp0ld" path="res://Scenes/Utils/HitBox.tscn" id="4_8snpf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l3kg"]
+size = Vector2(27, 2)
+
+[node name="Arrow" type="Node2D" unique_id=1349819231]
+script = ExtResource("1_hwrk4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=674412794]
+rotation = 1.5707964
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_2l3kg")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1326087188]
+
+[node name="LifeTimer" parent="." unique_id=1388980835 instance=ExtResource("3_aaqag")]
+function_override = "release"
+
+[node name="HitBox" parent="." unique_id=100481482 instance=ExtResource("4_8snpf")]
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=438802752]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_2l3kg")
+debug_color = Color(0.86861545, 0.33159474, 0.32588723, 0.41960785)

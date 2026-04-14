@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://coacnqii4u7ri"]
+
+[ext_resource type="Script" uid="uid://b8rltdrohk4k4" path="res://Scenes/Arrow/ArrowPool.gd" id="1_mh7xq"]
+
+[node name="ArrowPool" type="Node" unique_id=588256539]
+script = ExtResource("1_mh7xq")

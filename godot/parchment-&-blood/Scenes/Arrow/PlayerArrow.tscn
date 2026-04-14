@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ckunlqami0n7s"]
+
+[ext_resource type="PackedScene" uid="uid://pk4aw3cxreky" path="res://Scenes/Arrow/Arrow.tscn" id="1_nmfsx"]
+
+[node name="PlayerArrow" unique_id=317219225 instance=ExtResource("1_nmfsx")]
+
+[node name="HitBox" parent="." index="3" unique_id=100481482]
+collision_layer = 8
+collision_mask = 5

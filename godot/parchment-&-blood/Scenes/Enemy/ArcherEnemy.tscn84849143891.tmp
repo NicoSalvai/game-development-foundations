@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dc15re8d8w4bm"]
+
+[ext_resource type="PackedScene" uid="uid://bkjwy0yhhcoar" path="res://Scenes/Enemy/Enemy.tscn" id="1_2nxvw"]
+[ext_resource type="Script" uid="uid://dnain0akewqu" path="res://Scenes/Enemy/ArcherEnemy.gd" id="2_gy52t"]
+[ext_resource type="PackedScene" uid="uid://d10eakbgb5xe8" path="res://Scenes/Arrow/Shooter.tscn" id="2_oauc6"]
+[ext_resource type="Texture2D" uid="uid://n88xfswmfdof" path="res://Assets/Items/weapon_bow_arrow.png" id="3_gck62"]
+[ext_resource type="Texture2D" uid="uid://crb1delpgmmqr" path="res://Assets/Items/weapon_bow.png" id="4_bphtv"]
+[ext_resource type="Texture2D" uid="uid://bjd4elvys643j" path="res://Assets/Items/weapon_arrow.png" id="5_bphtv"]
+[ext_resource type="AnimationLibrary" uid="uid://cq3kdy6bucf5p" path="res://Resources/Archer/Archer.res" id="7_5oe2w"]
+
+[node name="ArcherEnemy" unique_id=1678258344 instance=ExtResource("1_2nxvw")]
+script = ExtResource("2_gy52t")
+
+[node name="Shooter" parent="." index="0" unique_id=1922546449 instance=ExtResource("2_oauc6")]
+type = 1
+
+[node name="WeaponBowArrow" type="Sprite2D" parent="Visuals/LeftArm" parent_id_path=PackedInt32Array(921119680) index="0" unique_id=219940809]
+visible = false
+position = Vector2(11, -0.92900085)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_gck62")
+
+[node name="WeaponBow" type="Sprite2D" parent="Visuals/LeftArm" parent_id_path=PackedInt32Array(921119680) index="1" unique_id=1418296121]
+position = Vector2(11, -2)
+scale = Vector2(0.34999996, 0.34999996)
+texture = ExtResource("4_bphtv")
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="WeaponArrow" type="Sprite2D" parent="Visuals/RightArm" parent_id_path=PackedInt32Array(1466534798) index="0" unique_id=1550054563]
+visible = false
+z_index = -1
+position = Vector2(10, 0)
+rotation = 1.5707964
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_bphtv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=596403313]
+libraries/Archer = ExtResource("7_5oe2w")

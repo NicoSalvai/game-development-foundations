@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cwqlfnag843qx"]
+
+[ext_resource type="PackedScene" uid="uid://pk4aw3cxreky" path="res://Scenes/Arrow/Arrow.tscn" id="1_fax1e"]
+
+[node name="EnemyArrow" unique_id=317219225 instance=ExtResource("1_fax1e")]
+type = 1
+
+[node name="Sprite2D" parent="." index="0" unique_id=674412794]
+modulate = Color(0.9999983, 0.5264949, 0.455598, 1)
+
+[node name="HitBox" parent="." index="3" unique_id=100481482]
+collision_layer = 16
+collision_mask = 3
