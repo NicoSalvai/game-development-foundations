@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bewpoko0iasd7"]
+
+[ext_resource type="FontFile" uid="uid://ccymu3ttkoeby" path="res://Assets/Fonts/OpenSans-Bold.ttf" id="1_a2pr2"]
+
+[resource]
+font = ExtResource("1_a2pr2")
+font_size = 24
+font_color = Color(0.95728105, 0.8987232, 0.81898046, 1)
+outline_size = 2
+outline_color = Color(0.11363772, 0.07768073, 0.02697728, 1)
+shadow_size = 5
+shadow_color = Color(0.20784314, 0.15294118, 0.07058824, 0.58431375)

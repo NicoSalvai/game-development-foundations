@@ -6,6 +6,7 @@ const SPEED = 300.0
 const STOP_SPEED = 1000.0
 const SHOOT_COOLDOWN: float = 0.5
 
+@onready var camera_2d: Camera2D = $Camera2D
 @onready var debug_label: Label = $DebugLabel
 @onready var controller: Node = $PlayerController
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -63,9 +64,19 @@ func debug_label_load() -> void:
 
 
 func _on_hurt_box_hit(damage: int, source: Node) -> void:
-	print("Player hitted (%d) by %s" % [damage, source.name])
-	# TODO: handle player being hit (death or hp reduction
+	die()
+
+
+func die() -> void:
+	SignalHub.on_player_die.emit()
+
 
 func _on_animation_finished(anim_name: String) -> void:
 	if anim_name in ["aim", "re_aim"]:
 		finished_aiming = true
+
+func setup_camera(bounds_pos: Vector2, bounds_size: Vector2) -> void:
+	camera_2d.limit_left   = int(bounds_pos.x)
+	camera_2d.limit_top    = int(bounds_pos.y)
+	camera_2d.limit_right  = int(bounds_pos.x + bounds_size.x)
+	camera_2d.limit_bottom = int(bounds_pos.y + bounds_size.y)

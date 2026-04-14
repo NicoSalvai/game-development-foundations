@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bhmkere5244cv"]
+
+[ext_resource type="Script" uid="uid://drwcbnhebvusr" path="res://Scenes/Main/Main.gd" id="1_o8wgc"]
+[ext_resource type="Texture2D" uid="uid://cyxvog2s0m1i0" path="res://Assets/Bg.png" id="1_p8rbg"]
+[ext_resource type="Texture2D" uid="uid://84eu7jweth6f" path="res://Assets/UI/banner_classic_curtain.png" id="2_cmk6n"]
+[ext_resource type="LabelSettings" uid="uid://uu6qgx4337g5" path="res://Resources/Labels/Header.tres" id="2_qtv3y"]
+[ext_resource type="PackedScene" uid="uid://bseshcmdpobkv" path="res://Scenes/Main/CustomButton.tscn" id="4_i3fi7"]
+
+[node name="Main" type="Control" unique_id=1997949620]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o8wgc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=283029851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p8rbg")
+stretch_mode = 6
+
+[node name="Panel" type="Panel" parent="." unique_id=433685969]
+modulate = Color(0, 0, 0, 0.6509804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1323934694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1774435799]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("2_cmk6n")
+stretch_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TextureRect" unique_id=932423262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/TextureRect/MarginContainer" unique_id=1086740883]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Blood & Parchment"
+label_settings = ExtResource("2_qtv3y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1600514518]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ContinueButton" parent="MarginContainer/VBoxContainer" unique_id=35897031 instance=ExtResource("4_i3fi7")]
+layout_mode = 2
+text = "Continue"
+disabled = true
+
+[node name="NewGameButton" parent="MarginContainer/VBoxContainer" unique_id=1015088351 instance=ExtResource("4_i3fi7")]
+layout_mode = 2
+text = "New Game"
+
+[node name="ExitButton" parent="MarginContainer/VBoxContainer" unique_id=31651432 instance=ExtResource("4_i3fi7")]
+layout_mode = 2
+text = "Exit"

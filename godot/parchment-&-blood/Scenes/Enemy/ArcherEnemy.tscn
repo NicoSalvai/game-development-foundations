@@ -39,5 +39,5 @@ texture = ExtResource("5_bphtv")
 libraries/Archer = ExtResource("7_5oe2w")
 
 [node name="MoveComponent" parent="." index="6" unique_id=1821496291 instance=ExtResource("8_vxgbq")]
-speed = 100.0
+speed = 150.0
 limit_to_goal = 500.0

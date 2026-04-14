@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b2kkaeetm38uk"]
+
+[ext_resource type="AudioStream" uid="uid://cvy61jtpiv0t3" path="res://Assets/Audio/impactPlank_medium_000.ogg" id="1_uqtjt"]
+[ext_resource type="PackedScene" uid="uid://xfoyut0n1lyv" path="res://Scenes/Utils/LifeTimer.tscn" id="2_tfvo8"]
+
+[node name="ArrowImpact" type="Node2D" unique_id=732095436]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=689449638]
+stream = ExtResource("1_uqtjt")
+volume_db = -11.02
+autoplay = true
+
+[node name="LifeTimer" parent="." unique_id=1218807759 instance=ExtResource("2_tfvo8")]

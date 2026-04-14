@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bgqwopdlh7a6b"]
+
+[ext_resource type="Script" uid="uid://cjaeokvpja52x" path="res://Scenes/Utils/EnemyDeath.gd" id="1_1ibh1"]
+[ext_resource type="PackedScene" uid="uid://xfoyut0n1lyv" path="res://Scenes/Utils/LifeTimer.tscn" id="1_2pq4d"]
+[ext_resource type="AudioStream" uid="uid://ciniqv51b60jk" path="res://Assets/Audio/impactPlate_heavy_000.ogg" id="1_ywacj"]
+
+[node name="EnemyDeath" type="Node2D" unique_id=1046286071]
+script = ExtResource("1_1ibh1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=523483647]
+stream = ExtResource("1_ywacj")
+autoplay = true
+
+[node name="LifeTimer" parent="." unique_id=1218807759 instance=ExtResource("1_2pq4d")]
+
+[node name="BloodParticles" type="CPUParticles2D" parent="." unique_id=1904627521]
+emitting = false
+amount = 64
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+linear_accel_min = -50.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.69245994, 1.8410012e-06, 7.70092e-07, 1)

@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://deowbvxpbtiga"]
+
+[ext_resource type="Texture2D" uid="uid://c5bprnjqmcgu1" path="res://Assets/UI/panel_brown_corners_a.png" id="1_40lia"]
+[ext_resource type="Script" uid="uid://c2e57ccejrbfh" path="res://Scenes/Levels/LevelUi.gd" id="1_jv1mf"]
+[ext_resource type="Texture2D" uid="uid://84eu7jweth6f" path="res://Assets/UI/banner_classic_curtain.png" id="1_w6r27"]
+[ext_resource type="FontFile" uid="uid://ccj723u0c87xj" path="res://Assets/Fonts/OpenSans-BoldItalic.ttf" id="2_40lia"]
+[ext_resource type="Texture2D" uid="uid://psktf1vjjw02" path="res://Assets/UI/panel_grid_blueprint.png" id="2_kckti"]
+[ext_resource type="PackedScene" uid="uid://bseshcmdpobkv" path="res://Scenes/Main/CustomButton.tscn" id="4_02ac7"]
+[ext_resource type="Texture2D" uid="uid://dfd2i2kgypi8c" path="res://Assets/UI/panel_brown_dark.png" id="7_r5e55"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsf6l"]
+bg_color = Color(0.24313726, 0.24313726, 0.24313726, 0.59607846)
+
+[sub_resource type="LabelSettings" id="LabelSettings_02ac7"]
+font = ExtResource("2_40lia")
+font_size = 48
+font_color = Color(0.94555455, 0.8077241, 0.7280272, 1)
+outline_size = 6
+outline_color = Color(0.31400967, 2.4065375e-07, 9.62615e-08, 1)
+shadow_size = 12
+shadow_color = Color(0.3137255, 0, 0, 0.41960785)
+shadow_offset = Vector2(2, 2)
+
+[node name="LevelUI" type="Control" unique_id=873315916]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jv1mf")
+
+[node name="Backdrop" type="Panel" parent="." unique_id=1682434770]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qsf6l")
+
+[node name="WinPanel" type="PanelContainer" parent="." unique_id=1909861192]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -142.0
+offset_right = 280.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NormalTexture" type="NinePatchRect" parent="WinPanel" unique_id=1949884660]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_kckti")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="WinPanel" unique_id=1381936254]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinPanel/MarginContainer" unique_id=1034606478]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="TextureRect" type="TextureRect" parent="WinPanel/MarginContainer/VBoxContainer" unique_id=323520391]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_w6r27")
+
+[node name="MarginContainer" type="MarginContainer" parent="WinPanel/MarginContainer/VBoxContainer/TextureRect" unique_id=299577149]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="WinLabel" type="Label" parent="WinPanel/MarginContainer/VBoxContainer/TextureRect/MarginContainer" unique_id=1816229663]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Victory!!!"
+label_settings = SubResource("LabelSettings_02ac7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WinPanel/MarginContainer/VBoxContainer" unique_id=325696637]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="NextLevelButton" parent="WinPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=35897031 instance=ExtResource("4_02ac7")]
+layout_mode = 2
+text = "Continue Playing"
+
+[node name="ExitButton" parent="WinPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2085281089 instance=ExtResource("4_02ac7")]
+layout_mode = 2
+text = "Exit to menu"
+
+[node name="PausePanel" type="PanelContainer" parent="." unique_id=1777123730]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 260.0
+offset_right = 832.0
+offset_bottom = 388.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NormalTexture" type="NinePatchRect" parent="PausePanel" unique_id=1623917437]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_40lia")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PausePanel" unique_id=557615174]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePanel/MarginContainer" unique_id=1923192460]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="PausePanel/MarginContainer/VBoxContainer" unique_id=1954895749]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_w6r27")
+
+[node name="MarginContainer" type="MarginContainer" parent="PausePanel/MarginContainer/VBoxContainer/TextureRect" unique_id=2094595632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="PauseLabel" type="Label" parent="PausePanel/MarginContainer/VBoxContainer/TextureRect/MarginContainer" unique_id=1275707011]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Menu"
+label_settings = SubResource("LabelSettings_02ac7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" parent="PausePanel/MarginContainer/VBoxContainer" unique_id=2123428230 instance=ExtResource("4_02ac7")]
+layout_mode = 2
+text = "Continue"
+
+[node name="ExitButton" parent="PausePanel/MarginContainer/VBoxContainer" unique_id=2115193476 instance=ExtResource("4_02ac7")]
+layout_mode = 2
+text = "Exit"
+
+[node name="GameOverPanel" type="PanelContainer" parent="." unique_id=1196296572]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -142.0
+offset_right = 280.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NormalTexture" type="NinePatchRect" parent="GameOverPanel" unique_id=1890478464]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("7_r5e55")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverPanel" unique_id=2093734214]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel/MarginContainer" unique_id=1803789992]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="TextureRect" type="TextureRect" parent="GameOverPanel/MarginContainer/VBoxContainer" unique_id=831138909]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture = ExtResource("1_w6r27")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOverPanel/MarginContainer/VBoxContainer/TextureRect" unique_id=1249950588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+
+[node name="GameOver" type="Label" parent="GameOverPanel/MarginContainer/VBoxContainer/TextureRect/MarginContainer" unique_id=1043966266]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_02ac7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverPanel/MarginContainer/VBoxContainer" unique_id=1958495077]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="RestartLevelButton" parent="GameOverPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1663848665 instance=ExtResource("4_02ac7")]
+layout_mode = 2
+text = "Restart Level"
+
+[node name="ExitButton" parent="GameOverPanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2101303915 instance=ExtResource("4_02ac7")]
+layout_mode = 2
+text = "Exit to menu"

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://botq4sucoiedc"]
+
+[ext_resource type="Script" uid="uid://be6yyntrwntj3" path="res://Scenes/Levels/ObjectMaker.gd" id="1_5yshn"]
+
+[node name="ObjectMaker" type="Node" unique_id=455138153]
+script = ExtResource("1_5yshn")

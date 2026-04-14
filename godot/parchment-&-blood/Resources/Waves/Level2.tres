@@ -1,0 +1,101 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://d4b7svxwwwddh"]
+
+[ext_resource type="Script" uid="uid://cyvwc4nwxx5mt" path="res://Classes/Waves/WaveData.gd" id="1_51uqh"]
+[ext_resource type="Script" uid="uid://bdvintn8al71n" path="res://Classes/Waves/SubWaveData.gd" id="2_7ta8c"]
+[ext_resource type="Script" uid="uid://ctohtp5x2gy20" path="res://Classes/Waves/WaveEnemy.gd" id="3_7ta8c"]
+
+[sub_resource type="Resource" id="Resource_5b8r4"]
+script = ExtResource("3_7ta8c")
+type = 2
+count = 2
+directions = Array[int]([1, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_8osyd"]
+script = ExtResource("2_7ta8c")
+enemies = Array[ExtResource("3_7ta8c")]([SubResource("Resource_5b8r4")])
+delay_between_enemies = 0.2
+delay_between_groups = 0.2
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_7ta8c"]
+script = ExtResource("3_7ta8c")
+type = 2
+count = 4
+directions = Array[int]([1, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_6um3y"]
+script = ExtResource("2_7ta8c")
+enemies = Array[ExtResource("3_7ta8c")]([SubResource("Resource_7ta8c")])
+delay_between_enemies = 0.2
+delay_between_groups = 0.2
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_6f0w0"]
+script = ExtResource("3_7ta8c")
+type = 2
+count = 2
+directions = Array[int]([1, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_enwpf"]
+script = ExtResource("3_7ta8c")
+type = 1
+count = 1
+directions = Array[int]([0])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_vutsp"]
+script = ExtResource("2_7ta8c")
+enemies = Array[ExtResource("3_7ta8c")]([SubResource("Resource_6f0w0"), SubResource("Resource_enwpf")])
+delay_between_enemies = 0.2
+delay_between_groups = 0.2
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_2aahw"]
+script = ExtResource("3_7ta8c")
+type = 2
+count = 2
+directions = Array[int]([1, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_immfb"]
+script = ExtResource("3_7ta8c")
+type = 1
+count = 2
+directions = Array[int]([2])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_d5hje"]
+script = ExtResource("2_7ta8c")
+enemies = Array[ExtResource("3_7ta8c")]([SubResource("Resource_2aahw"), SubResource("Resource_immfb")])
+delay_between_enemies = 0.2
+delay_between_groups = 0.2
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_c8rfd"]
+script = ExtResource("3_7ta8c")
+type = 2
+count = 5
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_rdqyg"]
+script = ExtResource("3_7ta8c")
+type = 1
+count = 3
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_5f6s1"]
+script = ExtResource("2_7ta8c")
+enemies = Array[ExtResource("3_7ta8c")]([SubResource("Resource_c8rfd"), SubResource("Resource_rdqyg")])
+delay_between_enemies = 0.2
+delay_between_groups = 0.2
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[resource]
+script = ExtResource("1_51uqh")
+sub_wave_data_array = Array[ExtResource("2_7ta8c")]([SubResource("Resource_8osyd"), SubResource("Resource_6um3y"), SubResource("Resource_vutsp"), SubResource("Resource_d5hje"), SubResource("Resource_5f6s1")])
+metadata/_custom_type_script = "uid://cyvwc4nwxx5mt"

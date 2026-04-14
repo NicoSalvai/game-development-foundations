@@ -43,8 +43,14 @@ func _on_screen_exited() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
+	if _released:
+		return
+	SignalHub.on_create_arrow_impact.emit(global_position)
 	release()
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
+	if _released:
+		return
+	SignalHub.on_create_arrow_impact.emit(global_position)
 	release()

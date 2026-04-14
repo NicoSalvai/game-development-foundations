@@ -34,5 +34,6 @@ func handle_damage(damage: int) -> void:
 
 
 func die() -> void:
+	SignalHub.on_create_enemy_death.emit(global_position)
 	SignalHub.on_enemy_died.emit()
 	queue_free()

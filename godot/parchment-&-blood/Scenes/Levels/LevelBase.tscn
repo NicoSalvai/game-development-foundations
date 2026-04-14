@@ -1,18 +1,13 @@
-[gd_scene format=4 uid="uid://bmr2qhorfon6t"]
+[gd_scene format=3 uid="uid://bmr2qhorfon6t"]
 
 [ext_resource type="PackedScene" uid="uid://b5fc5yny07krf" path="res://Scenes/Player/Player.tscn" id="1_ami44"]
+[ext_resource type="Script" uid="uid://dx1gtfbs2isl0" path="res://Scenes/Levels/LevelBase.gd" id="1_bybyf"]
 [ext_resource type="TileSet" uid="uid://0lq120mgvtw4" path="res://Resources/TileSet.tres" id="1_jnsj8"]
 [ext_resource type="PackedScene" uid="uid://coacnqii4u7ri" path="res://Scenes/Arrow/ArrowPool.tscn" id="2_encki"]
 [ext_resource type="PackedScene" uid="uid://b1mw2e7t0xpsp" path="res://Scenes/Levels/WaveManager.tscn" id="3_bybyf"]
-[ext_resource type="PackedScene" uid="uid://5whpa24y7i6o" path="res://Scenes/Props/HardProp/Barrel.tscn" id="3_j6j3i"]
-[ext_resource type="PackedScene" uid="uid://bhpjrdxgax5pk" path="res://Scenes/Props/HardProp/Barrels.tscn" id="4_j6j3i"]
-[ext_resource type="PackedScene" uid="uid://bj7vioug2l61y" path="res://Scenes/Levels/SpawnPoint.tscn" id="5_bybyf"]
-[ext_resource type="PackedScene" uid="uid://bjea7rkser4lw" path="res://Scenes/Props/HardProp/Table.tscn" id="5_y3oa2"]
+[ext_resource type="PackedScene" uid="uid://deowbvxpbtiga" path="res://Scenes/Levels/LevelUi.tscn" id="6_bybyf"]
 [ext_resource type="Texture2D" uid="uid://dbm0yi41fyi0a" path="res://Assets/tilesheet.png" id="6_ks63r"]
-[ext_resource type="PackedScene" uid="uid://bx2c84epwqneo" path="res://Scenes/Props/HardProp/Crate.tscn" id="6_sdx3d"]
-[ext_resource type="PackedScene" uid="uid://b07aidl8fayla" path="res://Scenes/Props/HardProp/Chair.tscn" id="7_sdx3d"]
-[ext_resource type="PackedScene" uid="uid://5qq6egqkr1ny" path="res://Scenes/Props/HardProp/Bed.tscn" id="8_ynavl"]
-[ext_resource type="PackedScene" uid="uid://d1gwt1tthchpy" path="res://Scenes/Props/Trap/SpikeTrap.tscn" id="9_5oko2"]
+[ext_resource type="PackedScene" uid="uid://botq4sucoiedc" path="res://Scenes/Levels/ObjectMaker.tscn" id="8_j6j3i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ks63r"]
 texture = ExtResource("6_ks63r")
@@ -20,113 +15,56 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
 7:0/0 = 0
+7:0/0/modulate = Color(0.9021879, 0.9969025, 0.89551324, 1)
 1:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 0:3/0 = 0
+0:3/0/modulate = Color(0.8444, 0.83676857, 0.83866924, 1)
 0:4/0 = 0
+0:4/0/modulate = Color(0.8444, 0.83676857, 0.83866924, 1)
 0:5/0 = 0
+0:5/0/modulate = Color(0.8444, 0.83676857, 0.83866924, 1)
 0:6/0 = 0
 0:7/0 = 0
+0:7/0/modulate = Color(0.90956235, 0.9999997, 0.99951094, 1)
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:1/0 = 0
+0:1/0/modulate = Color(0.8444, 0.83676857, 0.83866924, 1)
+7:5/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bybyf"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/2 = SubResource("TileSetAtlasSource_ks63r")
 
 [node name="LevelBase" type="Node2D" unique_id=350116585]
+script = ExtResource("1_bybyf")
 
 [node name="FloorTileMapLayer" type="TileMapLayer" parent="." unique_id=1268525116]
 modulate = Color(0.92535293, 0.9253529, 0.9253527, 1)
-tile_map_data = PackedByteArray("AAARAAsAAgAHAAAAAAAIAAcAAgAAAAYAAAAJAAcAAgAAAAYAAAAKAAcAAgAAAAYAAAALAAcAAgAAAAYAAAAMAAUAAgAAAAYAAAALAAUAAgAAAAYAAAAKAAUAAgAAAAYAAAAIAAUAAgAAAAYAAAAMAAYAAgAAAAYAAAAIAAYAAgAAAAYAAAAJAAYAAgAAAAYAAAAKAAYAAgAAAAYAAAAHAAQAAgAHAAAAAAAHAAUAAgAHAAAAAAAHAAYAAgAHAAAAAAAHAAcAAgAHAAAAAAAHAAgAAgAHAAAAAAAIAAQAAgAHAAAAAAAJAAQAAgABAAEAAAAJAAUAAgAAAAYAAAAKAAQAAgAHAAAAAAALAAQAAgAHAAAAAAALAAYAAgAAAAYAAAAMAAQAAgAHAAAAAAAMAAcAAgAAAAYAAAANAAQAAgAHAAAAAAANAAUAAgAHAAAAAAANAAYAAgAHAAAAAAANAAcAAgAHAAAAAAANAAgAAgAHAAAAAAAAAAAAAgAHAAAAAAAAAAEAAgAHAAAAAAAAAAIAAgAHAAAAAAAAAAMAAgAHAAAAAAAAAAQAAgAHAAAAAAAAAAUAAgAHAAAAAAAAAAYAAgAHAAAAAAAAAAcAAgAHAAAAAAAAAAgAAgAHAAAAAAAAAAkAAgAHAAAAAAAAAAoAAgAHAAAAAAAAAAsAAgAHAAAAAAAAAAwAAgAHAAAAAAABAAAAAgAHAAAAAAABAAEAAgAHAAAAAAABAAIAAgAHAAAAAAABAAMAAgAHAAAAAAABAAQAAgAHAAAAAAABAAUAAgAHAAAAAAABAAYAAgAHAAAAAAABAAcAAgAHAAAAAAABAAgAAgAHAAAAAAABAAkAAgAHAAAAAAABAAoAAgAHAAAAAAABAAsAAgAHAAAAAAABAAwAAgAHAAAAAAACAAAAAgAHAAAAAAACAAEAAgAHAAAAAAACAAIAAgAHAAAAAAACAAMAAgAHAAAAAAACAAQAAgAHAAAAAAACAAUAAgAHAAAAAAACAAYAAgAHAAAAAAACAAcAAgAHAAAAAAACAAgAAgAHAAAAAAACAAkAAgAHAAAAAAACAAoAAgAHAAAAAAACAAsAAgAHAAAAAAACAAwAAgAHAAAAAAADAAAAAgAHAAAAAAADAAEAAgAHAAAAAAADAAIAAgAHAAAAAAADAAMAAgAHAAAAAAADAAQAAgAHAAAAAAADAAUAAgAHAAAAAAADAAYAAgAHAAAAAAADAAcAAgAHAAAAAAADAAgAAgAHAAAAAAADAAkAAgAHAAAAAAADAAoAAgAHAAAAAAADAAsAAgAHAAAAAAADAAwAAgAHAAAAAAAEAAAAAgAHAAAAAAAEAAEAAgAHAAAAAAAEAAIAAgAHAAAAAAAEAAMAAgAHAAAAAAAEAAQAAgAHAAAAAAAEAAUAAgAHAAAAAAAEAAYAAgAHAAAAAAAEAAcAAgAHAAAAAAAEAAgAAgAHAAAAAAAEAAkAAgAHAAAAAAAEAAoAAgAHAAAAAAAEAAsAAgAHAAAAAAAEAAwAAgAHAAAAAAAFAAAAAgAHAAAAAAAFAAEAAgAHAAAAAAAFAAIAAgAHAAAAAAAFAAMAAgAHAAAAAAAFAAQAAgAHAAAAAAAFAAUAAgAHAAAAAAAFAAYAAgAHAAAAAAAFAAcAAgAHAAAAAAAFAAgAAgAHAAAAAAAFAAkAAgAHAAAAAAAFAAoAAgAHAAAAAAAFAAsAAgAHAAAAAAAFAAwAAgAHAAAAAAAGAAAAAgAHAAAAAAAGAAEAAgAHAAAAAAAGAAIAAgAHAAAAAAAGAAMAAgAHAAAAAAAGAAQAAgAHAAAAAAAGAAUAAgAHAAAAAAAGAAYAAgAHAAAAAAAGAAcAAgAHAAAAAAAGAAgAAgAHAAAAAAAGAAkAAgAHAAAAAAAGAAoAAgAHAAAAAAAGAAsAAgAHAAAAAAAGAAwAAgAHAAAAAAAHAAAAAgAHAAAAAAAHAAEAAgAHAAAAAAAHAAIAAgAHAAAAAAAHAAMAAgAHAAAAAAAHAAkAAgAHAAAAAAAHAAoAAgAHAAAAAAAHAAsAAgAHAAAAAAAHAAwAAgAHAAAAAAAIAAAAAgAHAAAAAAAIAAEAAgAHAAAAAAAIAAIAAgAHAAAAAAAIAAMAAgAHAAAAAAAIAAkAAgAHAAAAAAAIAAoAAgAHAAAAAAAIAAsAAgAHAAAAAAAIAAwAAgAHAAAAAAAJAAAAAgAHAAAAAAAJAAEAAgAHAAAAAAAJAAIAAgABAAAAAAAJAAMAAgABAAEAAAAJAAkAAgAHAAAAAAAJAAoAAgAHAAAAAAAJAAsAAgAHAAAAAAAJAAwAAgAHAAAAAAAKAAAAAgAHAAAAAAAKAAEAAgAHAAAAAAAKAAMAAgAHAAAAAAAKAAkAAgAHAAAAAAAKAAoAAgAHAAAAAAAKAAsAAgABAAAAAAAKAAwAAgABAAEAADALAAAAAgAHAAAAAAALAAEAAgAHAAAAAAALAAIAAgABAAEAAGALAAMAAgAHAAAAAAALAAkAAgAHAAAAAAALAAoAAgAHAAAAAAALAAsAAgABAAEAAGALAAwAAgAHAAAAAAAMAAAAAgAHAAAAAAAMAAEAAgAHAAAAAAAMAAIAAgABAAEAAGAMAAMAAgAHAAAAAAAMAAkAAgAHAAAAAAAMAAoAAgAHAAAAAAAMAAsAAgABAAEAAGAMAAwAAgAHAAAAAAANAAAAAgAHAAAAAAANAAEAAgAHAAAAAAANAAIAAgABAAEAAGANAAMAAgAHAAAAAAANAAkAAgAHAAAAAAANAAoAAgAHAAAAAAANAAwAAgAHAAAAAAAOAAAAAgAHAAAAAAAOAAEAAgAHAAAAAAAOAAIAAgABAAEAAGAOAAMAAgAHAAAAAAAOAAQAAgAHAAAAAAAOAAUAAgAHAAAAAAAOAAYAAgAHAAAAAAAOAAcAAgAHAAAAAAAOAAgAAgAHAAAAAAAOAAkAAgAHAAAAAAAOAAoAAgAHAAAAAAAOAAsAAgABAAEAAGAOAAwAAgAHAAAAAAAPAAAAAgAHAAAAAAAPAAEAAgAHAAAAAAAPAAIAAgABAAEAAGAPAAMAAgAHAAAAAAAPAAQAAgAHAAAAAAAPAAUAAgAHAAAAAAAPAAYAAgAHAAAAAAAPAAcAAgAHAAAAAAAPAAgAAgAHAAAAAAAPAAkAAgAHAAAAAAAPAAoAAgAHAAAAAAAPAAsAAgABAAEAAGAPAAwAAgAHAAAAAAAQAAAAAgABAAEAADAQAAEAAgABAAEAADAQAAIAAgABAAIAAAAQAAMAAgABAAEAAAAQAAQAAgABAAEAAAAQAAUAAgABAAEAAAAQAAYAAgABAAEAAAAQAAcAAgABAAEAAAAQAAgAAgABAAEAAAAQAAkAAgABAAEAAAAQAAoAAgABAAEAAAAQAAsAAgABAAAAADAQAAwAAgAHAAAAAAARAAAAAgAHAAAAAAARAAEAAgAHAAAAAAARAAIAAgABAAEAAGARAAMAAgAHAAAAAAARAAQAAgAHAAAAAAARAAUAAgAHAAAAAAARAAYAAgAHAAAAAAARAAcAAgAHAAAAAAARAAgAAgAHAAAAAAARAAkAAgAHAAAAAAARAAoAAgAHAAAAAAARAAwAAgAHAAAAAAASAAAAAgAHAAAAAAASAAEAAgAHAAAAAAASAAIAAgABAAEAAGASAAMAAgAHAAAAAAASAAQAAgAHAAAAAAASAAUAAgAHAAAAAAASAAYAAgAHAAAAAAASAAcAAgAHAAAAAAASAAgAAgAHAAAAAAASAAkAAgAHAAAAAAASAAoAAgAHAAAAAAASAAsAAgAHAAAAAAASAAwAAgAHAAAAAAATAAAAAgAHAAAAAAATAAEAAgAHAAAAAAATAAIAAgABAAEAAGATAAMAAgAHAAAAAAATAAQAAgAHAAAAAAATAAUAAgAHAAAAAAATAAYAAgAHAAAAAAATAAcAAgAHAAAAAAATAAgAAgAHAAAAAAATAAkAAgAHAAAAAAATAAoAAgAHAAAAAAATAAsAAgAHAAAAAAATAAwAAgAHAAAAAAAUAAAAAgAHAAAAAAAUAAEAAgAHAAAAAAAUAAIAAgABAAEAAGAUAAMAAgAHAAAAAAAUAAQAAgAHAAAAAAAUAAUAAgAHAAAAAAAUAAYAAgAHAAAAAAAUAAcAAgAHAAAAAAAUAAgAAgAHAAAAAAAUAAkAAgAHAAAAAAAUAAoAAgAHAAAAAAAUAAsAAgAHAAAAAAAUAAwAAgAHAAAAAAAIAAgAAgAAAAYAAAAJAAgAAgAAAAYAAAAKAAgAAgAAAAYAAAALAAgAAgAAAAYAAAAMAAgAAgAAAAYAAAAKAAIAAgABAAEAAGANAAsAAgABAAEAAGA=")
 tile_set = SubResource("TileSet_bybyf")
 
 [node name="WallTileMapLayer" type="TileMapLayer" parent="." unique_id=223418316]
-tile_map_data = PackedByteArray("AAAIAAcAAgAKAAAAAQAMAAUAAgAJAAAAAQALAAUAAgAKAAAAAAAIAAUAAgAJAAAAAAAMAAYAAgAKAAAAAwAIAAYAAgAKAAAAAQAKAAUAAgAKAAAAAAAIAAgAAgAJAAAAAgAKAAgAAgAKAAAAAgAMAAgAAgAJAAAAAwA=")
 tile_set = ExtResource("1_jnsj8")
 
 [node name="ObstaclesHolder" type="Node" parent="." unique_id=1492913673]
 
-[node name="Prop" parent="ObstaclesHolder" unique_id=2106693791 instance=ExtResource("3_j6j3i")]
-position = Vector2(763, 358)
-collision_layer = 1
-collision_mask = 1
-
-[node name="Prop2" parent="ObstaclesHolder" unique_id=625069959 instance=ExtResource("3_j6j3i")]
-position = Vector2(796, 358)
-collision_layer = 1
-collision_mask = 1
-
-[node name="Barrels" parent="ObstaclesHolder" unique_id=2051401676 instance=ExtResource("4_j6j3i")]
-position = Vector2(610, 507)
-collision_layer = 1
-
-[node name="Table" parent="ObstaclesHolder" unique_id=1358025246 instance=ExtResource("5_y3oa2")]
-position = Vector2(719, 436)
-
-[node name="Crate" parent="ObstaclesHolder" unique_id=1877088595 instance=ExtResource("6_sdx3d")]
-position = Vector2(551, 359)
-
-[node name="Crate2" parent="ObstaclesHolder" unique_id=1407545126 instance=ExtResource("6_sdx3d")]
-position = Vector2(550, 390)
-
-[node name="Crate3" parent="ObstaclesHolder" unique_id=340218412 instance=ExtResource("6_sdx3d")]
-position = Vector2(551, 375)
-
-[node name="Chair" parent="ObstaclesHolder" unique_id=2127258126 instance=ExtResource("7_sdx3d")]
-position = Vector2(699, 474)
-
-[node name="Chair2" parent="ObstaclesHolder" unique_id=1912914775 instance=ExtResource("7_sdx3d")]
-position = Vector2(739, 475)
-
-[node name="Chair3" parent="ObstaclesHolder" unique_id=608242385 instance=ExtResource("7_sdx3d")]
-position = Vector2(702, 398)
-rotation = 2.7052603
-
-[node name="Chair4" parent="ObstaclesHolder" unique_id=1642714901 instance=ExtResource("8_ynavl")]
-position = Vector2(787, 441)
-
-[node name="SpikeTrap" parent="ObstaclesHolder" unique_id=1237989087 instance=ExtResource("9_5oko2")]
-position = Vector2(557, 289)
-
 [node name="PlayersHolder" type="Node" parent="." unique_id=1443326157]
 
 [node name="Player" parent="PlayersHolder" unique_id=6746153 instance=ExtResource("1_ami44")]
-position = Vector2(623, 457)
+position = Vector2(604, -347)
 
 [node name="EnemiesHolder" type="Node" parent="." unique_id=55570322]
 
 [node name="WaveManager" parent="." unique_id=1978326253 instance=ExtResource("3_bybyf")]
 
-[node name="SpawnPoint" parent="WaveManager" unique_id=1718800492 instance=ExtResource("5_bybyf")]
-position = Vector2(133, -6)
-
-[node name="SpawnPoint6" parent="WaveManager" unique_id=2093662264 instance=ExtResource("5_bybyf")]
-position = Vector2(232, 423)
-direction = 1
-
-[node name="SpawnPoint8" parent="WaveManager" unique_id=312326055 instance=ExtResource("5_bybyf")]
-position = Vector2(276, 807)
-direction = 2
-
-[node name="SpawnPoint9" parent="WaveManager" unique_id=870719744 instance=ExtResource("5_bybyf")]
-position = Vector2(601, 817)
-direction = 2
-
-[node name="SpawnPoint10" parent="WaveManager" unique_id=682788630 instance=ExtResource("5_bybyf")]
-position = Vector2(921, 811)
-direction = 2
-
-[node name="SpawnPoint11" parent="WaveManager" unique_id=569989251 instance=ExtResource("5_bybyf")]
-position = Vector2(1323, 616)
-direction = 3
-
-[node name="SpawnPoint12" parent="WaveManager" unique_id=1960165021 instance=ExtResource("5_bybyf")]
-position = Vector2(1329, 392)
-direction = 3
-
-[node name="SpawnPoint13" parent="WaveManager" unique_id=410600772 instance=ExtResource("5_bybyf")]
-position = Vector2(1319, 203)
-direction = 3
-
 [node name="ArrowPool" parent="." unique_id=588256539 instance=ExtResource("2_encki")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2010939069]
+process_mode = 3
+
+[node name="LevelUI" parent="CanvasLayer" unique_id=873315916 instance=ExtResource("6_bybyf")]
+
+[node name="ObjectMaker" parent="." unique_id=455138153 instance=ExtResource("8_j6j3i")]

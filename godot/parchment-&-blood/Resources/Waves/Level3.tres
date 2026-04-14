@@ -1,0 +1,122 @@
+[gd_resource type="Resource" script_class="WaveData" format=3 uid="uid://5bjq1mqai2vk"]
+
+[ext_resource type="Script" uid="uid://cyvwc4nwxx5mt" path="res://Classes/Waves/WaveData.gd" id="1_501h3"]
+[ext_resource type="Script" uid="uid://bdvintn8al71n" path="res://Classes/Waves/SubWaveData.gd" id="2_myxly"]
+[ext_resource type="Script" uid="uid://ctohtp5x2gy20" path="res://Classes/Waves/WaveEnemy.gd" id="3_wvedata"]
+
+[sub_resource type="Resource" id="Resource_w1_archer_left"]
+script = ExtResource("3_wvedata")
+type = 1
+count = 1
+directions = Array[int]([1])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_w1_archer_right"]
+script = ExtResource("3_wvedata")
+type = 1
+count = 1
+directions = Array[int]([3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_sw1"]
+script = ExtResource("2_myxly")
+enemies = Array[ExtResource("3_wvedata")]([SubResource("Resource_w1_archer_left"), SubResource("Resource_w1_archer_right")])
+delay_between_groups = 1.0
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_w2_sword_top"]
+script = ExtResource("3_wvedata")
+type = 2
+count = 1
+directions = Array[int]([0])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_w2_sword_left"]
+script = ExtResource("3_wvedata")
+type = 2
+count = 1
+directions = Array[int]([1])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_w2_sword_right"]
+script = ExtResource("3_wvedata")
+type = 2
+count = 1
+directions = Array[int]([3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_sw2"]
+script = ExtResource("2_myxly")
+enemies = Array[ExtResource("3_wvedata")]([SubResource("Resource_w2_sword_top"), SubResource("Resource_w2_sword_left"), SubResource("Resource_w2_sword_right")])
+delay_between_enemies = 0.4
+delay_between_groups = 0.5
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_w3_sword"]
+script = ExtResource("3_wvedata")
+type = 2
+count = 4
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_w3_archer"]
+script = ExtResource("3_wvedata")
+type = 1
+count = 2
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_sw3"]
+script = ExtResource("2_myxly")
+enemies = Array[ExtResource("3_wvedata")]([SubResource("Resource_w3_sword"), SubResource("Resource_w3_archer")])
+delay_between_enemies = 0.3
+delay_between_groups = 0.5
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_w4_sword"]
+script = ExtResource("3_wvedata")
+type = 2
+count = 2
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_w4_archer"]
+script = ExtResource("3_wvedata")
+type = 1
+count = 3
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_sw4"]
+script = ExtResource("2_myxly")
+enemies = Array[ExtResource("3_wvedata")]([SubResource("Resource_w4_sword"), SubResource("Resource_w4_archer")])
+delay_between_enemies = 0.3
+delay_between_groups = 0.4
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[sub_resource type="Resource" id="Resource_w5_sword"]
+script = ExtResource("3_wvedata")
+type = 2
+count = 6
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_w5_archer"]
+script = ExtResource("3_wvedata")
+type = 1
+count = 4
+directions = Array[int]([0, 1, 2, 3])
+metadata/_custom_type_script = "uid://ctohtp5x2gy20"
+
+[sub_resource type="Resource" id="Resource_sw5"]
+script = ExtResource("2_myxly")
+enemies = Array[ExtResource("3_wvedata")]([SubResource("Resource_w5_sword"), SubResource("Resource_w5_archer")])
+delay_between_enemies = 0.2
+delay_between_groups = 0.3
+metadata/_custom_type_script = "uid://bdvintn8al71n"
+
+[resource]
+script = ExtResource("1_501h3")
+sub_wave_data_array = Array[ExtResource("2_myxly")]([SubResource("Resource_sw1"), SubResource("Resource_sw2"), SubResource("Resource_sw3"), SubResource("Resource_sw4"), SubResource("Resource_sw5")])
+delay_before_next_wave = 4.0
+metadata/_custom_type_script = "uid://cyvwc4nwxx5mt"
