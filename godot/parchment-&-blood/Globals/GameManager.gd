@@ -1,7 +1,7 @@
 extends Node
 
 const MAIN = preload("uid://bhmkere5244cv")
-const CREDITS = preload("res://Scenes/Credits/Credits.tscn")
+const CREDITS = preload("uid://c1qx4rdts8p2m")
 const LEVELS: Array[PackedScene] = [
 	preload("uid://bdni7pkykkcak"),
 	preload("uid://dybx28b1d3ke0"),

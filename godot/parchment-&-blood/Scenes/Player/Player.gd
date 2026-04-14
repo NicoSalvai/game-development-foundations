@@ -4,7 +4,6 @@ extends CharacterBody2D
 const SMOOTH_FACTOR = 4.0
 const SPEED = 300.0
 const STOP_SPEED = 1000.0
-const SHOOT_COOLDOWN: float = 0.5
 
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var debug_label: Label = $DebugLabel

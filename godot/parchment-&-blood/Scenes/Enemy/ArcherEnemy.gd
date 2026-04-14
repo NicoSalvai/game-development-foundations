@@ -20,6 +20,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
+	if not _player_ref: return
 	move_component.update_limit(_player_ref.global_position)
 	move_component.direction_to_or_zero(_player_ref.global_position, _sees_player)
 	move_component.orthogonal_strafe(_orthogonal_speed_factor)

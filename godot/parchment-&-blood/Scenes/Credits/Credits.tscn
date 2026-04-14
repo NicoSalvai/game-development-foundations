@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c1qx4rdts8p2m"]
 
-[ext_resource type="Script" path="res://Scenes/Credits/Credits.gd" id="1_credits"]
+[ext_resource type="Script" uid="uid://b0xrxwbk2qogl" path="res://Scenes/Credits/Credits.gd" id="1_credits"]
 [ext_resource type="LabelSettings" uid="uid://uu6qgx4337g5" path="res://Resources/Labels/Header.tres" id="2_credits"]
 [ext_resource type="LabelSettings" uid="uid://bewpoko0iasd7" path="res://Resources/Labels/ButtonLabel.tres" id="3_credits"]
 [ext_resource type="PackedScene" uid="uid://bseshcmdpobkv" path="res://Scenes/Main/CustomButton.tscn" id="4_credits"]
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" unique_id=1778221809]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
