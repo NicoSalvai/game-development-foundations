@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c1qx4rdts8p2m"]
+
+[ext_resource type="Script" path="res://Scenes/Credits/Credits.gd" id="1_credits"]
+[ext_resource type="LabelSettings" uid="uid://uu6qgx4337g5" path="res://Resources/Labels/Header.tres" id="2_credits"]
+[ext_resource type="LabelSettings" uid="uid://bewpoko0iasd7" path="res://Resources/Labels/ButtonLabel.tres" id="3_credits"]
+[ext_resource type="PackedScene" uid="uid://bseshcmdpobkv" path="res://Scenes/Main/CustomButton.tscn" id="4_credits"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_credits")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=201001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15, 0.12, 0.07, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=201002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=201003]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=201004]
+layout_mode = 2
+text = "Parchment & Blood"
+label_settings = ExtResource("2_credits")
+horizontal_alignment = 1
+
+[node name="CreatorLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=201005]
+layout_mode = 2
+text = "Un juego de Nico Salvai"
+label_settings = ExtResource("3_credits")
+horizontal_alignment = 1
+
+[node name="AssetsLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=201006]
+layout_mode = 2
+text = "Assets: Kenney.nl"
+label_settings = ExtResource("3_credits")
+horizontal_alignment = 1
+
+[node name="MainMenuButton" parent="CenterContainer/VBoxContainer" unique_id=201007 instance=ExtResource("4_credits")]
+layout_mode = 2
+text = "Menú Principal"
