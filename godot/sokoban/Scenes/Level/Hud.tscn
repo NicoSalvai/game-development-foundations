@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bt7u1c108okxi"]
+
+[ext_resource type="LabelSettings" uid="uid://cax5bcpx5u5rv" path="res://Assets/LG_Blue_48.tres" id="1_6wa0n"]
+[ext_resource type="Script" uid="uid://blpbwvc7f2de4" path="res://Scenes/Level/Hud.gd" id="1_lngg1"]
+[ext_resource type="PackedScene" uid="uid://cgy2ea6cjwyyr" path="res://Scenes/ExitButton/CustomButton.tscn" id="2_lngg1"]
+[ext_resource type="LabelSettings" uid="uid://dt4d8t41tnpa1" path="res://Assets/GM_white_32.tres" id="4_ff7kq"]
+
+[node name="HUD" type="Control" unique_id=1881772910]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lngg1")
+
+[node name="GameOverPanel" type="PanelContainer" parent="." unique_id=1980729759]
+visible = false
+layout_mode = 0
+offset_left = 475.0
+offset_top = 372.0
+offset_right = 549.0
+offset_bottom = 395.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="GameOverPanel" unique_id=1851059082]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Label" type="Label" parent="GameOverPanel/MarginContainer2" unique_id=776090349]
+layout_mode = 2
+text = "You Won!"
+label_settings = ExtResource("1_6wa0n")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1401145413]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=701159772]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ExitButton" parent="MarginContainer/VBoxContainer" unique_id=2055297307 instance=ExtResource("2_lngg1")]
+layout_mode = 2
+text = "Exit"
+
+[node name="RestartButton" parent="MarginContainer/VBoxContainer" unique_id=1877829000 instance=ExtResource("2_lngg1")]
+layout_mode = 2
+text = "R"
+
+[node name="VB" type="VBoxContainer" parent="MarginContainer" unique_id=1490596181]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBLevel" type="HBoxContainer" parent="MarginContainer/VB" unique_id=1492051205]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VB/HBLevel" unique_id=857349688]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Level"
+label_settings = ExtResource("4_ff7kq")
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VB/HBLevel" unique_id=1400592030]
+layout_mode = 2
+text = "00"
+label_settings = ExtResource("4_ff7kq")
+
+[node name="HBMoves" type="HBoxContainer" parent="MarginContainer/VB" unique_id=676029557]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VB/HBMoves" unique_id=65731043]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Moves"
+label_settings = ExtResource("4_ff7kq")
+
+[node name="MovesLabel" type="Label" parent="MarginContainer/VB/HBMoves" unique_id=15390367]
+layout_mode = 2
+text = "00"
+label_settings = ExtResource("4_ff7kq")
+
+[node name="HBBest" type="HBoxContainer" parent="MarginContainer/VB" unique_id=1761603049]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VB/HBBest" unique_id=1748321533]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Best"
+label_settings = ExtResource("4_ff7kq")
+
+[node name="BestLabel" type="Label" parent="MarginContainer/VB/HBBest" unique_id=474959686]
+layout_mode = 2
+text = "-"
+label_settings = ExtResource("4_ff7kq")

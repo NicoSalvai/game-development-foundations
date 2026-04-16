@@ -8,5 +8,5 @@ const LEVEL_BUTTON = preload("uid://de5mer8j0p27v")
 func _ready() -> void:
 	for level in LevelData.all_level_data:
 		var lb: LevelButton = LEVEL_BUTTON.instantiate()
-		lb.setup(level, false)
+		lb.setup(level, ScoreManager.is_completed(level))
 		grid_container.add_child(lb)

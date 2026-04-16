@@ -1,16 +1,16 @@
 class_name Level
 extends Node2D
 
-@onready var exit_button: CustomButton = $HUD/Control/MarginContainer/VBoxContainer/ExitButton
-@onready var restart_button: CustomButton = $HUD/Control/MarginContainer/VBoxContainer/RestartButton
 @onready var _floor: TileMapLayer = $TileLayers/Floor
 @onready var _walls: TileMapLayer = $TileLayers/Walls
 @onready var _targets: TileMapLayer = $TileLayers/Targets
 @onready var _boxes: TileMapLayer = $TileLayers/Boxes
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var player: AnimatedSprite2D = $Player
+@onready var hud: HUD = $HUD/HUD
 
 var game_over: bool = false
+var moves: int = 0
 
 var tiles_atlas_coords: Dictionary[Constants.LayerType, Array] = {
 	Constants.LayerType.Walls: [2],
@@ -26,10 +26,7 @@ var _tile_size: int = 32
 var _player_tile: Vector2i = Vector2i.ZERO
 
 
-func _ready() -> void:
-	exit_button.function = GameManager.load_main
-	restart_button.function = GameManager.load_level
-	
+func _ready() -> void:	
 	clear_tiles()
 	_tile_size = _floor.tile_set.tile_size.x
 	
@@ -100,6 +97,8 @@ func check_game_over() -> void:
 		if !cell_is_box(t):
 			return
 	game_over = true
+	ScoreManager.try_add_score(GameManager.current_level, moves)
+	hud._on_game_over()
 
 func move_player(md: Vector2i) -> void:
 	var dest: Vector2i = _player_tile + md
@@ -113,6 +112,8 @@ func move_player(md: Vector2i) -> void:
 		move_box(dest, md)
 	
 	place_player_on_tile(dest)
+	moves += 1
+	hud.set_moves_label(moves)
 	check_game_over()
 
 func cell_is_wall(cell: Vector2i) -> bool:
@@ -138,4 +139,3 @@ func move_box(box_cell: Vector2i, md: Vector2i) -> void:
 		set_cell(_boxes, dest, Constants.LayerType.TargetBoxes)
 	else:
 		set_cell(_boxes, dest, Constants.LayerType.Boxes)
-		

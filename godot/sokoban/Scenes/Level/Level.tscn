@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2irylbio1u7i" path="res://Scenes/Level/Level.gd" id="1_vbawi"]
 [ext_resource type="Texture2D" uid="uid://825yw4tyq1b" path="res://Assets/Purple.png" id="2_3hkb6"]
-[ext_resource type="PackedScene" uid="uid://cgy2ea6cjwyyr" path="res://Scenes/ExitButton/CustomButton.tscn" id="2_4dwx7"]
+[ext_resource type="PackedScene" uid="uid://bt7u1c108okxi" path="res://Scenes/Level/Hud.tscn" id="3_k2uda"]
 [ext_resource type="TileSet" uid="uid://diqaqxfwvgbst" path="res://Resources/Tiles.tres" id="4_qp1lj"]
 [ext_resource type="PackedScene" uid="uid://bgbqws5kgntbt" path="res://Scenes/Player/Player.tscn" id="5_k2uda"]
 
@@ -24,38 +24,7 @@ stretch_mode = 1
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=31112891]
 
-[node name="Control" type="Control" parent="HUD" unique_id=376279834]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/Control" unique_id=216177123]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Control/MarginContainer" unique_id=1184562345]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
-
-[node name="ExitButton" parent="HUD/Control/MarginContainer/VBoxContainer" unique_id=2055297307 instance=ExtResource("2_4dwx7")]
-layout_mode = 2
-text = "Exit"
-
-[node name="RestartButton" parent="HUD/Control/MarginContainer/VBoxContainer" unique_id=1464486221 instance=ExtResource("2_4dwx7")]
-layout_mode = 2
-text = "R"
+[node name="HUD" parent="HUD" unique_id=1881772910 instance=ExtResource("3_k2uda")]
 
 [node name="TileLayers" type="Node2D" parent="." unique_id=163683424]
 

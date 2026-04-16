@@ -19,6 +19,7 @@ config/icon="uid://by2d57qwpkxnr"
 
 GameManager="*uid://enm72wnnwois"
 LevelData="*uid://cj81dt36xf40k"
+ScoreManager="*res://Globals/ScoreManager.gd"
 
 [display]
 
