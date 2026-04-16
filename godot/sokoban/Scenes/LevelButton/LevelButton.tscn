@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://de5mer8j0p27v"]
+
+[ext_resource type="Texture2D" uid="uid://cvxujm67mtfn7" path="res://Assets/blue_panel.png" id="1_3681o"]
+[ext_resource type="LabelSettings" uid="uid://uol6ht2noilp" path="res://Resources/Labels/White32.tres" id="2_145gk"]
+[ext_resource type="Script" uid="uid://ciq7m4mssfr2" path="res://Scenes/LevelButton/LevelButton.gd" id="2_anpwf"]
+[ext_resource type="Texture2D" uid="uid://dnaa4o80cdb2f" path="res://Assets/green_checkmark.png" id="3_3r2e7"]
+
+[node name="LevelButton" type="NinePatchRect" unique_id=2055297307]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_3681o")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource("2_anpwf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1480553260]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+
+[node name="Checkmark" type="TextureRect" parent="MarginContainer" unique_id=1218048417]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_3r2e7")
+stretch_mode = 2
+
+[node name="LevelLabel" type="Label" parent="." unique_id=486587793]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+label_settings = ExtResource("2_145gk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="MarginContainer" to="." method="_on_margin_container_gui_input"]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cgy2ea6cjwyyr"]
+
+[ext_resource type="Texture2D" uid="uid://cvxujm67mtfn7" path="res://Assets/blue_panel.png" id="1_obqc6"]
+[ext_resource type="Script" uid="uid://cln6pglehk7n3" path="res://Scenes/ExitButton/CustomButton.gd" id="2_ffhxd"]
+[ext_resource type="FontFile" uid="uid://je5ym3yh0md3" path="res://Assets/LuckiestGuy-Regular.ttf" id="3_obqc6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ffhxd"]
+font = ExtResource("3_obqc6")
+font_size = 18
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CustomButton" type="NinePatchRect" unique_id=2055297307]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+texture = ExtResource("1_obqc6")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+script = ExtResource("2_ffhxd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1799166380]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=486587793]
+layout_mode = 2
+text = "?????"
+label_settings = SubResource("LabelSettings_ffhxd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
