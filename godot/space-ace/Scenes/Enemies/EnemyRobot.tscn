@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cn152xcbli0ck"]
+
+[ext_resource type="PackedScene" uid="uid://c6x03ab76umve" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_ugfhl"]
+[ext_resource type="Texture2D" uid="uid://u6jmjoem641h" path="res://Assets/Images/Enemy3.png" id="2_3ommd"]
+[ext_resource type="PackedScene" uid="uid://qtqkf1ke7drw" path="res://Scenes/Utils/Shooters/Shooter.tscn" id="3_b7qnk"]
+[ext_resource type="PackedScene" uid="uid://pmkia7o8v51u" path="res://Scenes/Utils/Projectiles/EnemyBomb.tscn" id="4_5ill0"]
+[ext_resource type="AudioStream" uid="uid://bwrh48v2l3152" path="res://Assets/Sounds/685916_whoosh.wav" id="5_ybm42"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ill0"]
+size = Vector2(71, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7qnk"]
+size = Vector2(68, 51)
+
+[node name="EnemyRobot" unique_id=1450873103 instance=ExtResource("1_ugfhl")]
+speed = 150.0
+points = 5
+power_up_chance = 0.25
+
+[node name="Sprite2D" parent="." index="0" unique_id=2105850815]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_3ommd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" parent_id_path=PackedInt32Array(750974436) index="0" unique_id=974830845]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_5ill0")
+debug_color = Color(0.892807, 0.30415958, 0.288374, 0.41960785)
+
+[node name="HitBox" parent="." index="2" unique_id=1083866046]
+damage = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=1732810064]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_b7qnk")
+
+[node name="Shooter" parent="." index="3" unique_id=1990496572 instance=ExtResource("3_b7qnk")]
+projectile = ExtResource("4_5ill0")
+audio = ExtResource("5_ybm42")
+
+[node name="HealthBar" parent="." index="4" unique_id=1939446148]
+offset_left = -50.0
+offset_top = -47.0
+offset_right = 50.0
+offset_bottom = -41.0

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bldovnr5jyh71"]
+
+[ext_resource type="Texture2D" uid="uid://d2xo35kjq5b7n" path="res://Assets/Textures/flame_04.png" id="1_la8gh"]
+[ext_resource type="Texture2D" uid="uid://c44w35d14f6sf" path="res://Assets/Textures/StarDot.png" id="2_mb7c2"]
+
+[sub_resource type="Gradient" id="Gradient_la8gh"]
+colors = PackedColorArray(0.3508654, 0.2769593, 0.99499935, 0.7921569, 0.95153636, 0.09132028, 0.81034124, 0.7254902)
+
+[sub_resource type="Gradient" id="Gradient_mb7c2"]
+offsets = PackedFloat32Array(0, 0.41623038, 0.69109946, 1)
+colors = PackedColorArray(1, 0.94531566, 0.7957657, 1, 0.9723428, 0.8764121, 0.8446071, 1, 0.95229656, 0.90769625, 0.97108096, 1, 0.827451, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_klhqx"]
+offsets = PackedFloat32Array(0, 0.41623038, 0.69109946, 1)
+colors = PackedColorArray(0.99999994, 0.8915927, 0.59267503, 1, 0.9472818, 0.7677116, 0.70789987, 1, 0.8851838, 0.777387, 0.92972684, 1, 0.57632226, 0.99573034, 0.99999994, 1)
+
+[node name="Background" type="Node2D" unique_id=124801698]
+
+[node name="Fog" type="CPUParticles2D" parent="." unique_id=1540006937]
+amount = 16
+texture = ExtResource("1_la8gh")
+lifetime = 90.0
+preprocess = 60.0
+emission_shape = 3
+emission_rect_extents = Vector2(400, 1)
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 40.0
+angular_velocity_min = -3.0
+angular_velocity_max = 3.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+color_initial_ramp = SubResource("Gradient_la8gh")
+
+[node name="Stars" type="CPUParticles2D" parent="." unique_id=1346412799]
+amount = 512
+texture = ExtResource("2_mb7c2")
+lifetime = 90.0
+preprocess = 30.0
+emission_shape = 3
+emission_rect_extents = Vector2(720, 540)
+direction = Vector2(0, 1)
+spread = 2.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 60.0
+scale_amount_min = 0.4
+scale_amount_max = 0.6
+color_initial_ramp = SubResource("Gradient_mb7c2")
+
+[node name="Stars2" type="CPUParticles2D" parent="." unique_id=591848974]
+amount = 256
+texture = ExtResource("2_mb7c2")
+lifetime = 60.0
+preprocess = 30.0
+emission_shape = 3
+emission_rect_extents = Vector2(720, 540)
+direction = Vector2(0, 1)
+spread = 2.5
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.0
+initial_velocity_max = 120.0
+scale_amount_min = 0.7
+scale_amount_max = 0.9
+color_initial_ramp = SubResource("Gradient_klhqx")

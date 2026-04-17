@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bclvl4cjwddsn"]
+
+[ext_resource type="PackedScene" uid="uid://b2sjy4cjuf0w5" path="res://Scenes/Utils/Projectiles/Projectile.tscn" id="1_ldmrx"]
+[ext_resource type="Script" uid="uid://ud3rd6cv2iwi" path="res://Scenes/Utils/Projectiles/Asteroid.gd" id="2_3p4sj"]
+[ext_resource type="Texture2D" uid="uid://odwsu1riin67" path="res://Assets/Images/Asteroid1.png" id="3_tobib"]
+[ext_resource type="Texture2D" uid="uid://54kdtng6jflk" path="res://Assets/Images/Asteroid2.png" id="4_ap880"]
+[ext_resource type="Texture2D" uid="uid://bm2sc77qtvquf" path="res://Assets/Images/Asteroid3.png" id="5_twayc"]
+[ext_resource type="PackedScene" uid="uid://bodt5nvftpg5l" path="res://Scenes/Utils/HurtBox.tscn" id="6_ap880"]
+[ext_resource type="PackedScene" uid="uid://iwqn7njb6ec1" path="res://Scenes/Utils/Explosions/AsteroidExplosion.tscn" id="6_jcyga"]
+[ext_resource type="Script" uid="uid://cdtng1lk2swi5" path="res://Scenes/Utils/HealthBar.gd" id="7_twayc"]
+[ext_resource type="Script" uid="uid://cldo62hkku1hn" path="res://Scenes/Utils/Movers/Mover.gd" id="8_vcb5a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tobib"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twayc"]
+radius = 100.0
+
+[node name="Asteroid" unique_id=1479979231 instance=ExtResource("1_ldmrx")]
+script = ExtResource("2_3p4sj")
+textures = Array[Texture2D]([ExtResource("3_tobib"), ExtResource("4_ap880"), ExtResource("5_twayc")])
+points = 5
+explosion_scene = ExtResource("6_jcyga")
+
+[node name="LifeTimer" parent="." index="2" unique_id=1191668040]
+wait_time = 30.0
+
+[node name="HitBox" parent="." index="3" unique_id=1083866046]
+collision_layer = 8
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=1063907000]
+shape = SubResource("CircleShape2D_tobib")
+
+[node name="HurtBox" parent="." index="4" unique_id=750974436 instance=ExtResource("6_ap880")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0" unique_id=791300139]
+shape = SubResource("CircleShape2D_twayc")
+
+[node name="HealthBar" type="TextureProgressBar" parent="." index="5" unique_id=141756265]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_twayc")
+low_level = 15
+mid_level = 30
+start_hp = 60
+max_hp = 60
+metadata/_custom_type_script = "uid://cdtng1lk2swi5"
+
+[node name="Mover" type="Node" parent="." index="6" unique_id=1003564614]
+script = ExtResource("8_vcb5a")
+speed = 100.0
+rotation_speed_deg = 30.0
+metadata/_custom_type_script = "uid://cldo62hkku1hn"
+
+[connection signal="hit" from="HurtBox" to="." method="_on_hurt_box_hit"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

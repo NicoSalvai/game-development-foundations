@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://crvr3a44bh1cy"]
+
+[ext_resource type="Script" uid="uid://bbsm4gi3l8hj8" path="res://Scenes/Utils/Shooters/ManualShooter.gd" id="1_pd6pj"]
+[ext_resource type="PackedScene" uid="uid://dus3xblcjc5x4" path="res://Scenes/Utils/Projectiles/PlayerProjectile.tscn" id="2_nixt2"]
+[ext_resource type="AudioStream" uid="uid://ebfedm722tq0" path="res://Assets/Sounds/Blaster1_short.wav" id="2_x61cc"]
+
+[node name="ManualShooter" type="Node2D" unique_id=1418685810]
+script = ExtResource("1_pd6pj")
+projectile = ExtResource("2_nixt2")
+
+[node name="ShooterTimer" type="Timer" parent="." unique_id=423475031]
+one_shot = true
+
+[node name="LaunchSound" type="AudioStreamPlayer2D" parent="." unique_id=874804692]
+stream = ExtResource("2_x61cc")
+
+[connection signal="timeout" from="ShooterTimer" to="." method="_on_shooter_timer_timeout"]

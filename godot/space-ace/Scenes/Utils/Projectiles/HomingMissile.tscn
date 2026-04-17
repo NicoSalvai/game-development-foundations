@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cdbd67lexliys"]
+
+[ext_resource type="PackedScene" uid="uid://b2sjy4cjuf0w5" path="res://Scenes/Utils/Projectiles/Projectile.tscn" id="1_3dwtb"]
+[ext_resource type="Texture2D" uid="uid://be7s4athj7eho" path="res://Assets/Images/HomingMissile.png" id="2_todoq"]
+[ext_resource type="PackedScene" uid="uid://b7pswyedup2la" path="res://Scenes/Utils/Explosions/EnemyLaserExplosion.tscn" id="2_u7s6o"]
+[ext_resource type="PackedScene" uid="uid://86478ntimu2m" path="res://Scenes/Utils/Movers/HomingMover.tscn" id="3_22rc8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_todoq"]
+radius = 11.0
+height = 46.0
+
+[node name="Projectile" unique_id=1479979231 instance=ExtResource("1_3dwtb")]
+explosion_scene = ExtResource("2_u7s6o")
+
+[node name="Sprite2D" parent="." index="0" unique_id=282441944]
+rotation = 1.5707964
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_todoq")
+
+[node name="ScreenNotifier" parent="." index="1" unique_id=791276079]
+rect = Rect2(-23, -10, 47, 20)
+
+[node name="HitBox" parent="." index="3" unique_id=1083866046]
+collision_layer = 12
+collision_mask = 3
+damage = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=28296602]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_todoq")
+
+[node name="HomingMover" parent="." index="4" unique_id=1320350565 instance=ExtResource("3_22rc8")]
+speed = 200.0
+rotation_speed_deg = 60.0

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b3kat2sxu5f6w"]
+
+[ext_resource type="Script" uid="uid://o08qjqkv22sd" path="res://Scenes/Level/Level.gd" id="1_3hkb6"]
+[ext_resource type="PackedScene" uid="uid://c4l87jfqs05wy" path="res://Scenes/Player/Player.tscn" id="1_vbawi"]
+[ext_resource type="PackedScene" uid="uid://bldovnr5jyh71" path="res://Scenes/Level/Background.tscn" id="3_4dwx7"]
+[ext_resource type="PackedScene" uid="uid://bdnmuk48acr3y" path="res://Scenes/Level/ObjectContainer.tscn" id="4_qp1lj"]
+[ext_resource type="PackedScene" uid="uid://csmi3b626n0jy" path="res://Scenes/Level/WaveManager.tscn" id="6_8gphe"]
+[ext_resource type="PackedScene" uid="uid://ddu7wk3moqgh6" path="res://Scenes/Level/GameUI.tscn" id="7_8gphe"]
+[ext_resource type="PackedScene" uid="uid://cud0qgj45a1un" path="res://Scenes/Level/Spawner.tscn" id="8_lvwdj"]
+[ext_resource type="PackedScene" uid="uid://bclvl4cjwddsn" path="res://Scenes/Utils/Projectiles/Asteroid.tscn" id="8_t3e81"]
+
+[node name="Level" type="Node" unique_id=1059211770]
+script = ExtResource("1_3hkb6")
+
+[node name="Background" parent="." unique_id=124801698 instance=ExtResource("3_4dwx7")]
+position = Vector2(720, -300)
+
+[node name="Player" parent="." unique_id=566481073 instance=ExtResource("1_vbawi")]
+position = Vector2(695, 949)
+
+[node name="ObjectContainer" parent="." unique_id=1452001377 instance=ExtResource("4_qp1lj")]
+
+[node name="WaveManager" parent="." unique_id=1033684185 instance=ExtResource("6_8gphe")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=358431166]
+process_mode = 3
+
+[node name="GameUI" parent="CanvasLayer" unique_id=538049059 instance=ExtResource("7_8gphe")]
+
+[node name="Spawner" parent="." unique_id=854315023 instance=ExtResource("8_lvwdj")]
+position = Vector2(-217, 122)
+scene = ExtResource("8_t3e81")
+wait_time = 6.0
+
+[node name="Spawner2" parent="." unique_id=1619781441 instance=ExtResource("8_lvwdj")]
+position = Vector2(1635, 373)
+scene = ExtResource("8_t3e81")
+
+[node name="Spawner3" parent="." unique_id=2043755210 instance=ExtResource("8_lvwdj")]
+position = Vector2(-195, 1117)
+scene = ExtResource("8_t3e81")
+wait_time = 16.0
+
+[node name="Spawner4" parent="." unique_id=813890950 instance=ExtResource("8_lvwdj")]
+position = Vector2(1556, 1202)
+scene = ExtResource("8_t3e81")
+wait_time = 10.0

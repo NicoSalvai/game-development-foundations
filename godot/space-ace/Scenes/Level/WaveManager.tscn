@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://csmi3b626n0jy"]
+
+[ext_resource type="Script" uid="uid://y5j3g252jvd8" path="res://Scenes/Level/WaveManager.gd" id="1_wpeqd"]
+[ext_resource type="Script" uid="uid://bexnuooddmik3" path="res://Classes/Wave.gd" id="2_5p7b3"]
+[ext_resource type="PackedScene" uid="uid://3oxlpom4utsh" path="res://Scenes/Enemies/EnemyVee.tscn" id="3_iuwx4"]
+[ext_resource type="PackedScene" uid="uid://cn152xcbli0ck" path="res://Scenes/Enemies/EnemyRobot.tscn" id="4_750t5"]
+
+[sub_resource type="Resource" id="Resource_aei0q"]
+script = ExtResource("2_5p7b3")
+enemy_scene = ExtResource("3_iuwx4")
+enemy_count = 6
+spwan_interval = 1.5
+wave_interval = 5.0
+metadata/_custom_type_script = "uid://bexnuooddmik3"
+
+[sub_resource type="Resource" id="Resource_s0x6l"]
+script = ExtResource("2_5p7b3")
+enemy_scene = ExtResource("4_750t5")
+enemy_count = 5
+spwan_interval = 2.0
+wave_interval = 5.0
+metadata/_custom_type_script = "uid://bexnuooddmik3"
+
+[sub_resource type="Curve2D" id="Curve2D_wpeqd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -74, 188, 0, 0, 0, 0, 1627, 502)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_5p7b3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1489, 238, 0, 0, 0, 0, -90, 706)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_iuwx4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -46, 316, 0, 0, 0, 0, 1190, 536, 0, 0, 0, 0, 378, 699, 0, 0, 0, 0, 1153, 919, 0, 0, 0, 0, -162, 1045)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_750t5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 240, 1154, 0, 0, 0, 0, 312, 335, 0, 0, 0, 0, 1137, 360, 0, 0, 0, 0, 1241, 1214)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_v6sdo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 255, -57, 0, 0, 0, 0, 384, 627, 0, 0, 0, 0, 1081, 589, 0, 0, 0, 0, 1281, -66)
+}
+point_count = 4
+
+[node name="WaveManager" type="Node" unique_id=1033684185 node_paths=PackedStringArray("paths_list")]
+script = ExtResource("1_wpeqd")
+paths_list = [NodePath("Paths/Path2D"), NodePath("Paths/Path2D3"), NodePath("Paths/Path2D4"), NodePath("Paths/Path2D2"), NodePath("Paths/Path2D5")]
+waves_list = Array[ExtResource("2_5p7b3")]([SubResource("Resource_aei0q"), SubResource("Resource_s0x6l")])
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=983206289]
+
+[node name="ShipTimer" type="Timer" parent="." unique_id=1944026276]
+
+[node name="Paths" type="Node" parent="." unique_id=1290920658]
+
+[node name="Path2D" type="Path2D" parent="Paths" unique_id=1166342573]
+curve = SubResource("Curve2D_wpeqd")
+
+[node name="Path2D3" type="Path2D" parent="Paths" unique_id=1105231536]
+curve = SubResource("Curve2D_5p7b3")
+
+[node name="Path2D4" type="Path2D" parent="Paths" unique_id=1773929563]
+curve = SubResource("Curve2D_iuwx4")
+
+[node name="Path2D2" type="Path2D" parent="Paths" unique_id=1601853379]
+curve = SubResource("Curve2D_750t5")
+
+[node name="Path2D5" type="Path2D" parent="Paths" unique_id=1202428713]
+curve = SubResource("Curve2D_v6sdo")
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
+[connection signal="timeout" from="ShipTimer" to="." method="_on_ship_timer_timeout"]

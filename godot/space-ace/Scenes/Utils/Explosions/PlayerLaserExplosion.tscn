@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cqhcupqqd0icm"]
+
+[ext_resource type="PackedScene" uid="uid://d031eaa2tswvy" path="res://Scenes/Utils/Explosions/Explosion.tscn" id="1_rnwe5"]
+[ext_resource type="AudioStream" uid="uid://bqnjnxhln6esb" path="res://Assets/Sounds/583451__hit.wav" id="2_61rg4"]
+[ext_resource type="Texture2D" uid="uid://bkdyygvheb3kc" path="res://Assets/Textures/ParticleDot16.png" id="2_yqse0"]
+
+[sub_resource type="Curve" id="Curve_yqse0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7343454, 0.68415487), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_4345v"]
+offsets = PackedFloat32Array(0, 0.82834333, 0.998004, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6872153, 0.6872149, 0.6872149, 0.8117647, 1, 1, 1, 0.8039216, 1, 1, 1, 0.81960785)
+
+[sub_resource type="Gradient" id="Gradient_yqse0"]
+offsets = PackedFloat32Array(0.31536925, 0.502994, 0.6946108)
+colors = PackedColorArray(0, 0.40784314, 0.8627451, 1, 0.65882355, 0.18039216, 0.9411765, 1, 0.35686275, 0.83137256, 0.8784314, 1)
+
+[node name="Explosion" unique_id=655607724 instance=ExtResource("1_rnwe5")]
+
+[node name="CPUParticles2D" parent="." index="0" unique_id=152546950]
+amount = 64
+texture = ExtResource("2_yqse0")
+lifetime = 0.6
+explosiveness = 0.7
+randomness = 0.29
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 75.0
+damping_min = 50.0
+damping_max = 75.0
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_yqse0")
+color_ramp = SubResource("Gradient_4345v")
+color_initial_ramp = SubResource("Gradient_yqse0")
+
+[node name="Sounds" parent="." index="1" unique_id=1545833318]
+stream = ExtResource("2_61rg4")

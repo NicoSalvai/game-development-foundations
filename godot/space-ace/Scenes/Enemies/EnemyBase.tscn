@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c6x03ab76umve"]
+
+[ext_resource type="Script" uid="uid://3ptgdnqa0v7" path="res://Scenes/Enemies/EnemyBase.gd" id="1_guk8b"]
+[ext_resource type="PackedScene" uid="uid://bodt5nvftpg5l" path="res://Scenes/Utils/HurtBox.tscn" id="2_srcxp"]
+[ext_resource type="PackedScene" uid="uid://c2ynoe7c3jni8" path="res://Scenes/Utils/HitBox.tscn" id="3_2a3kf"]
+[ext_resource type="PackedScene" uid="uid://b0sjs7myxxtga" path="res://Scenes/Utils/HealthBar.tscn" id="4_2a3kf"]
+
+[node name="EnemyBase" type="PathFollow2D" unique_id=1450873103]
+rotates = false
+script = ExtResource("1_guk8b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105850815]
+
+[node name="HurtBox" parent="." unique_id=750974436 instance=ExtResource("2_srcxp")]
+collision_layer = 4
+collision_mask = 2
+
+[node name="HitBox" parent="." unique_id=1083866046 instance=ExtResource("3_2a3kf")]
+collision_layer = 8
+collision_mask = 1
+
+[node name="HealthBar" parent="." unique_id=1939446148 instance=ExtResource("4_2a3kf")]
+offset_right = 100.0
+offset_bottom = 6.0
+
+[connection signal="hit" from="HurtBox" to="." method="_on_hurt_box_hit"]
+[connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

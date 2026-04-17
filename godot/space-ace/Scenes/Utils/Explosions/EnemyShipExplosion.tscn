@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dqim4gcis8bm6"]
+
+[ext_resource type="PackedScene" uid="uid://d031eaa2tswvy" path="res://Scenes/Utils/Explosions/Explosion.tscn" id="1_vabla"]
+[ext_resource type="Texture2D" uid="uid://d1ioqdx2yl7o4" path="res://Assets/Textures/scorch_02.png" id="2_5vk6k"]
+[ext_resource type="AudioStream" uid="uid://lfaotbbwdxeh" path="res://Assets/Sounds/93834__cgeffex__huge-explosion.wav" id="2_u4het"]
+[ext_resource type="AudioStream" uid="uid://dhavfqmyg4gtl" path="res://Assets/Sounds/AsteroidExplosion.wav" id="3_5vk6k"]
+
+[sub_resource type="Curve" id="Curve_5vk6k"]
+_data = [Vector2(0.10626185, 0), 0.0, 0.0, 0, 0, Vector2(0.2751423, 0.48732388), 0.0, 0.0, 0, 0, Vector2(0.43833017, 0.99084496), 0.0, 0.0, 0, 0, Vector2(0.73244786, 0.8580985), -0.8270833, -0.8270833, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_5uvt3"]
+offsets = PackedFloat32Array(0, 0.31736526, 0.74451095, 0.99002)
+colors = PackedColorArray(1, 1, 1, 1, 2.4061394, 1.4455609, 0.6222078, 1, 2.4061394, 1.4455609, 0.6222078, 0.78039217, 1, 0.78431374, 0.39215687, 0.4745098)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5uvt3"]
+streams_count = 2
+stream_0/stream = ExtResource("2_u4het")
+stream_1/stream = ExtResource("3_5vk6k")
+
+[node name="Explosion" unique_id=655607724 instance=ExtResource("1_vabla")]
+
+[node name="CPUParticles2D" parent="." index="0" unique_id=152546950]
+amount = 48
+texture = ExtResource("2_5vk6k")
+lifetime = 1.2
+explosiveness = 0.7
+randomness = 0.25
+emission_shape = 2
+emission_sphere_radius = 26.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.0
+initial_velocity_max = 75.0
+angular_velocity_min = -15.0
+angular_velocity_max = 25.0
+radial_accel_min = 20.0
+radial_accel_max = 30.0
+scale_amount_curve = SubResource("Curve_5vk6k")
+color_ramp = SubResource("Gradient_5uvt3")
+
+[node name="Sounds" parent="." index="1" unique_id=1545833318]
+stream = SubResource("AudioStreamRandomizer_5uvt3")

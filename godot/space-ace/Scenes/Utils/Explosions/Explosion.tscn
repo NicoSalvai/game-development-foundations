@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d031eaa2tswvy"]
+
+[ext_resource type="Script" uid="uid://t111p8enesj7" path="res://Scenes/Utils/Explosions/Explosion.gd" id="1_afiq4"]
+
+[node name="Explosion" type="Node2D" unique_id=655607724]
+z_index = 20
+script = ExtResource("1_afiq4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=152546950]
+emitting = false
+one_shot = true
+
+[node name="Sounds" type="AudioStreamPlayer2D" parent="." unique_id=1545833318]

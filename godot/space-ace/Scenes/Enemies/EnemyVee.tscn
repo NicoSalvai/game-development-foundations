@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://3oxlpom4utsh"]
+
+[ext_resource type="PackedScene" uid="uid://c6x03ab76umve" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_gkamq"]
+[ext_resource type="Texture2D" uid="uid://c6d6rqaw3o4wk" path="res://Assets/Images/Enemy1.png" id="2_t1bgl"]
+[ext_resource type="PackedScene" uid="uid://qtqkf1ke7drw" path="res://Scenes/Utils/Shooters/Shooter.tscn" id="3_01edi"]
+[ext_resource type="PackedScene" uid="uid://76ove3lmvf0s" path="res://Scenes/Utils/Projectiles/EnemyProjectile.tscn" id="4_wpdvw"]
+[ext_resource type="AudioStream" uid="uid://ebfedm722tq0" path="res://Assets/Sounds/Blaster1_short.wav" id="5_10td7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtgrh"]
+radius = 39.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10td7"]
+radius = 35.014282
+
+[node name="EnemyVee" unique_id=1450873103 instance=ExtResource("1_gkamq")]
+speed = 200.0
+points = 10
+power_up_chance = 0.5
+missile_chance = 0.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=2105850815]
+rotation = 3.1415927
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_t1bgl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" parent_id_path=PackedInt32Array(750974436) index="0" unique_id=714826596]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_xtgrh")
+debug_color = Color(0.892807, 0.30415958, 0.288374, 0.41960785)
+
+[node name="HitBox" parent="." index="2" unique_id=1083866046]
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=1091455250]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_10td7")
+
+[node name="Shooter" parent="." index="3" unique_id=1990496572 instance=ExtResource("3_01edi")]
+shoot_time = 2.0
+projectile = ExtResource("4_wpdvw")
+audio = ExtResource("5_10td7")
+
+[node name="HealthBar" parent="." index="4" unique_id=1939446148]
+offset_left = -50.0
+offset_top = -58.0
+offset_right = 50.0
+offset_bottom = -52.0

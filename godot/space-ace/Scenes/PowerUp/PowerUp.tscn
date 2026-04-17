@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bgbfe7yrnido0"]
+
+[ext_resource type="Texture2D" uid="uid://j2sfm0cjty4o" path="res://Assets/Textures/light_03.png" id="1_rbyb8"]
+[ext_resource type="Script" uid="uid://4oqe1n5xsmrc" path="res://Scenes/PowerUp/PowerUp.gd" id="1_v5ap0"]
+[ext_resource type="PackedScene" uid="uid://cnfn6ipv1phyr" path="res://Scenes/Utils/Movers/Mover.tscn" id="2_3hf71"]
+[ext_resource type="Texture2D" uid="uid://kgx6b0dbviac" path="res://Assets/Textures/MagicSmall.png" id="4_gtc48"]
+
+[sub_resource type="Curve" id="Curve_gtc48"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 0.6), 0.0, 0.0, 0, 0, Vector2(0.38408306, 1), 0.0, 0.0, 0, 0, Vector2(0.7508651, 0.6869688), 0.0, 0.0, 0, 0, Vector2(1, 0.10694051), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Gradient" id="Gradient_gtc48"]
+colors = PackedColorArray(0.21069743, 1.2029141, 1.8247963, 1, 1.8746078, 0.5491177, 2.055, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gtc48"]
+radius = 52.34501
+
+[node name="PowerUp" type="Node2D" unique_id=1970715434]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_v5ap0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=431756060]
+self_modulate = Color(6.6420434e-06, 0.95141, 0.17861566, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_rbyb8")
+
+[node name="Mover" parent="." unique_id=727178945 instance=ExtResource("2_3hf71")]
+speed = 100.0
+rotation_speed_deg = 20.0
+direction = Vector2(0, 1)
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1052121765]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=593144059]
+amount = 24
+texture = ExtResource("4_gtc48")
+lifetime = 2.0
+preprocess = 5.0
+local_coords = true
+emission_shape = 6
+emission_ring_inner_radius = 52.0
+emission_ring_radius = 65.0
+gravity = Vector2(0, 0)
+angular_velocity_min = 30.0
+angular_velocity_max = 50.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.2
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_gtc48")
+color_initial_ramp = SubResource("Gradient_gtc48")
+
+[node name="Detection" type="Area2D" parent="." unique_id=2140783496]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection" unique_id=1824712150]
+shape = SubResource("CircleShape2D_gtc48")
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]
+[connection signal="area_entered" from="Detection" to="." method="_on_detection_area_entered"]

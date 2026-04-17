@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://76ove3lmvf0s"]
+
+[ext_resource type="PackedScene" uid="uid://b2sjy4cjuf0w5" path="res://Scenes/Utils/Projectiles/Projectile.tscn" id="1_vjxsw"]
+[ext_resource type="Texture2D" uid="uid://btl5dj1x15ktq" path="res://Assets/Images/LaserOrange.png" id="2_lmjrf"]
+[ext_resource type="PackedScene" uid="uid://b7pswyedup2la" path="res://Scenes/Utils/Explosions/EnemyLaserExplosion.tscn" id="2_qlv70"]
+[ext_resource type="PackedScene" uid="uid://cnfn6ipv1phyr" path="res://Scenes/Utils/Movers/Mover.tscn" id="3_lmjrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjxsw"]
+size = Vector2(6, 70)
+
+[node name="Projectile" unique_id=1479979231 instance=ExtResource("1_vjxsw")]
+explosion_scene = ExtResource("2_qlv70")
+
+[node name="Sprite2D" parent="." index="0" unique_id=282441944]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lmjrf")
+
+[node name="ScreenNotifier" parent="." index="1" unique_id=791276079]
+position = Vector2(3, 7)
+rect = Rect2(-10, -43, 14, 73)
+
+[node name="HitBox" parent="." index="3" unique_id=1083866046]
+collision_layer = 8
+collision_mask = 1
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=925196380]
+shape = SubResource("RectangleShape2D_vjxsw")
+
+[node name="Mover" parent="." index="4" unique_id=727178945 instance=ExtResource("3_lmjrf")]
+speed = 200.0
+direction = Vector2(0, 1)

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bifivp7ve314n"]
+
+[ext_resource type="Texture2D" uid="uid://bkdyygvheb3kc" path="res://Assets/Textures/ParticleDot16.png" id="1_p65xw"]
+
+[sub_resource type="Curve" id="Curve_p65xw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6914894, 0.73033714), -0.7455389, -0.7455389, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_p65xw"]
+offsets = PackedFloat32Array(0, 0.24691358, 0.7654321, 1)
+colors = PackedColorArray(1, 1, 1, 0.14035088, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_224k5"]
+colors = PackedColorArray(0.13880911, 0.8237543, 0.8017598, 1, 1, 1, 1, 1)
+
+[node name="Thruster" type="CPUParticles2D" unique_id=1593148749]
+amount = 108
+texture = ExtResource("1_p65xw")
+lifetime = 0.6
+lifetime_randomness = 0.7
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 130.0
+scale_amount_min = 0.7
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_p65xw")
+color_ramp = SubResource("Gradient_p65xw")
+color_initial_ramp = SubResource("Gradient_224k5")
