@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://wui1h6f2snbs"]
+
+[ext_resource type="Script" uid="uid://c4ycp7l0jotfk" path="res://Scenes/Player/Player.gd" id="1_s0eop"]
+[ext_resource type="PackedScene" uid="uid://cyjcbrp4qlwfb" path="res://Scenes/Player/PlayerController.tscn" id="2_h54ih"]
+[ext_resource type="PackedScene" uid="uid://if1gdocxscra" path="res://Scenes/Player/PlayerMover.tscn" id="3_ude3g"]
+[ext_resource type="PackedScene" uid="uid://dmsr7i8ohvua" path="res://Scenes/Player/DashComponent.tscn" id="4_jmcll"]
+[ext_resource type="PackedScene" uid="uid://dnnyydny0hkso" path="res://Scenes/Utils/DebugLabel.tscn" id="4_ude3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ax4"]
+
+[node name="Player" type="CharacterBody2D" unique_id=398367969]
+collision_layer = 0
+script = ExtResource("1_s0eop")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=115006832]
+
+[node name="Body" type="Polygon2D" parent="Visuals" unique_id=1663712671]
+color = Color(0.49411765, 0.3529412, 0.39215687, 1)
+polygon = PackedVector2Array(10, 10, 10, -10, -10, -10, -10, 10)
+
+[node name="Face" type="Polygon2D" parent="Visuals" unique_id=1651394154]
+color = Color(0.74509805, 0.58431375, 0.52156866, 1)
+polygon = PackedVector2Array(3, -3, 10, -7, 10, 7, 3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141131622]
+shape = SubResource("RectangleShape2D_l3ax4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1767279332]
+
+[node name="PlayerController" parent="." unique_id=1542986333 instance=ExtResource("2_h54ih")]
+
+[node name="PlayerMover" parent="." unique_id=1133451960 instance=ExtResource("3_ude3g")]
+
+[node name="DashComponent" parent="." unique_id=2092117696 instance=ExtResource("4_jmcll")]
+
+[node name="DebugLabel" parent="." unique_id=199768765 instance=ExtResource("4_ude3g")]

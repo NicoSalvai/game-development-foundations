@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d3n1cv7by487a"]
+
+[ext_resource type="Script" uid="uid://iblhlabdn5gv" path="res://Scenes/Props/Pilar.gd" id="1_p6aly"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afpog"]
+resource_local_to_scene = true
+
+[node name="Pilar" type="StaticBody2D" unique_id=1607016537]
+collision_mask = 0
+script = ExtResource("1_p6aly")
+scaling = null
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=679035528]
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(10, 0, 7, 7, 0, 10, -7, 7, -10, 0, -7, -7, 0, -10, 7, -7)
+uv = PackedVector2Array(-263.5, -45.5, -201.5, -121.5, -83.5, -122.5, -16.5, -56.5, -17.5, 86.5, -86.5, 144.5, -212.5, 134.5, -266.5, 84.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=596120224]
+shape = SubResource("CircleShape2D_afpog")

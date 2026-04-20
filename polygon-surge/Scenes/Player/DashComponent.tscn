@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dmsr7i8ohvua"]
+
+[ext_resource type="Script" uid="uid://cfsyelnbrjfgm" path="res://Scenes/Player/DashComponent.gd" id="1_isvv6"]
+
+[node name="DashComponent" type="Node" unique_id=2092117696]
+script = ExtResource("1_isvv6")
+
+[node name="Timer" type="Timer" parent="." unique_id=17034778]
+wait_time = 0.5
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=638775883]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

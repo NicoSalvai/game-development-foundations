@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://caebnxl0o027g"]
+
+[ext_resource type="PackedScene" uid="uid://wui1h6f2snbs" path="res://Scenes/Player/Player.tscn" id="1_3ke2t"]
+[ext_resource type="PackedScene" uid="uid://d3n1cv7by487a" path="res://Scenes/Props/Pilar.tscn" id="2_v5l78"]
+
+[node name="LevelBase" type="Node2D" unique_id=1901084802]
+
+[node name="Player" parent="." unique_id=398367969 instance=ExtResource("1_3ke2t")]
+position = Vector2(369, 221)
+
+[node name="Pilar" parent="." unique_id=838872336 instance=ExtResource("2_v5l78")]
+position = Vector2(160, 100)
+scaling = 2.0
+
+[node name="Pilar2" parent="." unique_id=1607016537 instance=ExtResource("2_v5l78")]
+position = Vector2(739, 100)
+scaling = 2.0
+
+[node name="Pilar3" parent="." unique_id=1991199830 instance=ExtResource("2_v5l78")]
+position = Vector2(739, 441)
+scaling = 2.0
+
+[node name="Pilar4" parent="." unique_id=1657992163 instance=ExtResource("2_v5l78")]
+position = Vector2(176, 441)
+scaling = 2.0

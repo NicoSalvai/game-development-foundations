@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dnnyydny0hkso"]
+
+[ext_resource type="Script" uid="uid://3rw5dpryhal3" path="res://Scenes/Utils/DebugLabel.gd" id="1_2rbs6"]
+
+[node name="DebugLabel" type="Label" unique_id=199768765]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_2rbs6")
