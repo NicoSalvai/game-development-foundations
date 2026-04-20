@@ -4,3 +4,5 @@ enum ObjectType {
 	NONE,
 	PLAYER_BULLET
 }
+
+const PLAYER_GROUP: String = "Player"

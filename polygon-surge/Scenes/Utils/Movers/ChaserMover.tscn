@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://djtiaon75wvmx"]
+
+[ext_resource type="Script" uid="uid://ujdcq2pl7w46" path="res://Scenes/Utils/Movers/ChaserMover.gd" id="1_hf1qb"]
+
+[node name="ChaserMover" type="Node" unique_id=364690253]
+script = ExtResource("1_hf1qb")

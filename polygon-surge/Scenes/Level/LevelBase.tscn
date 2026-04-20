@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3n1cv7by487a" path="res://Scenes/Props/Pilar.tscn" id="2_v5l78"]
 [ext_resource type="PackedScene" uid="uid://cbwk2nckt6fk6" path="res://Scenes/Level/Components/ObjectFactory.tscn" id="4_dle53"]
 [ext_resource type="PackedScene" uid="uid://bnnxmdp6ty0r" path="res://Scenes/Level/Components/Pool.tscn" id="5_v5c15"]
+[ext_resource type="PackedScene" uid="uid://dmpbsbnjped72" path="res://Scenes/Enemies/EnemyChaser.tscn" id="6_v5c15"]
 
 [node name="LevelBase" type="Node2D" unique_id=1901084802]
 script = ExtResource("1_fs2k4")
@@ -12,23 +13,37 @@ script = ExtResource("1_fs2k4")
 [node name="Player" parent="." unique_id=398367969 instance=ExtResource("1_3ke2t")]
 position = Vector2(369, 221)
 
-[node name="Container" type="Node" parent="." unique_id=1536264001]
+[node name="TerrainContainer" type="Node" parent="." unique_id=1536264001]
 
-[node name="Pilar" parent="Container" unique_id=838872336 instance=ExtResource("2_v5l78")]
+[node name="Pilar" parent="TerrainContainer" unique_id=838872336 instance=ExtResource("2_v5l78")]
 position = Vector2(160, 100)
 scaling = 2.0
 
-[node name="Pilar2" parent="Container" unique_id=1607016537 instance=ExtResource("2_v5l78")]
+[node name="Pilar2" parent="TerrainContainer" unique_id=1607016537 instance=ExtResource("2_v5l78")]
 position = Vector2(739, 100)
 scaling = 2.0
 
-[node name="Pilar3" parent="Container" unique_id=1991199830 instance=ExtResource("2_v5l78")]
+[node name="Pilar3" parent="TerrainContainer" unique_id=1991199830 instance=ExtResource("2_v5l78")]
 position = Vector2(739, 441)
 scaling = 2.0
 
-[node name="Pilar4" parent="Container" unique_id=1657992163 instance=ExtResource("2_v5l78")]
+[node name="Pilar4" parent="TerrainContainer" unique_id=1657992163 instance=ExtResource("2_v5l78")]
 position = Vector2(176, 441)
 scaling = 2.0
+
+[node name="EnemyContainer" type="Node" parent="." unique_id=540027685]
+
+[node name="EnemyChaser" parent="EnemyContainer" unique_id=1755448434 instance=ExtResource("6_v5c15")]
+position = Vector2(256, 155)
+
+[node name="EnemyChaser2" parent="EnemyContainer" unique_id=1232003065 instance=ExtResource("6_v5c15")]
+position = Vector2(537, 143)
+
+[node name="EnemyChaser3" parent="EnemyContainer" unique_id=1462270927 instance=ExtResource("6_v5c15")]
+position = Vector2(539, 298)
+
+[node name="EnemyChaser4" parent="EnemyContainer" unique_id=1266985378 instance=ExtResource("6_v5c15")]
+position = Vector2(249, 307)
 
 [node name="ObjectFactory" parent="." unique_id=957719445 instance=ExtResource("4_dle53")]
 

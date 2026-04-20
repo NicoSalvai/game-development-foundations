@@ -8,6 +8,11 @@ extends CharacterBody2D
 @onready var visuals: Node2D = $Visuals
 @onready var front_shooter: ShooterComponent = $Visuals/FrontShooter
 @onready var debug_label: Label = $DebugLabel
+@onready var hp_component: HPComponent = $HPComponent
+
+
+func _ready() -> void:
+	add_to_group(Constants.PLAYER_GROUP)
 
 
 func _physics_process(delta: float) -> void:
@@ -35,3 +40,14 @@ func _debug() -> void:
 	debug_label.text += "\nCD (%.2f)" % [
 		dash_component.get_cooldown_time()
 	]
+	debug_label.text += "\nHP (%d), DEAD (%s)" % [
+		hp_component.current_hp, hp_component.is_dead()
+	]
+
+
+func _on_hurt_box_hitted(damage: int) -> void:
+	hp_component.take_damage(damage)
+
+
+func _on_hp_component_died() -> void:
+	Utils.debug_log("Player died", name) # TODO _on_died player

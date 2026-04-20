@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://smgoc7tayqna"]
+
+[ext_resource type="Script" uid="uid://bruk5pnat775" path="res://Scenes/Utils/Components/HpComponent.gd" id="1_8pees"]
+
+[node name="HPComponent" type="Node" unique_id=2138584141]
+script = ExtResource("1_8pees")

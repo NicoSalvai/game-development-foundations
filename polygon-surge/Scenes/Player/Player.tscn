@@ -6,11 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://if1gdocxscra" path="res://Scenes/Player/PlayerMover.tscn" id="3_ude3g"]
 [ext_resource type="PackedScene" uid="uid://dmsr7i8ohvua" path="res://Scenes/Player/Skills/DashComponent.tscn" id="4_jmcll"]
 [ext_resource type="PackedScene" uid="uid://dnnyydny0hkso" path="res://Scenes/Utils/DebugLabel.tscn" id="4_ude3g"]
+[ext_resource type="PackedScene" uid="uid://d1b75sd41gjye" path="res://Scenes/Utils/Components/HurtBox.tscn" id="7_fk5o5"]
+[ext_resource type="PackedScene" uid="uid://smgoc7tayqna" path="res://Scenes/Utils/Components/HpComponent.tscn" id="8_825xp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5o5"]
+size = Vector2(18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ax4"]
 
 [node name="Player" type="CharacterBody2D" unique_id=398367969]
-collision_layer = 0
+collision_layer = 32
+collision_mask = 33
+platform_floor_layers = 4294967263
 script = ExtResource("1_s0eop")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=115006832]
@@ -27,6 +34,14 @@ polygon = PackedVector2Array(3, -3, 10, -7, 10, 7, 3, 3)
 position = Vector2(9, 0)
 object_type = 1
 
+[node name="HurtBox" parent="Visuals" unique_id=1028250889 instance=ExtResource("7_fk5o5")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" unique_id=1781164078]
+shape = SubResource("RectangleShape2D_fk5o5")
+debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141131622]
 shape = SubResource("RectangleShape2D_l3ax4")
 
@@ -40,3 +55,8 @@ zoom = Vector2(1.35, 1.35)
 [node name="DashComponent" parent="." unique_id=2092117696 instance=ExtResource("4_jmcll")]
 
 [node name="DebugLabel" parent="." unique_id=199768765 instance=ExtResource("4_ude3g")]
+
+[node name="HPComponent" parent="." unique_id=2138584141 instance=ExtResource("8_825xp")]
+
+[connection signal="hitted" from="Visuals/HurtBox" to="." method="_on_hurt_box_hitted"]
+[connection signal="died" from="HPComponent" to="." method="_on_hp_component_died"]
