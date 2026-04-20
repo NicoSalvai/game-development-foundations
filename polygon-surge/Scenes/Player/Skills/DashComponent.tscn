@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmsr7i8ohvua"]
 
-[ext_resource type="Script" uid="uid://cfsyelnbrjfgm" path="res://Scenes/Player/DashComponent.gd" id="1_isvv6"]
+[ext_resource type="Script" uid="uid://cfsyelnbrjfgm" path="res://Scenes/Player/Skills/DashComponent.gd" id="1_isvv6"]
 
 [node name="DashComponent" type="Node" unique_id=2092117696]
 script = ExtResource("1_isvv6")

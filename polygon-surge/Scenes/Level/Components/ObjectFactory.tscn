@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cbwk2nckt6fk6"]
+
+[ext_resource type="Script" uid="uid://cjigkvqc8afis" path="res://Scenes/Level/Components/ObjectFactory.gd" id="1_dhe7e"]
+
+[node name="ObjectFactory" type="Node" unique_id=957719445]
+script = ExtResource("1_dhe7e")

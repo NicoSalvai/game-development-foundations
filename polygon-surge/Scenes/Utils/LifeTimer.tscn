@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dpj2nervghfuo"]
+
+[ext_resource type="Script" uid="uid://1jb4q4xronsi" path="res://Scenes/Utils/LifeTimer.gd" id="1_dwdxk"]
+
+[node name="LifeTimer" type="Timer" unique_id=452684243]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("1_dwdxk")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

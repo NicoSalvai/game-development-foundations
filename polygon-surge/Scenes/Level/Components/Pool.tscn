@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bnnxmdp6ty0r"]
+
+[ext_resource type="Script" uid="uid://dvjuyjt0e8ptu" path="res://Scenes/Level/Components/Pool.gd" id="1_gp8gq"]
+
+[node name="Pool" type="Node" unique_id=348025644]
+script = ExtResource("1_gp8gq")

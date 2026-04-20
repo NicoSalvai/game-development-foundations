@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dc5tyhaqp7syt"]
+
+[ext_resource type="Script" uid="uid://oyju1x6loct2" path="res://Scenes/Utils/Shooter/ShooterComponent.gd" id="1_y0jgk"]
+
+[node name="ShooterComponent" type="Node2D" unique_id=57505907]
+script = ExtResource("1_y0jgk")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=780936565]
+one_shot = true
+
+[connection signal="timeout" from="FireTimer" to="." method="_on_fire_timer_timeout"]

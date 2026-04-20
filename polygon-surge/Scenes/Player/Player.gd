@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var mover: PlayerMover = $PlayerMover
 @onready var dash_component: DashComponent = $DashComponent
 @onready var visuals: Node2D = $Visuals
+@onready var front_shooter: ShooterComponent = $Visuals/FrontShooter
 @onready var debug_label: Label = $DebugLabel
 
 
@@ -16,6 +17,7 @@ func _physics_process(delta: float) -> void:
 		mover.move(controller.direction, delta)
 	rotate_to()
 	move_and_slide()
+	front_shooter.shoot(controller.shoot_pressed)
 	_debug()
 
 

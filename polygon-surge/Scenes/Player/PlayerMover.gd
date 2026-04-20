@@ -25,5 +25,5 @@ func move(dir: Vector2, delta: float) -> void:
 			Vector2.ZERO,
 			FRICTION * delta
 		)
-	# This is here to clamp the velocity after a "Dash" -> Recondier if move is enabled during "dash"
+	# Clamp para evitar que velocidades externas (ej. dash) superen MAX_SPEED al retomar el movimiento
 	_body.velocity = _body.velocity.limit_length(MAX_SPEED)

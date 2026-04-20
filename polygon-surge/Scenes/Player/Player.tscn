@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://wui1h6f2snbs"]
 
 [ext_resource type="Script" uid="uid://c4ycp7l0jotfk" path="res://Scenes/Player/Player.gd" id="1_s0eop"]
+[ext_resource type="PackedScene" uid="uid://dc5tyhaqp7syt" path="res://Scenes/Utils/Shooter/ShooterComponent.tscn" id="2_4wape"]
 [ext_resource type="PackedScene" uid="uid://cyjcbrp4qlwfb" path="res://Scenes/Player/PlayerController.tscn" id="2_h54ih"]
 [ext_resource type="PackedScene" uid="uid://if1gdocxscra" path="res://Scenes/Player/PlayerMover.tscn" id="3_ude3g"]
-[ext_resource type="PackedScene" uid="uid://dmsr7i8ohvua" path="res://Scenes/Player/DashComponent.tscn" id="4_jmcll"]
+[ext_resource type="PackedScene" uid="uid://dmsr7i8ohvua" path="res://Scenes/Player/Skills/DashComponent.tscn" id="4_jmcll"]
 [ext_resource type="PackedScene" uid="uid://dnnyydny0hkso" path="res://Scenes/Utils/DebugLabel.tscn" id="4_ude3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ax4"]
@@ -22,10 +23,15 @@ polygon = PackedVector2Array(10, 10, 10, -10, -10, -10, -10, 10)
 color = Color(0.74509805, 0.58431375, 0.52156866, 1)
 polygon = PackedVector2Array(3, -3, 10, -7, 10, 7, 3, 3)
 
+[node name="FrontShooter" parent="Visuals" unique_id=57505907 instance=ExtResource("2_4wape")]
+position = Vector2(9, 0)
+object_type = 1
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141131622]
 shape = SubResource("RectangleShape2D_l3ax4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1767279332]
+zoom = Vector2(1.35, 1.35)
 
 [node name="PlayerController" parent="." unique_id=1542986333 instance=ExtResource("2_h54ih")]
 

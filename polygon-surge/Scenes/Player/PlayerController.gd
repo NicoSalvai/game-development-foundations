@@ -2,47 +2,45 @@ class_name PlayerController
 extends Node2D
 
 
-@export var action_left: StringName = "left"
-@export var action_right: StringName = "right"
-@export var action_up: StringName = "up"
-@export var action_down: StringName = "down"
-@export var action_look_left: StringName = "look_left"
-@export var action_look_right: StringName = "look_right"
-@export var action_look_up: StringName = "look_up"
-@export var action_look_down: StringName = "look_down"
-@export var action_dash: StringName = "dash"
-@export var stick_dead_zone: float = 0.4
-@export var stick_aim_radius: float = 300.0
+const STICK_DEAD_ZONE: float = 0.4
+const STICK_AIM_RADIUS: float = 300.0
+
+@export var player_controls: PlayerControls = PlayerControls.new()
 
 var direction: Vector2 = Vector2.ZERO
 var aim_target: Vector2 = Vector2.RIGHT
 var dash_pressed: bool = false
+var shoot_pressed: bool = false
+var _using_game_pad: bool = false
 
 var _last_stick: Vector2 = Vector2.RIGHT
 
 func _physics_process(_delta: float) -> void:
 	direction = _update_direction()
 	aim_target = _update_aim_target()
-	dash_pressed = Input.is_action_just_pressed(action_dash)
+	dash_pressed = Input.is_action_just_pressed(player_controls.action_dash)
+	shoot_pressed = Input.is_action_pressed(player_controls.action_shoot)
 
 
 func _update_direction() -> Vector2:
 	return Input.get_vector(
-		action_left, action_right,
-		action_up, action_down
+		player_controls.action_left, player_controls.action_right,
+		player_controls.action_up, player_controls.action_down
 	).normalized()
 
 
+# TODO: Review how to choose between gamepad and mouse
 func _update_aim_target() -> Vector2:
 	var stick := Input.get_vector(
-		action_look_left, action_look_right,
-		action_look_up, action_look_down
+		player_controls.action_look_left, player_controls.action_look_right,
+		player_controls.action_look_up, player_controls.action_look_down
 	)
-	if stick.length() > stick_dead_zone:
+	if stick.length() > STICK_DEAD_ZONE:
+		_using_game_pad = true
 		_last_stick = stick
-		return global_position + stick * stick_aim_radius
+		return global_position + stick * STICK_AIM_RADIUS
 	
-	if Input.get_last_mouse_velocity().length() > 0.0:
+	if !_using_game_pad || Input.get_last_mouse_velocity().length() > 0.0:
 		return get_global_mouse_position()
 	else:
-		return global_position + _last_stick * stick_aim_radius
+		return global_position + _last_stick * STICK_AIM_RADIUS
