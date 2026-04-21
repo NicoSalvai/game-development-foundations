@@ -1,6 +1,6 @@
 class_name Utils
 
-const DEBUG_LOG: bool = true
+const DEBUG_LOG: bool = false
 const DISABLED_COMPONENTS: Array[String] = [
 	"BulletPool"
 ]

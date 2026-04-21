@@ -113,4 +113,3 @@ look_down={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-environment/defaults/default_clear_color=Color(0.0105289165, 0.04238897, 0.076390974, 1)

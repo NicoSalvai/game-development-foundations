@@ -9,10 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://d1b75sd41gjye" path="res://Scenes/Utils/Components/HurtBox.tscn" id="7_fk5o5"]
 [ext_resource type="PackedScene" uid="uid://smgoc7tayqna" path="res://Scenes/Utils/Components/HpComponent.tscn" id="8_825xp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fk5o5"]
-size = Vector2(18, 18)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_825xp"]
+radius = 9.0
+height = 26.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3ax4"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk5o5"]
+radius = 8.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D" unique_id=398367969]
 collision_layer = 32
@@ -22,16 +25,8 @@ script = ExtResource("1_s0eop")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=115006832]
 
-[node name="Body" type="Polygon2D" parent="Visuals" unique_id=1663712671]
-color = Color(0.49411765, 0.3529412, 0.39215687, 1)
-polygon = PackedVector2Array(10, 10, 10, -10, -10, -10, -10, 10)
-
-[node name="Face" type="Polygon2D" parent="Visuals" unique_id=1651394154]
-color = Color(0.74509805, 0.58431375, 0.52156866, 1)
-polygon = PackedVector2Array(3, -3, 10, -7, 10, 7, 3, 3)
-
 [node name="FrontShooter" parent="Visuals" unique_id=57505907 instance=ExtResource("2_4wape")]
-position = Vector2(9, 0)
+position = Vector2(7, 0)
 object_type = 1
 
 [node name="HurtBox" parent="Visuals" unique_id=1028250889 instance=ExtResource("7_fk5o5")]
@@ -39,14 +34,74 @@ collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" unique_id=1781164078]
-shape = SubResource("RectangleShape2D_fk5o5")
+position = Vector2(-4, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_825xp")
 debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
 
+[node name="ArmorBack" type="Polygon2D" parent="Visuals" unique_id=753813836]
+color = Color(0.23921569, 0.16862746, 0.101960786, 1)
+polygon = PackedVector2Array(-18, 0, 0, 0, 0, -6)
+
+[node name="Outer" type="Polygon2D" parent="Visuals/ArmorBack" unique_id=1797441239]
+color = Color(0.47843137, 0.30980393, 0.18039216, 1)
+polygon = PackedVector2Array(-12, -6, -17, -1, -1, -6)
+
+[node name="ArmorBack2" type="Polygon2D" parent="Visuals" unique_id=880624756]
+color = Color(0.23921569, 0.16862746, 0.101960786, 1)
+polygon = PackedVector2Array(-18, 0, 0, 0, 0, 6)
+
+[node name="Outer" type="Polygon2D" parent="Visuals/ArmorBack2" unique_id=1038407610]
+color = Color(0.47843137, 0.30980393, 0.18039216, 1)
+polygon = PackedVector2Array(-12, 6, -17, 1, -1, 6)
+
+[node name="CoreStruct" type="Polygon2D" parent="Visuals" unique_id=1958709433]
+color = Color(0.78431374, 0.5176471, 0.22745098, 1)
+polygon = PackedVector2Array(9, 0, -9, -8, -9, 8)
+
+[node name="Core" type="Polygon2D" parent="Visuals/CoreStruct" unique_id=1566500924]
+color = Color(0.9529412, 0.92156863, 0.83137256, 1)
+polygon = PackedVector2Array(7, 0, -7, -6, -7, 6)
+
+[node name="TopArmor" type="Polygon2D" parent="Visuals" unique_id=155019715]
+color = Color(0.78431374, 0.5176471, 0.22745098, 1)
+polygon = PackedVector2Array(2, 1, -9, 7, -9, 1)
+
+[node name="Lower" type="Polygon2D" parent="Visuals/TopArmor" unique_id=1900132938]
+color = Color(0.47843137, 0.30980393, 0.18039216, 1)
+polygon = PackedVector2Array(3, 0, -10, 7, -10, 0)
+
+[node name="TopArmor2" type="Polygon2D" parent="Visuals" unique_id=222200746]
+color = Color(0.78431374, 0.5176471, 0.22745098, 1)
+polygon = PackedVector2Array(2, -1, -9, -8, -9, -1)
+
+[node name="Lower" type="Polygon2D" parent="Visuals/TopArmor2" unique_id=645298836]
+color = Color(0.47843137, 0.30980393, 0.18039216, 1)
+polygon = PackedVector2Array(3, 0, -10, -7, -10, 0)
+
+[node name="Outside" type="Polygon2D" parent="Visuals" unique_id=1386229074]
+color = Color(0.23921569, 0.16862746, 0.101960786, 1)
+polygon = PackedVector2Array(6, -3, -2, -10, -9, -10)
+
+[node name="In" type="Polygon2D" parent="Visuals/Outside" unique_id=546032366]
+color = Color(0.47843137, 0.30980393, 0.18039216, 1)
+polygon = PackedVector2Array(6, -2, -2, -9, -9, -9)
+
+[node name="Outside2" type="Polygon2D" parent="Visuals" unique_id=972148489]
+color = Color(0.23921569, 0.16862746, 0.101960786, 1)
+polygon = PackedVector2Array(6, 3, -2, 10, -9, 10)
+
+[node name="In" type="Polygon2D" parent="Visuals/Outside2" unique_id=324246408]
+color = Color(0.47843137, 0.30980393, 0.18039216, 1)
+polygon = PackedVector2Array(6, 2, -2, 9, -9, 9)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141131622]
-shape = SubResource("RectangleShape2D_l3ax4")
+position = Vector2(-4, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fk5o5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1767279332]
-zoom = Vector2(1.35, 1.35)
+zoom = Vector2(1.5, 1.5)
 
 [node name="PlayerController" parent="." unique_id=1542986333 instance=ExtResource("2_h54ih")]
 

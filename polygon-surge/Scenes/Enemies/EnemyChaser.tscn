@@ -21,14 +21,23 @@ script = ExtResource("2_yywfa")
 max_hp = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="0" unique_id=608805781]
-color = Color(0.39607844, 0.39607844, 0.67058825, 1)
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
 polygon = PackedVector2Array(-9, -7, 3, -8, 10, 0, 3, 8, -9, 7)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" parent_id_path=PackedInt32Array(1028250889) index="0" unique_id=594690491]
+[node name="Polygon2D2" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="1" unique_id=471953156]
+position = Vector2(6, 0)
+color = Color(0.9481195, 1.2742168, 0.706017, 1)
+polygon = PackedVector2Array(-5, -4, -1, -6, 4, 0, -1, 6, -5, 4)
+
+[node name="HurtBox" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="2" unique_id=1028250889]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" index="0" unique_id=594690491]
 shape = SubResource("CircleShape2D_xqj6x")
 debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
 
-[node name="HitBox" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="2" unique_id=1224883489 instance=ExtResource("3_xqj6x")]
+[node name="HitBox" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="3" unique_id=1224883489 instance=ExtResource("3_xqj6x")]
+visible = false
 collision_layer = 8
 collision_mask = 4
 
@@ -38,6 +47,7 @@ shape = SubResource("CircleShape2D_vhit2")
 debug_color = Color(0.28388393, 0.6264108, 0.22553158, 0.41960785)
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1428841236]
+visible = false
 shape = SubResource("CircleShape2D_fgfw2")
 
 [node name="ChaserMover" parent="." index="3" unique_id=364690253 instance=ExtResource("3_fgfw2")]
