@@ -26,6 +26,7 @@
 - El Pool conoce a la Factory, no al revés. Pool gestiona ciclo de vida; Factory solo instancia.
 - Un Pool por tipo de objeto. `LevelBase` despacha por `ObjectType` — agregar un nuevo Pool es trivial.
 - Los objetos poolables implementan `activate` / `deactivate`. La Factory los trata igual.
+- Los objetos no poolables (partículas, efectos one-shot) también pasan por `ObjectFactory` via `SignalHub.create_object` — `LevelBase` los despacha directo a `create_and_add` si no tienen Pool registrado.
 
 ### HitBox / HurtBox
 - `HitBox` inflige daño, `HurtBox` lo recibe.
@@ -77,7 +78,7 @@
 
 ### Animaciones
 - Idle descartado — no va con la estética frenética del juego.
-- Animación de muerte movida a Fase 2.3 junto a partículas — requiere explosión de fragmentos con glow.
+- Animación de muerte geométrica diferida a Fase 5 (Boss) — fragmentos reales tienen más sentido en un enemigo importante.
 
 ### Feedback visual de daño — Chaser
 - Sistema de 3 estados vinculado al HP (max_hp subido a 3).
@@ -94,6 +95,8 @@
 - Implementado en `PlayerDamageVisuals.gd` — script dedicado hijo de Visuals.
 - Reveal via Tween de modulate.a (0→1 en 0.08s) — sin hit flash, la grieta es el feedback.
 - Hit flash, camera shake y SFX pendientes → Fase 2.3.
+
+---
 
 ## FASE 2.2 — Juice de Movimiento
 
@@ -120,4 +123,46 @@
 - La dirección del dash se convierte a espacio local de `Visuals` via `to_local(global_position + dash_direction).normalized()` — necesario porque `Visuals` rota hacia el aim.
 - Factor de separación uniforme para todas las piezas — la separación escalonada por pieza resultó en demasiado ruido visual.
 - `DashComponent.try_dash()` retorna `bool` para que el Player sepa si el dash fue exitoso y active los visuales.
-- Las partículas de dash se evalúan en Fase 2.3 junto al resto de partículas — la separación de polígonos es la base, las partículas van a ser la capa que termina de leer la velocidad.
+
+---
+
+## FASE 2.3 — Juice de Impacto
+
+### Audio — SFX
+- SFX generados con sfxr.me (jsfxr) — estética retro sintetizada, sin assets externos.
+- Un `AudioStreamPlayer2D` por evento, como hijo directo del nodo que produce el sonido.
+- Audio posicional sobre centralizado (AudioManager descartado) — con cámara que sigue al player el panning agrega información espacial válida.
+- `EnemyBase` tiene los SFX base (hurt). Cada subclase puede sobreescribir con sus propios nodos.
+- SFX de muerte del player usan `process_mode = PROCESS_MODE_ALWAYS` — necesitan sonar con el árbol pausado.
+- Música como `AudioStreamPlayer` (no 2D) — loop frenético electrónico/sintetizado.
+
+### Screen Shake — Trauma System
+- Trauma acumulable (0.0 a 1.0), el shake se calcula como `trauma²` — curva de decay más natural que lineal.
+- Decay lineal por delta — el trauma baja solo con el tiempo.
+- El offset de shake se suma al offset de lead **después** del lerp — si se mezclan antes, el lerp amortigua el shake y se vuelve imperceptible.
+- Eventos y valores: disparo → 0.08, daño recibido → 0.40, muerte del player → 0.8.
+- Solo en eventos del player — impacto en enemigo y muerte de enemigo no generan shake (decisión de diseño: el shake comunica consecuencias para el jugador, no daño infligido).
+
+### Partículas — Arquitectura
+- Todas las partículas pasan por `SignalHub.create_object` → `LevelBase` → `ObjectFactory.create_and_add`.
+- Las partículas nacen como hijos del Level, no del nodo que las crea — resuelve el problema de lifetime cuando el nodo padre hace `queue_free()`.
+- Contrato de `activate(pos, dir)` — igual que los objetos poolables pero sin `deactivate()`. Se auto-destruyen con `queue_free()` al terminar (`finished` signal).
+- `ObjectType` nuevo por cada efecto de partícula — sin Pool registrado, van directo a `create_and_add`.
+
+### Partículas — Decisiones por efecto
+- **Impacto genérico de bala:** dirección opuesta al impacto (`(-dir).angle()`). Color PLAYER_ACCENT. Se emite en `Bullet._on_hit_box_hitted` antes de `deactivate()`.
+- **Impacto en enemigo:** dos tipos según HP — `ENEMY_HIT_ARMOR` (HP > 1) y `ENEMY_HIT_CORE` (HP == 1). Lógica en `ChaserDamageVisuals` — no en `EnemyBase` porque cada enemigo tiene su propio umbral de HP.
+- **Muerte de enemigo:** omnidireccional, mezcla armadura + core en una sola escena con dos `GPUParticles2D`. Se emite en `EnemyBase._on_died` antes de `queue_free()`.
+- **Dash:** dirección opuesta al movimiento. `Transform Align: Rotation` en el material para que la textura (línea) se alinee a la dirección de cada partícula.
+
+### Animación de muerte — Player
+- Flujo: HP = 0 → `_is_dead = true` (bloquea physics/input) → shake → vibración + glow exponencial del core → explosión de fragmentos → `queue_free()` → `get_tree().paused = true`.
+- Vibración implementada con Tween (offsets aleatorios en runtime) — AnimationPlayer no puede expresar direcciones calculadas dinámicamente.
+- Glow del core sube exponencialmente durante la vibración via Tween paralelo (`TRANS_EXPO + EASE_IN`).
+- Explosión: cada fragmento vuela en dirección radial calculada en runtime + fade a 0.
+- `get_tree().paused` se ejecuta después de que termina la animación — el callable se pasa como parámetro a `play_death()`.
+- Game Over UI diferida — por ahora solo pausa. El cartel se implementa cuando se diseñe el flujo de meta.
+
+### Freeze Frame y animación de muerte geométrica
+- Freeze frame diferido a Fase 5 — no hay enemigos importantes para aplicarlo aún.
+- Fragmentos geométricos reales (polígonos volando) diferidos a Fase 5 (Boss) — overkill para el Chaser básico con el feedback que ya tiene.
