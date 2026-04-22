@@ -7,10 +7,11 @@ radius = 2.0
 height = 10.0
 
 [node name="PlayerBullet" unique_id=377556581 instance=ExtResource("1_4i7jm")]
+speed = 750.0
 object_type = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(694727937) index="0" unique_id=337824241]
-color = Color(0.9529412, 0.92156863, 0.83137256, 1)
+color = Color(1.8247963, 1.7688968, 1.5942107, 1)
 polygon = PackedVector2Array(6, 0, -5, -3, -2, 0, -5, 3)
 
 [node name="HitBox" parent="." index="2" unique_id=1224883489]

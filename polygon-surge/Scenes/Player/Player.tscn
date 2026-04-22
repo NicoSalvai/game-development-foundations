@@ -6,11 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://if1gdocxscra" path="res://Scenes/Player/PlayerMover.tscn" id="3_ude3g"]
 [ext_resource type="PackedScene" uid="uid://gm5xuw3rk0tc" path="res://Scenes/Player/PlayerDamageVisuals.tscn" id="4_825xp"]
 [ext_resource type="PackedScene" uid="uid://dmsr7i8ohvua" path="res://Scenes/Player/Skills/DashComponent.tscn" id="4_jmcll"]
-[ext_resource type="PackedScene" uid="uid://dnnyydny0hkso" path="res://Scenes/Utils/DebugLabel.tscn" id="4_ude3g"]
+[ext_resource type="Script" uid="uid://bb66oep5t3xgw" path="res://Scenes/Player/DashVisuals.gd" id="5_i5acl"]
 [ext_resource type="Script" uid="uid://dofdmhncj28xb" path="res://Scenes/Player/Camera.gd" id="5_ji083"]
 [ext_resource type="PackedScene" uid="uid://d1b75sd41gjye" path="res://Scenes/Utils/Components/HurtBox.tscn" id="7_fk5o5"]
 [ext_resource type="PackedScene" uid="uid://smgoc7tayqna" path="res://Scenes/Utils/Components/HpComponent.tscn" id="8_825xp"]
 [ext_resource type="PackedScene" uid="uid://b7s4o383xmucd" path="res://Scenes/Utils/Components/KnockbackComponent.tscn" id="11_0kmp4"]
+[ext_resource type="AudioStream" uid="uid://cv6yk07pso613" path="res://Assets/Audio/shoot.wav" id="13_esmjy"]
+[ext_resource type="AudioStream" uid="uid://cg7k457hn6xxt" path="res://Assets/Audio/dash.wav" id="14_6tu5v"]
+[ext_resource type="AudioStream" uid="uid://dmnmgb335lu8y" path="res://Assets/Audio/player_hurt.wav" id="15_spxdj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_825xp"]
 radius = 18.0
@@ -259,6 +262,9 @@ debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
 
 [node name="PlayerDamageVisuals" parent="Visuals" unique_id=1556685767 instance=ExtResource("4_825xp")]
 
+[node name="DashVisuals" type="Node2D" parent="Visuals" unique_id=1730332240]
+script = ExtResource("5_i5acl")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141131622]
 shape = SubResource("CircleShape2D_0kmp4")
 
@@ -273,8 +279,6 @@ move_lead_strength = 20.0
 
 [node name="DashComponent" parent="." unique_id=2092117696 instance=ExtResource("4_jmcll")]
 
-[node name="DebugLabel" parent="." unique_id=199768765 instance=ExtResource("4_ude3g")]
-
 [node name="HPComponent" parent="." unique_id=2138584141 instance=ExtResource("8_825xp")]
 max_hp = 5
 
@@ -282,6 +286,15 @@ max_hp = 5
 libraries/ = SubResource("AnimationLibrary_825xp")
 
 [node name="KnockbackComponent" parent="." unique_id=97190883 instance=ExtResource("11_0kmp4")]
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=385906772]
+stream = ExtResource("13_esmjy")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=102602724]
+stream = ExtResource("14_6tu5v")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1603943968]
+stream = ExtResource("15_spxdj")
 
 [connection signal="hitted" from="Visuals/HurtBox" to="." method="_on_hurt_box_hitted"]
 [connection signal="died" from="HPComponent" to="." method="_on_hp_component_died"]

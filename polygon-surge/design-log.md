@@ -94,3 +94,30 @@
 - Implementado en `PlayerDamageVisuals.gd` — script dedicado hijo de Visuals.
 - Reveal via Tween de modulate.a (0→1 en 0.08s) — sin hit flash, la grieta es el feedback.
 - Hit flash, camera shake y SFX pendientes → Fase 2.3.
+
+## FASE 2.2 — Juice de Movimiento
+
+### Camera Lead
+- Blend de aim + movimiento con prioridad en aim — muestra el área tácticamente relevante.
+- El Player calcula la dirección y empuja los datos a la cámara via `camera.update_lead(aim_direction, move_direction)` — la cámara no accede al Player.
+- `aim_direction` se calcula como `(controller.aim_target - global_position).normalized()`.
+- Parámetros exportados: `aim_lead_strength`, `move_lead_strength`, `lerp_speed` — tuneables desde inspector.
+
+### HurtBox — extensión de señal
+- La señal `hitted` se extendió a `hitted(damage: int, source_position: Vector2)`.
+- `source_position` se toma de `area.global_position` directamente en `_on_area_entered` — HitBox no necesita cambios.
+- Decisión: toda la info del golpe viaja junta en la señal, preparado para SFX direccional y partículas de impacto en Fase 2.3.
+
+### Knockback — solo Player
+- `KnockbackComponent` como nodo hijo del Player — no se implementó en enemigos por ahora.
+- Decay via `_physics_process` con `move_toward` — lineal pero tuneable, más simple que Tween y suficiente.
+- Compite con el movimiento normal — el mover sigue activo, el impulso decae naturalmente sobre la velocity.
+- El dash cancela el knockback — le da agencia al jugador para escapar del hitstun.
+- Parámetros exportados: `impulse_strength`, `decay`.
+
+### Dash Visuals — separación de polígonos
+- Al dashear, todos los polígonos de `Visuals` se desplazan uniformemente en la dirección del dash y vuelven con overshoot (`TRANS_BACK + EASE_OUT`).
+- La dirección del dash se convierte a espacio local de `Visuals` via `to_local(global_position + dash_direction).normalized()` — necesario porque `Visuals` rota hacia el aim.
+- Factor de separación uniforme para todas las piezas — la separación escalonada por pieza resultó en demasiado ruido visual.
+- `DashComponent.try_dash()` retorna `bool` para que el Player sepa si el dash fue exitoso y active los visuales.
+- Las partículas de dash se evalúan en Fase 2.3 junto al resto de partículas — la separación de polígonos es la base, las partículas van a ser la capa que termina de leer la velocidad.

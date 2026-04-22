@@ -27,12 +27,5 @@ func rotate_to() -> void:
 
 
 func _on_hurt_box_hitted(damage: int, _source_position: Vector2) -> void:
-	hp_component.take_damage(damage)
+	super(damage, _source_position)
 	chaser_damage_visuals.on_damaged(hp_component.current_hp)
-
-
-func _debug() -> void:
-	super()
-	debug_label.text += "D (%.2f,%.2f), V (%.0f,%.0f)" % [
-		chaser_mover.direction.x, chaser_mover.direction.y, velocity.x, velocity.y
-	]	

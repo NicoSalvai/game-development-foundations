@@ -7,12 +7,15 @@ extends CharacterBody2D
 @onready var dash_component: DashComponent = $DashComponent
 @onready var visuals: Node2D = $Visuals
 @onready var front_shooter: ShooterComponent = $Visuals/FrontShooter
-@onready var debug_label: Label = $DebugLabel
 @onready var hp_component: HPComponent = $HPComponent
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_visuals: PlayerDamageVisuals = $Visuals/PlayerDamageVisuals
 @onready var camera: Camera2D = $Camera2D
 @onready var knockback_component: KnockbackComponent = $KnockbackComponent
+@onready var dash_visuals: DashVisuals = $Visuals/DashVisuals
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
+@onready var dash_sound: AudioStreamPlayer2D = $DashSound
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 
 
 func _ready() -> void:
@@ -21,8 +24,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if controller.dash_pressed:
-		dash_component.try_dash(controller.direction)
-		knockback_component.cancel()
+		if dash_component.try_dash(controller.direction):
+			dash_sound.play()
+			dash_visuals.play_dash(controller.direction)
+			knockback_component.cancel()
 	if not dash_component.is_dashing:
 		mover.move(controller.direction, delta)
 	velocity += knockback_component.get_velocity()
@@ -31,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	_update_camera()
 	if front_shooter.shoot(controller.shoot_pressed):
 		animation_player.play("shoot")
-	_debug()
+		shoot_sound.play()
 
 
 func _update_camera() -> void:
@@ -43,22 +48,8 @@ func rotate_to() -> void:
 	visuals.look_at(controller.aim_target)
 
 
-func _debug() -> void:
-	debug_label.text = "D (%.2f,%.2f), V (%.0f,%.0f)" % [
-		controller.direction.x, controller.direction.y, velocity.x, velocity.y
-	]
-	debug_label.text += "\nAT (%.0f,%.0f)" % [
-		controller.aim_target.x, controller.aim_target.y
-	]
-	debug_label.text += "\nCD (%.2f)" % [
-		dash_component.get_cooldown_time()
-	]
-	debug_label.text += "\nHP (%d), DEAD (%s)" % [
-		hp_component.current_hp, hp_component.is_dead()
-	]
-
-
 func _on_hurt_box_hitted(damage: int, source_position: Vector2) -> void:
+	hurt_sound.play()
 	hp_component.take_damage(damage)
 	damage_visuals.on_damaged(hp_component.current_hp)
 	Utils.debug_log("Player hp %s" % hp_component.current_hp, name)

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var hp_component: HPComponent = $HPComponent
 @onready var hurt_box: HurtBox = $Visuals/HurtBox
 @onready var debug_label: DebugLabel = $DebugLabel
+@onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
 
 
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 
 func _on_hurt_box_hitted(damage: int, _source_position: Vector2) -> void:
 	hp_component.take_damage(damage)
+	hurt_sound.play()
 
 
 func _on_died() -> void:

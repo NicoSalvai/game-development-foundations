@@ -22,15 +22,15 @@ func _ready() -> void:
 	cooldown_timer.one_shot = true
 
 
-func try_dash(direction: Vector2) -> void:
+func try_dash(direction: Vector2) -> bool:
 	if not can_dash or direction == Vector2.ZERO:
-		return
+		return false
 
 	is_dashing = true
 	can_dash = false
 	_body.velocity = direction * dash_speed
 	timer.start()
-
+	return true
 
 func _on_cooldown_timer_timeout() -> void:
 	can_dash = true
