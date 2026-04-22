@@ -7,16 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://gm5xuw3rk0tc" path="res://Scenes/Player/PlayerDamageVisuals.tscn" id="4_825xp"]
 [ext_resource type="PackedScene" uid="uid://dmsr7i8ohvua" path="res://Scenes/Player/Skills/DashComponent.tscn" id="4_jmcll"]
 [ext_resource type="PackedScene" uid="uid://dnnyydny0hkso" path="res://Scenes/Utils/DebugLabel.tscn" id="4_ude3g"]
+[ext_resource type="Script" uid="uid://dofdmhncj28xb" path="res://Scenes/Player/Camera.gd" id="5_ji083"]
 [ext_resource type="PackedScene" uid="uid://d1b75sd41gjye" path="res://Scenes/Utils/Components/HurtBox.tscn" id="7_fk5o5"]
 [ext_resource type="PackedScene" uid="uid://smgoc7tayqna" path="res://Scenes/Utils/Components/HpComponent.tscn" id="8_825xp"]
+[ext_resource type="PackedScene" uid="uid://b7s4o383xmucd" path="res://Scenes/Utils/Components/KnockbackComponent.tscn" id="11_0kmp4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_825xp"]
 radius = 18.0
 height = 52.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk5o5"]
-radius = 16.0
-height = 52.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kmp4"]
+radius = 18.0
 
 [sub_resource type="Animation" id="Animation_825xp"]
 length = 0.001
@@ -259,11 +260,12 @@ debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
 [node name="PlayerDamageVisuals" parent="Visuals" unique_id=1556685767 instance=ExtResource("4_825xp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141131622]
-position = Vector2(-8, 0)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_fk5o5")
+shape = SubResource("CircleShape2D_0kmp4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1767279332]
+script = ExtResource("5_ji083")
+aim_lead_strength = 50.0
+move_lead_strength = 20.0
 
 [node name="PlayerController" parent="." unique_id=1542986333 instance=ExtResource("2_h54ih")]
 
@@ -278,6 +280,8 @@ max_hp = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=35956219]
 libraries/ = SubResource("AnimationLibrary_825xp")
+
+[node name="KnockbackComponent" parent="." unique_id=97190883 instance=ExtResource("11_0kmp4")]
 
 [connection signal="hitted" from="Visuals/HurtBox" to="." method="_on_hurt_box_hitted"]
 [connection signal="died" from="HPComponent" to="." method="_on_hp_component_died"]

@@ -11,7 +11,7 @@ func _ready() -> void:
 	hurt_box.hitted.connect(_on_hurt_box_hitted)
 
 
-func _on_hurt_box_hitted(damage: int) -> void:
+func _on_hurt_box_hitted(damage: int, _source_position: Vector2) -> void:
 	hp_component.take_damage(damage)
 
 

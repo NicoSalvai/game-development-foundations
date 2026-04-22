@@ -51,16 +51,31 @@ scaling = 2.0
 [node name="EnemyContainer" type="Node" parent="." unique_id=540027685]
 
 [node name="EnemyChaser" parent="EnemyContainer" unique_id=1755448434 instance=ExtResource("6_v5c15")]
-position = Vector2(256, 155)
+position = Vector2(101, 73)
 
-[node name="EnemyChaser2" parent="EnemyContainer" unique_id=1232003065 instance=ExtResource("6_v5c15")]
-position = Vector2(537, 143)
+[node name="EnemyChaser2" parent="EnemyContainer" unique_id=1064256238 instance=ExtResource("6_v5c15")]
+position = Vector2(281, 63)
 
-[node name="EnemyChaser3" parent="EnemyContainer" unique_id=1462270927 instance=ExtResource("6_v5c15")]
-position = Vector2(539, 298)
+[node name="EnemyChaser3" parent="EnemyContainer" unique_id=1617681339 instance=ExtResource("6_v5c15")]
+position = Vector2(398, 59)
 
-[node name="EnemyChaser4" parent="EnemyContainer" unique_id=1266985378 instance=ExtResource("6_v5c15")]
-position = Vector2(249, 307)
+[node name="EnemyChaser4" parent="EnemyContainer" unique_id=1881169238 instance=ExtResource("6_v5c15")]
+position = Vector2(529, 57)
+
+[node name="EnemyChaser5" parent="EnemyContainer" unique_id=524958295 instance=ExtResource("6_v5c15")]
+position = Vector2(673, 63)
+
+[node name="EnemyChaser6" parent="EnemyContainer" unique_id=680614988 instance=ExtResource("6_v5c15")]
+position = Vector2(804, 75)
+
+[node name="EnemyChaser7" parent="EnemyContainer" unique_id=1538108143 instance=ExtResource("6_v5c15")]
+position = Vector2(874, 136)
+
+[node name="EnemyChaser8" parent="EnemyContainer" unique_id=1967575776 instance=ExtResource("6_v5c15")]
+position = Vector2(914, 202)
+
+[node name="EnemyChaser9" parent="EnemyContainer" unique_id=1274484071 instance=ExtResource("6_v5c15")]
+position = Vector2(50, 159)
 
 [node name="ObjectFactory" parent="." unique_id=957719445 instance=ExtResource("4_dle53")]
 

@@ -97,3 +97,4 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_vhit2")
 
 [node name="ChaserMover" parent="." index="3" unique_id=364690253 instance=ExtResource("3_fgfw2")]
+max_speed = 200.0
