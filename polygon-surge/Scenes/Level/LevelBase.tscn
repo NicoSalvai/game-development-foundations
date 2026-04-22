@@ -7,6 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://cbwk2nckt6fk6" path="res://Scenes/Level/Components/ObjectFactory.tscn" id="4_dle53"]
 [ext_resource type="PackedScene" uid="uid://bnnxmdp6ty0r" path="res://Scenes/Level/Components/Pool.tscn" id="5_v5c15"]
 [ext_resource type="PackedScene" uid="uid://dmpbsbnjped72" path="res://Scenes/Enemies/EnemyChaser/EnemyChaser.tscn" id="6_v5c15"]
+[ext_resource type="AudioStream" uid="uid://buqt6xle5oy4n" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Intro.ogg" id="8_kt428"]
+[ext_resource type="AudioStream" uid="uid://divrs3xxqaju7" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Loop.ogg" id="9_6ehlo"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yeolc"]
+stream_count = 2
+stream_0 = ExtResource("8_kt428")
+stream_1 = ExtResource("9_6ehlo")
 
 [node name="LevelBase" type="Node2D" unique_id=1901084802]
 script = ExtResource("1_fs2k4")
@@ -83,3 +90,8 @@ position = Vector2(50, 159)
 
 [node name="BulletPool" parent="." unique_id=348025644 instance=ExtResource("5_v5c15")]
 object_type = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=757781651]
+stream = SubResource("AudioStreamPlaylist_yeolc")
+volume_db = -7.965
+autoplay = true

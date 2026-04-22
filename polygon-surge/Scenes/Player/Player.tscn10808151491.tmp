@@ -15,8 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://cv6yk07pso613" path="res://Assets/Audio/shoot.wav" id="13_esmjy"]
 [ext_resource type="AudioStream" uid="uid://cg7k457hn6xxt" path="res://Assets/Audio/dash.wav" id="14_6tu5v"]
 [ext_resource type="AudioStream" uid="uid://dmnmgb335lu8y" path="res://Assets/Audio/player_hurt.wav" id="15_spxdj"]
-[ext_resource type="AudioStream" uid="uid://uvtah3jd0j8f" path="res://Assets/Audio/player_death.wav" id="16_spxdj"]
-[ext_resource type="AudioStream" uid="uid://dkcxw0eqscabw" path="res://Assets/Audio/player_explosion.wav" id="17_0objx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_825xp"]
 radius = 18.0
@@ -158,13 +156,6 @@ _data = {
 &"RESET": SubResource("Animation_825xp"),
 &"shoot": SubResource("Animation_fk5o5")
 }
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_esmjy"]
-loop = false
-fade_time = 0.0
-stream_count = 2
-stream_0 = ExtResource("16_spxdj")
-stream_1 = ExtResource("17_0objx")
 
 [node name="Player" type="CharacterBody2D" unique_id=398367969]
 collision_layer = 32
@@ -308,9 +299,6 @@ stream = ExtResource("14_6tu5v")
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1603943968]
 stream = ExtResource("15_spxdj")
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=2135995012]
-stream = SubResource("AudioStreamPlaylist_esmjy")
 
 [connection signal="hitted" from="Visuals/HurtBox" to="." method="_on_hurt_box_hitted"]
 [connection signal="died" from="HPComponent" to="." method="_on_hp_component_died"]

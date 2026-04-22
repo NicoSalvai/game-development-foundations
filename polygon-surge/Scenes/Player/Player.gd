@@ -16,6 +16,11 @@ extends CharacterBody2D
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 @onready var dash_sound: AudioStreamPlayer2D = $DashSound
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
+@onready var player_death_visuals: PlayerDeathVisuals = $Visuals/PlayerDeathVisuals
+@onready var hurt_box: HurtBox = $Visuals/HurtBox
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+
+var _is_dead: bool = false
 
 
 func _ready() -> void:
@@ -23,6 +28,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _is_dead:
+		return
 	if controller.dash_pressed:
 		if dash_component.try_dash(controller.direction):
 			dash_sound.play()
@@ -61,4 +68,11 @@ func _on_hurt_box_hitted(damage: int, source_position: Vector2) -> void:
 
 
 func _on_hp_component_died() -> void:
-	Utils.debug_log("Player died", name) # TODO _on_died player
+	death_sound.play()
+	_is_dead = true
+	hurt_box.monitorable = true
+	hurt_box.monitoring = true
+	camera.add_trauma(1)
+	player_death_visuals.play_death(func():
+		get_tree().paused = true
+	)
