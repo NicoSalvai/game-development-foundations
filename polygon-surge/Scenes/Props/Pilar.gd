@@ -5,6 +5,7 @@ extends StaticBody2D
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var polygon_2d: Polygon2D = $Polygon2D
+@onready var light_occluder_2d: LightOccluder2D = $LightOccluder2D
 
 func _ready() -> void:
 	collision_shape_2d.shape.radius *= scaling
@@ -12,3 +13,4 @@ func _ready() -> void:
 	for i in polygon.size():
 		polygon.set(i, polygon[i] * scaling)
 	polygon_2d.polygon = polygon
+	light_occluder_2d.occluder.polygon = polygon

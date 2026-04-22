@@ -70,8 +70,8 @@ func _on_hurt_box_hitted(damage: int, source_position: Vector2) -> void:
 func _on_hp_component_died() -> void:
 	death_sound.play()
 	_is_dead = true
-	hurt_box.monitorable = true
-	hurt_box.monitoring = true
+	hurt_box.set_deferred("monitorable", false)
+	hurt_box.set_deferred("monitoring", false)
 	camera.add_trauma(1)
 	player_death_visuals.play_death(func():
 		get_tree().paused = true

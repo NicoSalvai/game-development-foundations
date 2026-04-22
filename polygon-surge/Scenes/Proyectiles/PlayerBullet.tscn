@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0au5nli0obss"]
 
 [ext_resource type="PackedScene" uid="uid://dkcrk51thc1in" path="res://Scenes/Proyectiles/Bullet.tscn" id="1_4i7jm"]
+[ext_resource type="Texture2D" uid="uid://b10rpn0nj3mch" path="res://Assets/FX/flare_01.png" id="2_rj5bo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4i7jm"]
 radius = 2.0
@@ -21,3 +22,9 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=105932401]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_4i7jm")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4" unique_id=537733609]
+color = Color(0.9529412, 0.92156863, 0.83137256, 1)
+energy = 5.0
+texture = ExtResource("2_rj5bo")
+texture_scale = 0.5
