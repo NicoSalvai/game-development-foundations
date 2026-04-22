@@ -3,14 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dkcrk51thc1in" path="res://Scenes/Proyectiles/Bullet.tscn" id="1_4i7jm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4i7jm"]
-radius = 1.0
-height = 6.0
+radius = 2.0
+height = 10.0
 
 [node name="PlayerBullet" unique_id=377556581 instance=ExtResource("1_4i7jm")]
 object_type = 1
 
 [node name="Polygon2D" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(694727937) index="0" unique_id=337824241]
-polygon = PackedVector2Array(3, 0, -3, -2, -3, 2)
+color = Color(0.9529412, 0.92156863, 0.83137256, 1)
+polygon = PackedVector2Array(6, 0, -5, -3, -2, 0, -5, 3)
 
 [node name="HitBox" parent="." index="2" unique_id=1224883489]
 collision_layer = 2

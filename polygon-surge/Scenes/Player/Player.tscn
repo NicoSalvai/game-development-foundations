@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dc5tyhaqp7syt" path="res://Scenes/Utils/Shooter/ShooterComponent.tscn" id="2_4wape"]
 [ext_resource type="PackedScene" uid="uid://cyjcbrp4qlwfb" path="res://Scenes/Player/PlayerController.tscn" id="2_h54ih"]
 [ext_resource type="PackedScene" uid="uid://if1gdocxscra" path="res://Scenes/Player/PlayerMover.tscn" id="3_ude3g"]
+[ext_resource type="PackedScene" uid="uid://gm5xuw3rk0tc" path="res://Scenes/Player/PlayerDamageVisuals.tscn" id="4_825xp"]
 [ext_resource type="PackedScene" uid="uid://dmsr7i8ohvua" path="res://Scenes/Player/Skills/DashComponent.tscn" id="4_jmcll"]
 [ext_resource type="PackedScene" uid="uid://dnnyydny0hkso" path="res://Scenes/Utils/DebugLabel.tscn" id="4_ude3g"]
 [ext_resource type="PackedScene" uid="uid://d1b75sd41gjye" path="res://Scenes/Utils/Components/HurtBox.tscn" id="7_fk5o5"]
@@ -17,6 +18,140 @@ height = 52.0
 radius = 16.0
 height = 52.0
 
+[sub_resource type="Animation" id="Animation_825xp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/CoreStruct/Core:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/TopArmor2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/TopArmor:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Outside:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Outside2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fk5o5"]
+resource_name = "shoot"
+length = 0.14
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/CoreStruct/Core:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.080271095, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(1.1638972, 1.1638972, 1.1638972, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/TopArmor2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/TopArmor:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Outside:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 1), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Outside2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_825xp"]
+_data = {
+&"RESET": SubResource("Animation_825xp"),
+&"shoot": SubResource("Animation_fk5o5")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=398367969]
 collision_layer = 32
 collision_mask = 33
@@ -28,16 +163,6 @@ script = ExtResource("1_s0eop")
 [node name="FrontShooter" parent="Visuals" unique_id=57505907 instance=ExtResource("2_4wape")]
 position = Vector2(14, 0)
 object_type = 1
-
-[node name="HurtBox" parent="Visuals" unique_id=1028250889 instance=ExtResource("7_fk5o5")]
-collision_layer = 4
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" unique_id=1781164078]
-position = Vector2(-8, 0)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_825xp")
-debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
 
 [node name="ArmorBack" type="Polygon2D" parent="Visuals" unique_id=753813836]
 color = Color(0.23921569, 0.16862746, 0.101960786, 1)
@@ -71,6 +196,15 @@ polygon = PackedVector2Array(4, 2, -18, 14, -18, 2)
 color = Color(0.47843137, 0.30980393, 0.18039216, 1)
 polygon = PackedVector2Array(6, 0, -20, 14, -20, 0)
 
+[node name="Crack" type="Polygon2D" parent="Visuals/TopArmor" unique_id=1964740023]
+color = Color(0.050980393, 0.039215688, 0.02745098, 1)
+polygon = PackedVector2Array(-13, 5, -17, 0, -5, 0, -15, 11)
+polygons = [PackedInt32Array(0, 2, 3), PackedInt32Array(0, 3, 1)]
+
+[node name="Leak" type="Polygon2D" parent="Visuals/TopArmor" unique_id=331164523]
+color = Color(0.9529412, 0.92156863, 0.83137256, 1)
+polygon = PackedVector2Array(-16, 2, -13, 7, -15, 11)
+
 [node name="TopArmor2" type="Polygon2D" parent="Visuals" unique_id=222200746]
 color = Color(0.78431374, 0.5176471, 0.22745098, 1)
 polygon = PackedVector2Array(4, -2, -18, -16, -18, -2)
@@ -78,6 +212,15 @@ polygon = PackedVector2Array(4, -2, -18, -16, -18, -2)
 [node name="Lower" type="Polygon2D" parent="Visuals/TopArmor2" unique_id=645298836]
 color = Color(0.47843137, 0.30980393, 0.18039216, 1)
 polygon = PackedVector2Array(6, 0, -20, -14, -20, 0)
+
+[node name="Crack" type="Polygon2D" parent="Visuals/TopArmor2" unique_id=2132098068]
+color = Color(0.050980393, 0.039215688, 0.02745098, 1)
+polygon = PackedVector2Array(-9, -8, -20, -8, 0, 0, -11, -6)
+polygons = [PackedInt32Array(0, 2, 3), PackedInt32Array(0, 3, 1)]
+
+[node name="Leak" type="Polygon2D" parent="Visuals/TopArmor2" unique_id=1271892693]
+color = Color(0.9529412, 0.92156863, 0.83137256, 1)
+polygon = PackedVector2Array(-15, -8, -8, -4, -4, -3, -9, -7)
 
 [node name="Outside" type="Polygon2D" parent="Visuals" unique_id=1386229074]
 color = Color(0.23921569, 0.16862746, 0.101960786, 1)
@@ -87,6 +230,10 @@ polygon = PackedVector2Array(12, -6, -4, -20, -18, -20)
 color = Color(0.47843137, 0.30980393, 0.18039216, 1)
 polygon = PackedVector2Array(12, -4, -4, -18, -18, -18)
 
+[node name="Crack" type="Polygon2D" parent="Visuals/Outside" unique_id=1445002711]
+color = Color(0.050980393, 0.039215688, 0.02745098, 1)
+polygon = PackedVector2Array(-7, -18, -5, -13, 4, -8)
+
 [node name="Outside2" type="Polygon2D" parent="Visuals" unique_id=972148489]
 color = Color(0.23921569, 0.16862746, 0.101960786, 1)
 polygon = PackedVector2Array(12, 6, -4, 20, -18, 20)
@@ -94,6 +241,22 @@ polygon = PackedVector2Array(12, 6, -4, 20, -18, 20)
 [node name="In" type="Polygon2D" parent="Visuals/Outside2" unique_id=324246408]
 color = Color(0.47843137, 0.30980393, 0.18039216, 1)
 polygon = PackedVector2Array(12, 4, -4, 18, -18, 18)
+
+[node name="Crack" type="Polygon2D" parent="Visuals/Outside2" unique_id=1902124538]
+color = Color(0.050980393, 0.039215688, 0.02745098, 1)
+polygon = PackedVector2Array(-7, 13, -1, 11, 2, 13)
+
+[node name="HurtBox" parent="Visuals" unique_id=1028250889 instance=ExtResource("7_fk5o5")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" unique_id=1781164078]
+position = Vector2(-8, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_825xp")
+debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
+
+[node name="PlayerDamageVisuals" parent="Visuals" unique_id=1556685767 instance=ExtResource("4_825xp")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1141131622]
 position = Vector2(-8, 0)
@@ -111,6 +274,10 @@ shape = SubResource("CapsuleShape2D_fk5o5")
 [node name="DebugLabel" parent="." unique_id=199768765 instance=ExtResource("4_ude3g")]
 
 [node name="HPComponent" parent="." unique_id=2138584141 instance=ExtResource("8_825xp")]
+max_hp = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=35956219]
+libraries/ = SubResource("AnimationLibrary_825xp")
 
 [connection signal="hitted" from="Visuals/HurtBox" to="." method="_on_hurt_box_hitted"]
 [connection signal="died" from="HPComponent" to="." method="_on_hp_component_died"]

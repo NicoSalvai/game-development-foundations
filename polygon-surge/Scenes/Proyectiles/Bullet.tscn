@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkcrk51thc1in"]
 
 [ext_resource type="Script" uid="uid://bk5w43ydwbjgo" path="res://Scenes/Proyectiles/Bullet.gd" id="1_l4p7c"]
-[ext_resource type="PackedScene" uid="uid://dpj2nervghfuo" path="res://Scenes/Utils/LifeTimer.tscn" id="2_18iv2"]
+[ext_resource type="PackedScene" uid="uid://dpj2nervghfuo" path="res://Scenes/Utils/Components/LifeTimer.tscn" id="2_18iv2"]
 [ext_resource type="PackedScene" uid="uid://dtxan86q5f0qj" path="res://Scenes/Utils/Components/HitBox.tscn" id="3_pnh3a"]
 
 [node name="Bullet" type="Node2D" unique_id=377556581]

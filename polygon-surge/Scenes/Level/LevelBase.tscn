@@ -6,7 +6,7 @@
 [ext_resource type="Environment" uid="uid://ctktu5mpgfpbq" path="res://Resources/Environment/Env.tres" id="2_yqkkm"]
 [ext_resource type="PackedScene" uid="uid://cbwk2nckt6fk6" path="res://Scenes/Level/Components/ObjectFactory.tscn" id="4_dle53"]
 [ext_resource type="PackedScene" uid="uid://bnnxmdp6ty0r" path="res://Scenes/Level/Components/Pool.tscn" id="5_v5c15"]
-[ext_resource type="PackedScene" uid="uid://dmpbsbnjped72" path="res://Scenes/Enemies/EnemyChaser.tscn" id="6_v5c15"]
+[ext_resource type="PackedScene" uid="uid://dmpbsbnjped72" path="res://Scenes/Enemies/EnemyChaser/EnemyChaser.tscn" id="6_v5c15"]
 
 [node name="LevelBase" type="Node2D" unique_id=1901084802]
 script = ExtResource("1_fs2k4")

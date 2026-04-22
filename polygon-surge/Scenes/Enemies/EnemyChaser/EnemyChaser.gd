@@ -3,8 +3,10 @@ extends EnemyBase
 
 @onready var chaser_mover: ChaserMover = $ChaserMover
 @onready var visuals: Node2D = $Visuals
+@onready var chaser_damage_visuals: ChaserDamageVisuals = $Visuals/ChaserDamageVisuals
 
 var _player: CharacterBody2D
+
 
 func _ready() -> void:
 	super._ready()
@@ -23,8 +25,14 @@ func _physics_process(delta: float) -> void:
 func rotate_to() -> void:
 	visuals.look_at(_player.global_position)
 
+
+func _on_hurt_box_hitted(damage: int) -> void:
+	hp_component.take_damage(damage)
+	chaser_damage_visuals.on_damaged(hp_component.current_hp)
+
+
 func _debug() -> void:
 	super()
 	debug_label.text += "D (%.2f,%.2f), V (%.0f,%.0f)" % [
 		chaser_mover.direction.x, chaser_mover.direction.y, velocity.x, velocity.y
-	]
+	]	

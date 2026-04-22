@@ -16,9 +16,11 @@ func _ready() -> void:
 	fire_timer.wait_time = fire_rate
 
 
-func shoot(pressed: bool) -> void:
+func shoot(pressed: bool) -> bool:
 	if pressed and _can_shoot:
 		_fire()
+		return true
+	return false
 
 
 func _fire() -> void:

@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var front_shooter: ShooterComponent = $Visuals/FrontShooter
 @onready var debug_label: Label = $DebugLabel
 @onready var hp_component: HPComponent = $HPComponent
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var damage_visuals: PlayerDamageVisuals = $Visuals/PlayerDamageVisuals
 
 
 func _ready() -> void:
@@ -22,7 +24,8 @@ func _physics_process(delta: float) -> void:
 		mover.move(controller.direction, delta)
 	rotate_to()
 	move_and_slide()
-	front_shooter.shoot(controller.shoot_pressed)
+	if front_shooter.shoot(controller.shoot_pressed):
+		animation_player.play("shoot")
 	_debug()
 
 
@@ -47,7 +50,8 @@ func _debug() -> void:
 
 func _on_hurt_box_hitted(damage: int) -> void:
 	hp_component.take_damage(damage)
-
+	damage_visuals.on_damaged(hp_component.current_hp)
+	Utils.debug_log("Player hp %s" % hp_component.current_hp, name)
 
 func _on_hp_component_died() -> void:
 	Utils.debug_log("Player died", name) # TODO _on_died player

@@ -14,7 +14,7 @@ const PLAYER_ACCENT: Color = Color("#f3ebd4")  # glow
 const ENEMY_DARK: Color = Color("#0a0f14")
 const ENEMY_MID: Color = Color("#1e405b")
 const ENEMY_EDGE: Color = Color("#2d6e8a")
-	const ENEMY_ACCENT: Color = Color("#409f42")  # acento caparazón
+const ENEMY_ACCENT: Color = Color("#409f42")  # acento caparazón
 
 # Enemigos — núcleo
 const CORE_INNER: Color = Color("#bdff8c")  # glow principal
