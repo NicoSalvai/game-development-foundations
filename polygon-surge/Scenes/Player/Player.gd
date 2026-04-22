@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	if front_shooter.shoot(controller.shoot_pressed):
 		animation_player.play("shoot")
 		shoot_sound.play()
+		camera.add_trauma(0.1)
 
 
 func _update_camera() -> void:
@@ -50,6 +51,7 @@ func rotate_to() -> void:
 
 func _on_hurt_box_hitted(damage: int, source_position: Vector2) -> void:
 	hurt_sound.play()
+	camera.add_trauma(0.5)
 	hp_component.take_damage(damage)
 	damage_visuals.on_damaged(hp_component.current_hp)
 	Utils.debug_log("Player hp %s" % hp_component.current_hp, name)

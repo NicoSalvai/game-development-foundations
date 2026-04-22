@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://rer4yj4xs63a"]
+
+[ext_resource type="Script" uid="uid://bvamqj3716hxr" path="res://Scenes/Utils/FX/Impact.gd" id="1_3q5n8"]
+
+[sub_resource type="Curve" id="Curve_3q5n8"]
+_data = [Vector2(0.067729086, 0), 0.0, 0.0, 0, 0, Vector2(0.25099602, 0.9231419), 0.0, 0.0, 0, 0, Vector2(0.65737057, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.3741554), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_3q5n8"]
+offsets = PackedFloat32Array(0, 0.4488889)
+colors = PackedColorArray(1.740947, 1.6850474, 1.5243363, 1, 0.9529412, 0.92156863, 0.83137256, 1)
+
+[node name="Impact" type="Node2D" unique_id=888253768]
+z_index = 2
+script = ExtResource("1_3q5n8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1117088694]
+z_index = 2
+emitting = false
+amount = 32
+lifetime = 0.22
+one_shot = true
+explosiveness = 0.62
+randomness = 0.68
+lifetime_randomness = 0.36
+gravity = Vector2(0, 0)
+initial_velocity_min = 125.75
+initial_velocity_max = 171.21
+damping_min = 45.455
+damping_max = 385.75
+scale_amount_max = 1.7
+scale_amount_curve = SubResource("Curve_3q5n8")
+color_initial_ramp = SubResource("Gradient_3q5n8")
+
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

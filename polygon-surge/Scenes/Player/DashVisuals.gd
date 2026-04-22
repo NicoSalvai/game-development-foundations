@@ -18,7 +18,7 @@ const PIECES: Array[Dictionary] = [
 
 
 func play_dash(dash_direction: Vector2) -> void:
-	# convertir dirección global a espacio local de Visuals
+	SignalHub.create_object.emit(_visuals.global_position, dash_direction, Constants.ObjectType.DASH_PARTICLES)
 	var local_direction := _visuals.to_local(_visuals.global_position + dash_direction) .normalized()
 	
 	for piece_data in PIECES:

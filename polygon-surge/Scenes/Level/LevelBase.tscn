@@ -18,6 +18,8 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -20.0
+offset_right = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -29,6 +31,8 @@ environment = ExtResource("2_yqkkm")
 
 [node name="Player" parent="." unique_id=398367969 instance=ExtResource("1_3ke2t")]
 position = Vector2(386, 222)
+
+[node name="ObjectFactory" parent="." unique_id=957719445 instance=ExtResource("4_dle53")]
 
 [node name="TerrainContainer" type="Node" parent="." unique_id=1536264001]
 
@@ -76,8 +80,6 @@ position = Vector2(914, 202)
 
 [node name="EnemyChaser9" parent="EnemyContainer" unique_id=1274484071 instance=ExtResource("6_v5c15")]
 position = Vector2(50, 159)
-
-[node name="ObjectFactory" parent="." unique_id=957719445 instance=ExtResource("4_dle53")]
 
 [node name="BulletPool" parent="." unique_id=348025644 instance=ExtResource("5_v5c15")]
 object_type = 1

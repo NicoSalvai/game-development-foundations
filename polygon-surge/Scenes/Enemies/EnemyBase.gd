@@ -18,6 +18,7 @@ func _on_hurt_box_hitted(damage: int, _source_position: Vector2) -> void:
 
 
 func _on_died() -> void:
+	SignalHub.create_object.emit(global_position, Vector2.ZERO, Constants.ObjectType.ENEMY_DEATH)
 	SignalHub.enemy_died.emit()
 	queue_free()
 

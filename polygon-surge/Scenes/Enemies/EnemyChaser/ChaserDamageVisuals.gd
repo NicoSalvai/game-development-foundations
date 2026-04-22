@@ -24,11 +24,16 @@ func _ready() -> void:
 	}
 
 
-func on_damaged(current_hp: int) -> void:
+func on_damaged(current_hp: int, source_position: Vector2) -> void:
 	_hit_flash()
 	match current_hp:
-		2: _state_cracked()
-		1: _state_exposed()
+		2: _state_cracked(source_position)
+		1: _state_exposed(source_position)
+
+
+func _emit_hit_particles(type: Constants.ObjectType, source_position: Vector2) -> void:
+	var dir := source_position.direction_to(visuals.global_position)
+	SignalHub.create_object.emit(visuals.global_position, dir, type)
 
 
 func _hit_flash() -> void:
@@ -38,7 +43,8 @@ func _hit_flash() -> void:
 	tween.tween_property(visuals, "modulate", Color.WHITE, FLASH_DURATION)
 
 
-func _state_cracked() -> void:
+func _state_cracked(source_position: Vector2) -> void:
+	_emit_hit_particles(Constants.ObjectType.ENEMY_HIT_ARMOR, source_position)
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
@@ -49,16 +55,17 @@ func _state_cracked() -> void:
 	tween.tween_property(weapon3, "rotation_degrees", 2,  0.15)
 
 
-func _state_exposed() -> void:
+func _state_exposed(source_position: Vector2) -> void:
+	_emit_hit_particles(Constants.ObjectType.ENEMY_HIT_CORE, source_position)
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_parallel(true)
 	tween.tween_property(armor,   "position", _origins[armor]   + Vector2(-1, -1.5),  0.15)
 	tween.tween_property(armor2,  "position", _origins[armor2]  + Vector2(-1,  1.5),  0.15)
-	tween.tween_property(armor, "rotation_degrees", -1.5,  0.15)
-	tween.tween_property(armor2, "rotation_degrees", 1.5,  0.15)
+	tween.tween_property(armor,   "rotation_degrees", -1.5,  0.15)
+	tween.tween_property(armor2,  "rotation_degrees", 1.5,  0.15)
 	tween.tween_property(armor3,  "position", _origins[armor3]  + Vector2(-1,   0), 0.2)
-	tween.tween_property(armor3, "rotation_degrees", 2,  0.2)
-	tween.tween_property(weapon2, "position", _origins[weapon2] + Vector2(  -1,  0), 0.2)
-	tween.tween_property(weapon3, "position", _origins[weapon3] + Vector2(  -1,   0), 0.2)
+	tween.tween_property(armor3,  "rotation_degrees", 2,  0.2)
+	tween.tween_property(weapon2, "position", _origins[weapon2] + Vector2(-1,  0), 0.2)
+	tween.tween_property(weapon3, "position", _origins[weapon3] + Vector2(-1,  0), 0.2)

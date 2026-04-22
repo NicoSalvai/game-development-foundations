@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cfcnmjw3n75mn"]
+
+[ext_resource type="Script" uid="uid://bvamqj3716hxr" path="res://Scenes/Utils/FX/Impact.gd" id="1_6p0tt"]
+[ext_resource type="Texture2D" uid="uid://b10rpn0nj3mch" path="res://Assets/FX/flare_01.png" id="2_5o6o7"]
+
+[sub_resource type="Curve" id="Curve_5o6o7"]
+_data = [Vector2(0, 0.27533787), 0.0, 0.0, 0, 0, Vector2(0.21912351, 1), 0.0, 0.0, 0, 0, Vector2(0.7569722, 0.6486487), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_5o6o7"]
+offsets = PackedFloat32Array(0, 0.19555555, 0.6888889, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1.353256, 1.353256, 1.353256, 1, 1, 1, 1, 1, 1, 1, 1, 0.30588236)
+
+[sub_resource type="Gradient" id="Gradient_3q5n8"]
+offsets = PackedFloat32Array(0.013333334, 0.43555555, 0.83555555)
+colors = PackedColorArray(1.3636252, 1.8247963, 1.0212406, 1, 0.7411765, 1, 0.54901963, 1, 0.56078434, 0.827451, 0.27058825, 1)
+
+[node name="EnemyCoreHit" type="Node2D" unique_id=888253768]
+script = ExtResource("1_6p0tt")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1117088694]
+emitting = false
+amount = 32
+texture = ExtResource("2_5o6o7")
+lifetime = 0.7
+one_shot = true
+explosiveness = 0.78
+lifetime_randomness = 0.61
+emission_shape = 1
+emission_sphere_radius = 2.0
+spread = 81.55
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 45.0
+damping_min = 25.0
+damping_max = 50.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_5o6o7")
+color_ramp = SubResource("Gradient_5o6o7")
+color_initial_ramp = SubResource("Gradient_3q5n8")
+
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]

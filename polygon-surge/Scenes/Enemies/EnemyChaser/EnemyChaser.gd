@@ -26,6 +26,6 @@ func rotate_to() -> void:
 	visuals.look_at(_player.global_position)
 
 
-func _on_hurt_box_hitted(damage: int, _source_position: Vector2) -> void:
-	super(damage, _source_position)
-	chaser_damage_visuals.on_damaged(hp_component.current_hp)
+func _on_hurt_box_hitted(damage: int, source_position: Vector2) -> void:
+	super(damage, source_position)
+	chaser_damage_visuals.on_damaged(hp_component.current_hp, source_position)

@@ -36,4 +36,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_hit_box_hitted(node: Node2D, is_area: bool) -> void:
+	SignalHub.create_object.emit(global_position, _direction, Constants.ObjectType.BULLET_IMPACT)
 	deactivate()

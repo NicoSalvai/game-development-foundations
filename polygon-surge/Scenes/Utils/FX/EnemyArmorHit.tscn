@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bm16jcht8tmbn"]
+
+[ext_resource type="Script" uid="uid://bvamqj3716hxr" path="res://Scenes/Utils/FX/Impact.gd" id="1_lknq2"]
+
+[sub_resource type="Gradient" id="Gradient_lknq2"]
+offsets = PackedFloat32Array(0, 0.8088889, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.95555556, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_3q5n8"]
+colors = PackedColorArray(0.1764706, 0.43137255, 0.5411765, 1, 0.11764706, 0.2509804, 0.35686275, 1)
+
+[node name="EnemyArmorHit" type="Node2D" unique_id=888253768]
+z_index = 2
+script = ExtResource("1_lknq2")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1117088694]
+emitting = false
+lifetime = 1.17
+one_shot = true
+explosiveness = 0.87
+randomness = 0.31
+lifetime_randomness = 0.36
+emission_shape = 1
+emission_sphere_radius = 7.0
+spread = 133.64
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.75
+initial_velocity_max = 84.0
+damping_min = 45.455
+damping_max = 385.75
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_lknq2")
+color_initial_ramp = SubResource("Gradient_3q5n8")
+
+[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]
