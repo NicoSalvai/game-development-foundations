@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+enum WeaponMode { PISTOL, SNIPER, SHOTGUN }
 
 @onready var controller: PlayerController = $PlayerController
 @onready var mover: PlayerMover = $PlayerMover
@@ -19,17 +20,27 @@ extends CharacterBody2D
 @onready var player_death_visuals: PlayerDeathVisuals = $Visuals/PlayerDeathVisuals
 @onready var hurt_box: HurtBox = $Visuals/HurtBox
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
+@onready var charged_shooter: ChargedShooterComponent = $Visuals/ChargedShooterComponent
+@onready var sniper_sound: AudioStreamPlayer2D = $SniperSound
+@onready var charge_sound: AudioStreamPlayer2D = $ChargeSound
+@onready var spread_shooter: SpreadShooterComponent = $Visuals/SpreadShooterComponent
+
 
 var _is_dead: bool = false
+var _weapon_mode: WeaponMode = WeaponMode.PISTOL
 
 
 func _ready() -> void:
 	add_to_group(Constants.PLAYER_GROUP)
+	charged_shooter.fired.connect(_on_sniper_fired)
 
 
 func _physics_process(delta: float) -> void:
 	if _is_dead:
 		return
+	if Input.is_action_just_pressed("test"):
+		_toggle_weapon()
+
 	if controller.dash_pressed:
 		if dash_component.try_dash(controller.direction):
 			dash_sound.play()
@@ -41,10 +52,31 @@ func _physics_process(delta: float) -> void:
 	rotate_to()
 	move_and_slide()
 	_update_camera()
-	if front_shooter.shoot(controller.shoot_pressed):
-		animation_player.play("shoot")
-		shoot_sound.play()
-		camera.add_trauma(0.1)
+	_handle_shooting()
+
+func _handle_shooting() -> void:
+	match _weapon_mode:
+		WeaponMode.SHOTGUN:
+			if spread_shooter.shoot(controller.shoot_pressed):
+				animation_player.play("shoot")
+				shoot_sound.play()
+				camera.add_trauma(0.2)
+		WeaponMode.PISTOL:
+			if front_shooter.shoot(controller.shoot_pressed):
+				animation_player.play("shoot")
+				shoot_sound.play()
+				camera.add_trauma(0.1)
+		WeaponMode.SNIPER:
+			charged_shooter.shoot(controller.shoot_pressed)
+			if controller.shoot_pressed and charged_shooter.get_charge_ratio() > 0.0:
+				if not animation_player.current_animation == "sniper_charge" and charged_shooter.get_charge_ratio() < 0.5:
+					animation_player.play("sniper_charge")
+					charge_sound.play()
+			elif not controller.shoot_pressed:
+				if animation_player.current_animation == "sniper_charge" or charged_shooter.get_charge_ratio() > 0.0:
+					animation_player.play("RESET_SNIPER")
+					charge_sound.stop()
+				pass
 
 
 func _update_camera() -> void:
@@ -74,3 +106,21 @@ func _on_hp_component_died() -> void:
 	player_death_visuals.play_death(func():
 		get_tree().paused = true
 	)
+
+
+func _toggle_weapon() -> void:
+	if _weapon_mode == WeaponMode.PISTOL:
+		_weapon_mode = WeaponMode.SNIPER
+		animation_player.play("sniper_morph")
+	elif _weapon_mode == WeaponMode.SNIPER:
+		_weapon_mode = WeaponMode.SHOTGUN
+		animation_player.play("pistol_morph")
+	elif _weapon_mode == WeaponMode.SHOTGUN:
+		_weapon_mode = WeaponMode.PISTOL
+		#animation_player.play("pistol_morph")
+
+func _on_sniper_fired() -> void:
+	charge_sound.stop()
+	animation_player.play("sniper_shoot")
+	sniper_sound.play()
+	camera.add_trauma(0.3)

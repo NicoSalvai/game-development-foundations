@@ -3,6 +3,8 @@ extends Node
 
 const PACKED_SCENES_DICT: Dictionary[Constants.ObjectType, PackedScene] = {
 	Constants.ObjectType.PLAYER_BULLET:   preload("uid://d0au5nli0obss"),
+	Constants.ObjectType.PLAYER_BULLET_SNIPER:   preload("uid://cr61g5hftbug2"),
+	Constants.ObjectType.PLAYER_BULLET_SHOTGUN:   preload("uid://dlnxsgugrvr5o"),
 	Constants.ObjectType.BULLET_IMPACT:   preload("uid://rer4yj4xs63a"),
 	Constants.ObjectType.ENEMY_HIT_ARMOR: preload("uid://bm16jcht8tmbn"),
 	Constants.ObjectType.ENEMY_HIT_CORE:  preload("uid://cfcnmjw3n75mn"),

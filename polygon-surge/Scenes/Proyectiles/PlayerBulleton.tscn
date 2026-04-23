@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cr61g5hftbug2"]
+
+[ext_resource type="PackedScene" uid="uid://dkcrk51thc1in" path="res://Scenes/Proyectiles/Bullet.tscn" id="1_a47j2"]
+[ext_resource type="Texture2D" uid="uid://b10rpn0nj3mch" path="res://Assets/FX/flare_01.png" id="2_du8kk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4i7jm"]
+radius = 3.0
+height = 32.0
+
+[node name="PlayerBulletSniper" unique_id=377556581 instance=ExtResource("1_a47j2")]
+speed = 1000.0
+object_type = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(694727937) index="0" unique_id=337824241]
+color = Color(1.8247963, 1.7688968, 1.5942107, 1)
+polygon = PackedVector2Array(22, 0, -17, -4, -2, 0, -17, 4)
+
+[node name="HitBox" parent="." index="2" unique_id=1224883489]
+collision_layer = 2
+collision_mask = 17
+damage = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=105932401]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4i7jm")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4" unique_id=537733609]
+position = Vector2(15, 0)
+color = Color(0.9529412, 0.92156863, 0.83137256, 1)
+energy = 5.0
+texture = ExtResource("2_du8kk")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="." index="5" unique_id=1013615364]
+position = Vector2(-3, 0)
+color = Color(1.5961324, 2.2117221, 2.0531611, 1)
+energy = 8.0
+texture = ExtResource("2_du8kk")
+texture_scale = 0.5

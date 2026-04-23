@@ -152,6 +152,12 @@ max_count = 50
 [node name="BulletPool" parent="." unique_id=348025644 instance=ExtResource("5_v5c15")]
 object_type = 1
 
+[node name="BulletPool2" parent="." unique_id=250466054 instance=ExtResource("5_v5c15")]
+object_type = 2
+
+[node name="BulletPool3" parent="." unique_id=1091433036 instance=ExtResource("5_v5c15")]
+object_type = 3
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=757781651]
 stream = SubResource("AudioStreamPlaylist_yeolc")
 volume_db = -7.965

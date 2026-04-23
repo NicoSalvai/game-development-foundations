@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c5hr2jjrxnd0x"]
+
+[ext_resource type="PackedScene" uid="uid://dc5tyhaqp7syt" path="res://Scenes/Utils/Shooter/ShooterComponent.tscn" id="1_cfwax"]
+[ext_resource type="Script" uid="uid://0bs28s85tpur" path="res://Scenes/Utils/Shooter/ChargedShooterComponent.gd" id="2_8xu2c"]
+
+[node name="ChargedShooterComponent" unique_id=57505907 instance=ExtResource("1_cfwax")]
+script = ExtResource("2_8xu2c")
+charge_time_min = 1.0
+charge_time_max = 1.5
