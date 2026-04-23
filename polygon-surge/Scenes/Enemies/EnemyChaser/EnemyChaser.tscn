@@ -13,15 +13,14 @@ height = 48.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqj6x"]
 size = Vector2(34, 16)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhit2"]
-radius = 14.0
-height = 44.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqnsh"]
+radius = 16.124516
 
 [node name="EnemyChaser" unique_id=1755448434 instance=ExtResource("1_wrlxp")]
 script = ExtResource("2_yywfa")
 
 [node name="HPComponent" parent="." index="0" unique_id=2138584141]
-max_hp = 3
+max_hp = 30
 
 [node name="Back" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="0" unique_id=1513067950]
 color = Color(0.039215688, 0.05882353, 0.078431375, 1)
@@ -94,7 +93,7 @@ debug_color = Color(0.28388393, 0.6264108, 0.22553158, 0.41960785)
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1428841236]
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_vhit2")
+shape = SubResource("CircleShape2D_yqnsh")
 
 [node name="ChaserMover" parent="." index="3" unique_id=364690253 instance=ExtResource("3_fgfw2")]
 max_speed = 200.0

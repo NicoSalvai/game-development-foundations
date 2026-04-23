@@ -176,6 +176,7 @@ script = ExtResource("1_s0eop")
 
 [node name="FrontShooter" parent="Visuals" unique_id=57505907 instance=ExtResource("2_4wape")]
 position = Vector2(14, 0)
+fire_rate = 0.18
 object_type = 1
 
 [node name="ArmorBack" type="Polygon2D" parent="Visuals" unique_id=753813836]
@@ -293,7 +294,7 @@ move_lead_strength = 20.0
 [node name="DashComponent" parent="." unique_id=2092117696 instance=ExtResource("4_jmcll")]
 
 [node name="HPComponent" parent="." unique_id=2138584141 instance=ExtResource("8_825xp")]
-max_hp = 5
+max_hp = 50
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=35956219]
 libraries/ = SubResource("AnimationLibrary_825xp")

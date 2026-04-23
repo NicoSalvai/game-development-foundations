@@ -20,15 +20,21 @@ func _ready() -> void:
 	leak_top_armor2.modulate.a  = 0.0
 	crack_outside.modulate.a    = 0.0
 	crack_outside2.modulate.a   = 0.0
+ 
 
-
-func on_damaged(current_hp: int) -> void:
+func on_damaged(percentage_hp: float) -> void:
 	_hit_flash()
-	match current_hp:
-		4: _reveal(crack_top_armor)
-		3: _reveal(crack_top_armor2)
-		2: _reveal(crack_outside)
-		1: _reveal_multiple([crack_outside2, leak_top_armor, leak_top_armor2])
+	if percentage_hp > 0.8:
+		pass
+	elif percentage_hp > 0.6:
+		_reveal(crack_top_armor)
+	elif percentage_hp > 0.4:
+		_reveal(crack_top_armor2)
+	elif percentage_hp > 0.2:
+		_reveal(crack_outside)
+	else:
+		_reveal_multiple([crack_outside2, leak_top_armor, leak_top_armor2])
+	
 
 
 func _hit_flash() -> void:

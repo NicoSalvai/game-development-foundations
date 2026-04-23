@@ -12,7 +12,7 @@ const FLASH_DURATION := 0.06
 @onready var weapon3: Polygon2D = $"../Weapon3"
 
 var _origins: Dictionary = {}
-
+var _state: int = 2 # 2 normal, 1 cracked, 0 exposed
 
 func _ready() -> void:
 	_origins = {
@@ -26,9 +26,14 @@ func _ready() -> void:
 
 func on_damaged(current_hp: int, source_position: Vector2) -> void:
 	_hit_flash()
-	match current_hp:
-		2: _state_cracked(source_position)
-		1: _state_exposed(source_position)
+	if 20 < current_hp and current_hp < 30:
+		_emit_hit_particles(Constants.ObjectType.ENEMY_HIT_ARMOR, source_position)
+	elif 10 < current_hp and current_hp <= 20:
+		_emit_hit_particles(Constants.ObjectType.ENEMY_HIT_ARMOR, source_position)
+		_state_cracked(source_position)
+	elif current_hp <= 10:
+		_emit_hit_particles(Constants.ObjectType.ENEMY_HIT_CORE, source_position)
+		_state_exposed(source_position)
 
 
 func _emit_hit_particles(type: Constants.ObjectType, source_position: Vector2) -> void:
@@ -44,7 +49,9 @@ func _hit_flash() -> void:
 
 
 func _state_cracked(source_position: Vector2) -> void:
-	_emit_hit_particles(Constants.ObjectType.ENEMY_HIT_ARMOR, source_position)
+	if _state < 2:
+		return
+	_state -= 1
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)
@@ -56,7 +63,9 @@ func _state_cracked(source_position: Vector2) -> void:
 
 
 func _state_exposed(source_position: Vector2) -> void:
-	_emit_hit_particles(Constants.ObjectType.ENEMY_HIT_CORE, source_position)
+	if _state < 1:
+		return
+	_state -= 1
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_BACK)
 	tween.set_ease(Tween.EASE_OUT)

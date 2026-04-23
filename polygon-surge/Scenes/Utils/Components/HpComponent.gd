@@ -3,11 +3,13 @@ extends Node
 
 signal died
 
-@export var max_hp: int = 3
+@export var max_hp: int = 10
 
 var _current_hp: int
 var current_hp: int:
 	get: return _current_hp
+var percentage_hp : float:
+	get: return float(current_hp) / float(max_hp)
 
 
 func _ready() -> void:

@@ -60,11 +60,9 @@ func _on_hurt_box_hitted(damage: int, source_position: Vector2) -> void:
 	hurt_sound.play()
 	camera.add_trauma(0.5)
 	hp_component.take_damage(damage)
-	damage_visuals.on_damaged(hp_component.current_hp)
-	Utils.debug_log("Player hp %s" % hp_component.current_hp, name)
+	damage_visuals.on_damaged(hp_component.percentage_hp)
 	var knockback_direction := source_position.direction_to(global_position)
 	knockback_component.apply(knockback_direction)
-	Utils.debug_log("Player hp %s" % hp_component.current_hp, name)
 
 
 func _on_hp_component_died() -> void:

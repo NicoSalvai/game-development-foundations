@@ -129,19 +129,19 @@ scale = Vector2(2.7399976, 1)
 [node name="DebugSpawner" parent="EnemyContainer" unique_id=600436774 instance=ExtResource("8_yeolc")]
 chaser_scene = ExtResource("6_v5c15")
 interval = 2.0
-max_count = 50
+max_count = 0
 
 [node name="DebugSpawner2" parent="EnemyContainer" unique_id=1159626703 instance=ExtResource("8_yeolc")]
 position = Vector2(454, -51)
 chaser_scene = ExtResource("6_v5c15")
 interval = 2.5
-max_count = 50
+max_count = 0
 
 [node name="DebugSpawner9" parent="EnemyContainer" unique_id=1310680938 instance=ExtResource("8_yeolc")]
 position = Vector2(29, 510)
 chaser_scene = ExtResource("6_v5c15")
 interval = 3.0
-max_count = 50
+max_count = 0
 
 [node name="DebugSpawner10" parent="EnemyContainer" unique_id=951574333 instance=ExtResource("8_yeolc")]
 position = Vector2(0, 242)

@@ -1,7 +1,7 @@
 class_name HitBox
 extends Area2D
 
-@export var damage: int = 1
+@export var damage: int = 10
 
 signal hitted(node: Node2D, is_area: bool)
 
