@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://6wpucfriskie" path="res://Scenes/Level/DebugSpawner.tscn" id="8_yeolc"]
 [ext_resource type="AudioStream" uid="uid://divrs3xxqaju7" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Loop.ogg" id="9_6ehlo"]
 [ext_resource type="PackedScene" uid="uid://cv58hlveqnpmo" path="res://Scenes/Enemies/EnemyShooter/EnemyShooter.tscn" id="9_ilrmw"]
+[ext_resource type="PackedScene" uid="uid://b1xwm0jc8axkb" path="res://Scenes/Enemies/EnemySpikeBall/EnemySpikeBall.tscn" id="10_86rlm"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yeolc"]
 stream_count = 2
@@ -126,9 +127,12 @@ scale = Vector2(2.7399976, 1)
 
 [node name="EnemyContainer" type="Node" parent="." unique_id=540027685]
 
+[node name="EnemySpikeBall" parent="EnemyContainer" unique_id=1755448434 instance=ExtResource("10_86rlm")]
+position = Vector2(473.66187, 186.26547)
+
 [node name="DebugSpawner" parent="EnemyContainer" unique_id=600436774 instance=ExtResource("8_yeolc")]
 chaser_scene = ExtResource("9_ilrmw")
-interval = 2.0
+interval = 10.0
 max_count = 50
 
 [node name="BulletPool" parent="." unique_id=348025644 instance=ExtResource("5_v5c15")]
