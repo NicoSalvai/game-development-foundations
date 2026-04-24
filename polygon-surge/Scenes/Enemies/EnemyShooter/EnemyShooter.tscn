@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cv58hlveqnpmo"]
+
+[ext_resource type="PackedScene" uid="uid://xiemr8lkiiw6" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_spc81"]
+[ext_resource type="PackedScene" uid="uid://cp7qu8b8cya0i" path="res://Scenes/Enemies/DamageVisuals.tscn" id="2_bokxt"]
+[ext_resource type="Script" uid="uid://lxyr6kofwsic" path="res://Scenes/Enemies/EnemyShooter/EnemyShooter.gd" id="2_xgob3"]
+[ext_resource type="PackedScene" uid="uid://b4dlpgiqjxrrw" path="res://Scenes/Enemies/DamageState.tscn" id="3_yxk41"]
+[ext_resource type="PackedScene" uid="uid://tgde6c3k8u15" path="res://Scenes/Utils/Movers/KiteMover.tscn" id="4_xgob3"]
+[ext_resource type="PackedScene" uid="uid://dc5tyhaqp7syt" path="res://Scenes/Utils/Shooter/ShooterComponent.tscn" id="4_yxk41"]
+[ext_resource type="AudioStream" uid="uid://cv6yk07pso613" path="res://Assets/Audio/shoot.wav" id="7_wqma0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xgob3"]
+radius = 13.0
+height = 34.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wqma0"]
+radius = 12.0
+
+[node name="EnemyShooter" unique_id=1755448434 instance=ExtResource("1_spc81")]
+script = ExtResource("2_xgob3")
+shoot_range = 350.0
+
+[node name="HPComponent" parent="." index="0" unique_id=2138584141]
+max_hp = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" parent_id_path=PackedInt32Array(1028250889) index="0" unique_id=25148627]
+shape = SubResource("CapsuleShape2D_xgob3")
+debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
+
+[node name="DamageVisuals" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="1" unique_id=963253111 instance=ExtResource("2_bokxt")]
+
+[node name="DamageState" parent="Visuals/DamageVisuals" index="0" unique_id=1641954417 node_paths=PackedStringArray("reveals") instance=ExtResource("3_yxk41")]
+threshold = 0.67
+particles = 5
+reveals = [NodePath("../../Armor/Crack"), NodePath("../../Armor/Crack/Leak")]
+
+[node name="DamageState2" parent="Visuals/DamageVisuals" index="1" unique_id=464979935 node_paths=PackedStringArray("reveals") instance=ExtResource("3_yxk41")]
+threshold = 0.34
+particles = 6
+reveals = [NodePath("../../Armor2/Crack"), NodePath("../../Armor2/Crack/Leak"), NodePath("../../Armor3/Crack")]
+
+[node name="Back" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="2" unique_id=297446905]
+color = Color(0.039215688, 0.05882353, 0.078431375, 1)
+polygon = PackedVector2Array(5, 0, 9, -10, 0, -18, -12, -8, -12, 8, 0, 18, 9, 10)
+
+[node name="Core" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="3" unique_id=1627835538]
+color = Color(0.56078434, 0.827451, 0.27058825, 1)
+polygon = PackedVector2Array(-9, -7, 0, -16, 18, 0, 0, 16, -9, 8)
+
+[node name="Int" type="Polygon2D" parent="Visuals/Core" index="0" unique_id=1812629638]
+color = Color(1.007768, 1.353256, 0.75126946, 1)
+polygon = PackedVector2Array(-7, -6, 0, -14, 15, 0, 0, 13, -7, 7)
+
+[node name="Armor" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="4" unique_id=151385549]
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(-1, -16, -10, -13, -10, -2, 8, -7)
+
+[node name="In" type="Polygon2D" parent="Visuals/Armor" index="0" unique_id=306180953]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(-9, -3, 6, -8, -6, -20)
+
+[node name="Crack" type="Polygon2D" parent="Visuals/Armor" index="1" unique_id=2054084692]
+color = Color(0.039215688, 0.05882353, 0.078431375, 1)
+polygon = PackedVector2Array(-9, -12, -6, -9, -1, -8, 5, -10)
+
+[node name="Leak" type="Polygon2D" parent="Visuals/Armor/Crack" index="0" unique_id=620958636]
+color = Color(1.007768, 1.353256, 0.75126946, 1)
+polygon = PackedVector2Array(-9, -12, -4, -14, 3, -9)
+
+[node name="Armor2" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="5" unique_id=1111895932]
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(-1, 16, -10, 13, -10, 2, 8, 7)
+
+[node name="In" type="Polygon2D" parent="Visuals/Armor2" index="0" unique_id=1471772059]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(-9, 3, 6, 8, -6, 20)
+
+[node name="Crack" type="Polygon2D" parent="Visuals/Armor2" index="1" unique_id=1392712737]
+color = Color(0.039215688, 0.05882353, 0.078431375, 1)
+polygon = PackedVector2Array(-4, 18, -7, 4, -3, 14, 5, 8)
+
+[node name="Leak" type="Polygon2D" parent="Visuals/Armor2/Crack" index="0" unique_id=1437818973]
+color = Color(1.007768, 1.353256, 0.75126946, 1)
+polygon = PackedVector2Array(-3, 11, -7, 5, -4, 17)
+
+[node name="Armor3" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="6" unique_id=1792564196]
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(-13, -11, -11, -1, 0, -4, 0, 4, -11, 1, -13, 9)
+
+[node name="In" type="Polygon2D" parent="Visuals/Armor3" index="0" unique_id=795506289]
+position = Vector2(15, 0)
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(-14, -2, -14, 2, -28, 0)
+
+[node name="Crack" type="Polygon2D" parent="Visuals/Armor3" index="1" unique_id=1448456799]
+color = Color(0.039215688, 0.05882353, 0.078431375, 1)
+polygon = PackedVector2Array(1, 2, -12, 1, -13, -2)
+
+[node name="ShooterComponent" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="7" unique_id=57505907 instance=ExtResource("4_yxk41")]
+position = Vector2(9, 0)
+fire_rate = 0.3
+object_type = 9
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1428841236]
+shape = SubResource("CapsuleShape2D_wqma0")
+
+[node name="KiteMover" parent="." index="4" unique_id=386226182 instance=ExtResource("4_xgob3")]
+min_range = 200.0
+max_range = 350.0
+max_speed = 120.0
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." index="5" unique_id=1571727782]
+stream = ExtResource("7_wqma0")
+volume_db = -10.0
+pitch_scale = 2.0

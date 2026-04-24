@@ -9,9 +9,9 @@ var is_active: bool = false
 var _knockback_velocity: Vector2 = Vector2.ZERO
 
 
-func apply(direction: Vector2) -> void:
+func apply(direction: Vector2, strength: float) -> void:
 	is_active = true
-	_knockback_velocity = direction * impulse_strength
+	_knockback_velocity = direction * strength
 
 
 func cancel() -> void:

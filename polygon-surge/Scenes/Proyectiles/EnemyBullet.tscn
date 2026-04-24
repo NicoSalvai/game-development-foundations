@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bwqniee58wcqe"]
+
+[ext_resource type="PackedScene" uid="uid://dkcrk51thc1in" path="res://Scenes/Proyectiles/Bullet.tscn" id="1_8jkn5"]
+[ext_resource type="Texture2D" uid="uid://b10rpn0nj3mch" path="res://Assets/FX/flare_01.png" id="2_3g5gw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ob3k1"]
+radius = 0.99999994
+height = 6.0
+
+[node name="EnemyBullet" unique_id=377556581 instance=ExtResource("1_8jkn5")]
+object_type = 9
+
+[node name="Polygon2D" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(694727937) index="0" unique_id=1216690831]
+color = Color(0.7411765, 1, 0.54901963, 1)
+polygon = PackedVector2Array(-6, 0, 0, -2, 6, 0, 0, 2)
+
+[node name="HitBox" parent="." index="2" unique_id=1224883489]
+collision_layer = 8
+collision_mask = 5
+damage = 5
+knockback_strength = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=563938384]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ob3k1")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4" unique_id=1988866891]
+color = Color(0.7411765, 1, 0.54901963, 1)
+energy = 4.0
+texture = ExtResource("2_3g5gw")
+texture_scale = 0.5

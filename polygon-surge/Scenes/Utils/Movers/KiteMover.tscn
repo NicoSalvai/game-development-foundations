@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://tgde6c3k8u15"]
+
+[ext_resource type="Script" uid="uid://cuvif216ahvu7" path="res://Scenes/Utils/Movers/KiteMover.gd" id="1_levwq"]
+
+[node name="KiteMover" type="Node" unique_id=386226182]
+script = ExtResource("1_levwq")

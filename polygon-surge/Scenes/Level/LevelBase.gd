@@ -4,6 +4,7 @@ extends Node2D
 @onready var bullet_pool: Pool = $BulletPool
 @onready var bullet_pool_2: Pool = $BulletPool2
 @onready var bullet_pool_3: Pool = $BulletPool3
+@onready var enemy_bullet_pool: Pool = $EnemyBulletPool
 
 var pools: Dictionary[Constants.ObjectType, Pool] = {}
 
@@ -14,6 +15,7 @@ func _ready() -> void:
 	pools[bullet_pool.object_type] = bullet_pool
 	pools[bullet_pool_2.object_type] = bullet_pool_2
 	pools[bullet_pool_3.object_type] = bullet_pool_3
+	pools[enemy_bullet_pool.object_type] = enemy_bullet_pool
 
 
 func _on_create_object(pos: Vector2, dir: Vector2, object_type: Constants.ObjectType) -> void:

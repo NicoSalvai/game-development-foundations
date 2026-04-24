@@ -11,7 +11,7 @@ func _ready() -> void:
 	hurt_box.hitted.connect(_on_hurt_box_hitted)
 
 
-func _on_hurt_box_hitted(damage: int, _source_position: Vector2) -> void:
+func _on_hurt_box_hitted(damage: int, source_position: Vector2, knockback_strength: float) -> void:
 	hp_component.take_damage(damage)
 	hurt_sound.play()
 

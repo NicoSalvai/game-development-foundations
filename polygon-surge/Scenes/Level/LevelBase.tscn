@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bnnxmdp6ty0r" path="res://Scenes/Level/Components/Pool.tscn" id="5_v5c15"]
 [ext_resource type="Texture2D" uid="uid://ccvrjqnwfo5c8" path="res://Assets/FX/circle_05.png" id="5_yeolc"]
 [ext_resource type="PackedScene" uid="uid://bf665bmw0kss1" path="res://Scenes/Props/Wall.tscn" id="6_6ehlo"]
-[ext_resource type="PackedScene" uid="uid://dmpbsbnjped72" path="res://Scenes/Enemies/EnemyChaser/EnemyChaser.tscn" id="6_v5c15"]
 [ext_resource type="AudioStream" uid="uid://buqt6xle5oy4n" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Intro.ogg" id="8_kt428"]
 [ext_resource type="PackedScene" uid="uid://6wpucfriskie" path="res://Scenes/Level/DebugSpawner.tscn" id="8_yeolc"]
 [ext_resource type="AudioStream" uid="uid://divrs3xxqaju7" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Loop.ogg" id="9_6ehlo"]
+[ext_resource type="PackedScene" uid="uid://cv58hlveqnpmo" path="res://Scenes/Enemies/EnemyShooter/EnemyShooter.tscn" id="9_ilrmw"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yeolc"]
 stream_count = 2
@@ -127,26 +127,8 @@ scale = Vector2(2.7399976, 1)
 [node name="EnemyContainer" type="Node" parent="." unique_id=540027685]
 
 [node name="DebugSpawner" parent="EnemyContainer" unique_id=600436774 instance=ExtResource("8_yeolc")]
-chaser_scene = ExtResource("6_v5c15")
+chaser_scene = ExtResource("9_ilrmw")
 interval = 2.0
-max_count = 0
-
-[node name="DebugSpawner2" parent="EnemyContainer" unique_id=1159626703 instance=ExtResource("8_yeolc")]
-position = Vector2(454, -51)
-chaser_scene = ExtResource("6_v5c15")
-interval = 2.5
-max_count = 0
-
-[node name="DebugSpawner9" parent="EnemyContainer" unique_id=1310680938 instance=ExtResource("8_yeolc")]
-position = Vector2(29, 510)
-chaser_scene = ExtResource("6_v5c15")
-interval = 3.0
-max_count = 0
-
-[node name="DebugSpawner10" parent="EnemyContainer" unique_id=951574333 instance=ExtResource("8_yeolc")]
-position = Vector2(0, 242)
-chaser_scene = ExtResource("6_v5c15")
-interval = 2.8
 max_count = 50
 
 [node name="BulletPool" parent="." unique_id=348025644 instance=ExtResource("5_v5c15")]
@@ -157,6 +139,9 @@ object_type = 2
 
 [node name="BulletPool3" parent="." unique_id=1091433036 instance=ExtResource("5_v5c15")]
 object_type = 3
+
+[node name="EnemyBulletPool" parent="." unique_id=348028876 instance=ExtResource("5_v5c15")]
+object_type = 9
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=757781651]
 stream = SubResource("AudioStreamPlaylist_yeolc")
