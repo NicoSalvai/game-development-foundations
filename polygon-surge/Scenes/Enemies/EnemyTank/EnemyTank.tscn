@@ -9,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://dtxan86q5f0qj" path="res://Scenes/Utils/Components/HitBox.tscn" id="6_evoxi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4fo2u"]
-radius = 19.0
+radius = 33.01515
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evoxi"]
-size = Vector2(14.142138, 42.426414)
+size = Vector2(28.284275, 84.85283)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_katgb"]
-radius = 21.023796
+radius = 42.047592
 
 [node name="EnemyTank" unique_id=1755448434 instance=ExtResource("1_kxo3l")]
 script = ExtResource("2_bwsjv")
@@ -29,26 +29,22 @@ shape = SubResource("CircleShape2D_4fo2u")
 debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
 
 [node name="ShooterComponent" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="1" unique_id=57505907 instance=ExtResource("3_katgb")]
-position = Vector2(25, 0)
-fire_rate = 0.3
+position = Vector2(50, 0)
 object_type = 9
 
 [node name="ShooterComponent2" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="2" unique_id=73338920 instance=ExtResource("3_katgb")]
-position = Vector2(0, -25)
+position = Vector2(0, -50)
 rotation = -1.5707964
-fire_rate = 0.3
 object_type = 9
 
 [node name="ShooterComponent3" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="3" unique_id=68054158 instance=ExtResource("3_katgb")]
-position = Vector2(0, 24)
+position = Vector2(0, 48)
 rotation = 1.5707964
-fire_rate = 0.3
 object_type = 9
 
 [node name="ShooterComponent4" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="4" unique_id=2061275251 instance=ExtResource("3_katgb")]
-position = Vector2(-24, 0)
+position = Vector2(-48, 0)
 rotation = 3.1415927
-fire_rate = 0.3
 object_type = 9
 
 [node name="DamageVisuals" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="5" unique_id=963253111 instance=ExtResource("4_katgb")]
@@ -69,63 +65,63 @@ reveals = [NodePath("../../Shield3/Leak"), NodePath("../../Shield2/Leak")]
 
 [node name="Back" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="6" unique_id=687651894]
 color = Color(0.039215688, 0.05882353, 0.078431375, 1)
-polygon = PackedVector2Array(25, 0, 10, 10, 0, 24, -10, 10, -24, 0, -10, -10, 0, -25, 9, -10)
+polygon = PackedVector2Array(50, 0, 20, 20, 0, 48, -20, 20, -48, 0, -20, -20, 0, -50, 18, -20)
 
 [node name="Core" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="7" unique_id=1639509387]
 color = Color(0.56078434, 0.827451, 0.27058825, 1)
-polygon = PackedVector2Array(0, -25, 8, -9, 25, 0, 9, 9, 0, 24, -9, 9, -24, 0, -9, -9)
+polygon = PackedVector2Array(0, -50, 5, -34, 16, -18, 32, -4, 50, 0, 31, 5, 18, 18, 4, 34, 0, 48, -4, 34, -18, 18, -34, 5, -48, 0, -35, -4, -18, -18, -5, -33)
 
 [node name="Int" type="Polygon2D" parent="Visuals/Core" index="0" unique_id=106309760]
 color = Color(1.007768, 1.353256, 0.75126946, 1)
-polygon = PackedVector2Array(-17, 0, -7, -7, 0, -17, 7, -7, 17, 0, 7, 7, 0, 17, -7, 7)
+polygon = PackedVector2Array(-34, 0, -14, -14, 0, -34, 14, -14, 34, 0, 14, 14, 0, 34, -14, 14)
 
 [node name="Shield" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="8" unique_id=1631702742]
 color = Color(0.11764706, 0.2509804, 0.35686275, 1)
-polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+polygon = PackedVector2Array(40, -8, 22, -12, 20, -4, 2, -24, 8, -26, 6, -40)
 
 [node name="In" type="Polygon2D" parent="Visuals/Shield" index="0" unique_id=1435325542]
 color = Color(0.1764706, 0.43137255, 0.5411765, 1)
-polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+polygon = PackedVector2Array(42, -12, 10, -42, 10, -30, 26, -14)
 
 [node name="Leak" type="Polygon2D" parent="Visuals/Shield" index="1" unique_id=1288992571]
 color = Color(1.008, 1.353, 0.751, 1)
-polygon = PackedVector2Array(7, -7, 7, -13, 7, -17, 5, -10)
+polygon = PackedVector2Array(14, -14, 14, -26, 14, -34, 10, -20)
 
 [node name="Shield4" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="9" unique_id=1069124378]
 rotation = 4.712389
 color = Color(0.11764706, 0.2509804, 0.35686275, 1)
-polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+polygon = PackedVector2Array(40, -8, 22, -12, 20, -4, 2, -24, 8, -26, 6, -40)
 
 [node name="In" type="Polygon2D" parent="Visuals/Shield4" index="0" unique_id=640920274]
 color = Color(0.1764706, 0.43137255, 0.5411765, 1)
-polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+polygon = PackedVector2Array(42, -12, 10, -42, 10, -30, 26, -14)
 
 [node name="Shield3" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="10" unique_id=449206196]
 rotation = 3.1415927
 color = Color(0.11764706, 0.2509804, 0.35686275, 1)
-polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+polygon = PackedVector2Array(40, -8, 22, -12, 20, -4, 2, -24, 8, -26, 6, -40)
 
 [node name="In" type="Polygon2D" parent="Visuals/Shield3" index="0" unique_id=506563389]
 color = Color(0.1764706, 0.43137255, 0.5411765, 1)
-polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+polygon = PackedVector2Array(42, -12, 10, -42, 10, -30, 26, -14)
 
 [node name="Leak" type="Polygon2D" parent="Visuals/Shield3" index="1" unique_id=1791867458]
 color = Color(1.008, 1.353, 0.751, 1)
-polygon = PackedVector2Array(14.999999, -6.0000014, 10.999999, -9.000001, 7, -17, 9.999999, -7.000001)
+polygon = PackedVector2Array(29.999998, -12.000003, 21.999998, -18.000002, 14, -34, 19.999998, -14.000002)
 
 [node name="Shield2" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="11" unique_id=2086618575]
 rotation = 1.5707964
 color = Color(0.11764706, 0.2509804, 0.35686275, 1)
-polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+polygon = PackedVector2Array(40, -8, 22, -12, 20, -4, 2, -24, 8, -26, 6, -40)
 
 [node name="In" type="Polygon2D" parent="Visuals/Shield2" index="0" unique_id=147316079]
 color = Color(0.1764706, 0.43137255, 0.5411765, 1)
-polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+polygon = PackedVector2Array(42, -12, 10, -42, 10, -30, 26, -14)
 
 [node name="Leak" type="Polygon2D" parent="Visuals/Shield2" index="1" unique_id=1307638711]
 rotation = 0.2617994
 color = Color(1.008, 1.353, 0.751, 1)
-polygon = PackedVector2Array(7, -7, 15.3161125, -12.38615, 8.554631, -10.574416, 4.8110466, -16.818258)
+polygon = PackedVector2Array(14, -14, 30.632225, -24.7723, 17.109262, -21.148832, 9.622093, -33.636517)
 
 [node name="HitBox" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="12" unique_id=1224883489 instance=ExtResource("6_evoxi")]
 collision_layer = 64
