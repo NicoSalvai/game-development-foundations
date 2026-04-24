@@ -50,11 +50,9 @@ func move(target_pos: Vector2, delta: float) -> void:
 			_charge_distance += charge_speed * delta
 			# rebote con paredes
 			if _body.get_slide_collision_count() > 0:
-				print("collision")
 				for i in _body.get_slide_collision_count():
 					var collision := _body.get_slide_collision(i)
 					if not collision.get_collider() is CharacterBody2D:
-						print("collision %s", collision.get_normal())
 						_charge_direction = _charge_direction.bounce(collision.get_normal())
 			if _charge_distance >= charge_max_distance:
 				_enter_recover()

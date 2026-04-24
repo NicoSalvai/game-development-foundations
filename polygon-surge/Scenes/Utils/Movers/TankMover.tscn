@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b3pevb3dxerqo"]
+
+[ext_resource type="Script" uid="uid://lb14ay0mvhiy" path="res://Scenes/Utils/Movers/TankMover.gd" id="1_mj4s4"]
+
+[node name="TankMover" type="Node" unique_id=1000520094]
+script = ExtResource("1_mj4s4")

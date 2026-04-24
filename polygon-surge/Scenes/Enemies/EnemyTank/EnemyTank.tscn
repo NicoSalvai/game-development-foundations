@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://c48qnq578ruvh"]
+
+[ext_resource type="PackedScene" uid="uid://xiemr8lkiiw6" path="res://Scenes/Enemies/EnemyBase.tscn" id="1_kxo3l"]
+[ext_resource type="Script" uid="uid://c4y8q30bmon61" path="res://Scenes/Enemies/EnemyTank/EnemyTank.gd" id="2_bwsjv"]
+[ext_resource type="PackedScene" uid="uid://b3pevb3dxerqo" path="res://Scenes/Utils/Movers/TankMover.tscn" id="3_d0h3u"]
+[ext_resource type="PackedScene" uid="uid://dc5tyhaqp7syt" path="res://Scenes/Utils/Shooter/ShooterComponent.tscn" id="3_katgb"]
+[ext_resource type="PackedScene" uid="uid://cp7qu8b8cya0i" path="res://Scenes/Enemies/DamageVisuals.tscn" id="4_katgb"]
+[ext_resource type="PackedScene" uid="uid://b4dlpgiqjxrrw" path="res://Scenes/Enemies/DamageState.tscn" id="5_4fo2u"]
+[ext_resource type="PackedScene" uid="uid://dtxan86q5f0qj" path="res://Scenes/Utils/Components/HitBox.tscn" id="6_evoxi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4fo2u"]
+radius = 19.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evoxi"]
+size = Vector2(14.142138, 42.426414)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_katgb"]
+radius = 21.023796
+
+[node name="EnemyTank" unique_id=1755448434 instance=ExtResource("1_kxo3l")]
+script = ExtResource("2_bwsjv")
+rotation_speed = 1.2
+
+[node name="HPComponent" parent="." index="0" unique_id=2138584141]
+max_hp = 120
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" parent_id_path=PackedInt32Array(1028250889) index="0" unique_id=1423212577]
+shape = SubResource("CircleShape2D_4fo2u")
+debug_color = Color(0.86804634, 0.33616385, 0.2968118, 0.41960785)
+
+[node name="ShooterComponent" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="1" unique_id=57505907 instance=ExtResource("3_katgb")]
+position = Vector2(25, 0)
+fire_rate = 0.3
+object_type = 9
+
+[node name="ShooterComponent2" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="2" unique_id=73338920 instance=ExtResource("3_katgb")]
+position = Vector2(0, -25)
+rotation = -1.5707964
+fire_rate = 0.3
+object_type = 9
+
+[node name="ShooterComponent3" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="3" unique_id=68054158 instance=ExtResource("3_katgb")]
+position = Vector2(0, 24)
+rotation = 1.5707964
+fire_rate = 0.3
+object_type = 9
+
+[node name="ShooterComponent4" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="4" unique_id=2061275251 instance=ExtResource("3_katgb")]
+position = Vector2(-24, 0)
+rotation = 3.1415927
+fire_rate = 0.3
+object_type = 9
+
+[node name="DamageVisuals" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="5" unique_id=963253111 instance=ExtResource("4_katgb")]
+
+[node name="DamageState" parent="Visuals/DamageVisuals" index="0" unique_id=1641954417 instance=ExtResource("5_4fo2u")]
+threshold = 1.0
+particles = 5
+
+[node name="DamageState2" parent="Visuals/DamageVisuals" index="1" unique_id=562105719 node_paths=PackedStringArray("reveals") instance=ExtResource("5_4fo2u")]
+threshold = 0.7
+particles = 5
+reveals = [NodePath("../../Shield/Leak")]
+
+[node name="DamageState3" parent="Visuals/DamageVisuals" index="2" unique_id=1744921363 node_paths=PackedStringArray("reveals") instance=ExtResource("5_4fo2u")]
+threshold = 0.3
+particles = 6
+reveals = [NodePath("../../Shield3/Leak"), NodePath("../../Shield2/Leak")]
+
+[node name="Back" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="6" unique_id=687651894]
+color = Color(0.039215688, 0.05882353, 0.078431375, 1)
+polygon = PackedVector2Array(25, 0, 10, 10, 0, 24, -10, 10, -24, 0, -10, -10, 0, -25, 9, -10)
+
+[node name="Core" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="7" unique_id=1639509387]
+color = Color(0.56078434, 0.827451, 0.27058825, 1)
+polygon = PackedVector2Array(0, -25, 8, -9, 25, 0, 9, 9, 0, 24, -9, 9, -24, 0, -9, -9)
+
+[node name="Int" type="Polygon2D" parent="Visuals/Core" index="0" unique_id=106309760]
+color = Color(1.007768, 1.353256, 0.75126946, 1)
+polygon = PackedVector2Array(-17, 0, -7, -7, 0, -17, 7, -7, 17, 0, 7, 7, 0, 17, -7, 7)
+
+[node name="Shield" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="8" unique_id=1631702742]
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+
+[node name="In" type="Polygon2D" parent="Visuals/Shield" index="0" unique_id=1435325542]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+
+[node name="Leak" type="Polygon2D" parent="Visuals/Shield" index="1" unique_id=1288992571]
+color = Color(1.008, 1.353, 0.751, 1)
+polygon = PackedVector2Array(7, -7, 7, -13, 7, -17, 5, -10)
+
+[node name="Shield4" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="9" unique_id=1069124378]
+rotation = 4.712389
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+
+[node name="In" type="Polygon2D" parent="Visuals/Shield4" index="0" unique_id=640920274]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+
+[node name="Shield3" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="10" unique_id=449206196]
+rotation = 3.1415927
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+
+[node name="In" type="Polygon2D" parent="Visuals/Shield3" index="0" unique_id=506563389]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+
+[node name="Leak" type="Polygon2D" parent="Visuals/Shield3" index="1" unique_id=1791867458]
+color = Color(1.008, 1.353, 0.751, 1)
+polygon = PackedVector2Array(14.999999, -6.0000014, 10.999999, -9.000001, 7, -17, 9.999999, -7.000001)
+
+[node name="Shield2" type="Polygon2D" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="11" unique_id=2086618575]
+rotation = 1.5707964
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(20, -4, 11, -6, 10, -2, 1, -12, 4, -13, 3, -20)
+
+[node name="In" type="Polygon2D" parent="Visuals/Shield2" index="0" unique_id=147316079]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(21, -6, 5, -21, 5, -15, 13, -7)
+
+[node name="Leak" type="Polygon2D" parent="Visuals/Shield2" index="1" unique_id=1307638711]
+rotation = 0.2617994
+color = Color(1.008, 1.353, 0.751, 1)
+polygon = PackedVector2Array(7, -7, 15.3161125, -12.38615, 8.554631, -10.574416, 4.8110466, -16.818258)
+
+[node name="HitBox" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="12" unique_id=1224883489 instance=ExtResource("6_evoxi")]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HitBox" index="0" unique_id=132932784]
+position = Vector2(8.34465e-07, 2.3841858e-07)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_evoxi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Visuals/HitBox" index="1" unique_id=1120842471]
+position = Vector2(-0.47335005, -0.47334933)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_evoxi")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=1428841236]
+visible = false
+shape = SubResource("CircleShape2D_katgb")
+
+[node name="TankMover" parent="." index="4" unique_id=1000520094 instance=ExtResource("3_d0h3u")]
