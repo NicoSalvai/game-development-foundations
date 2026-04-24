@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cv58hlveqnpmo" path="res://Scenes/Enemies/EnemyShooter/EnemyShooter.tscn" id="9_ilrmw"]
 [ext_resource type="PackedScene" uid="uid://b1xwm0jc8axkb" path="res://Scenes/Enemies/EnemySpikeBall/EnemySpikeBall.tscn" id="10_86rlm"]
 [ext_resource type="PackedScene" uid="uid://c48qnq578ruvh" path="res://Scenes/Enemies/EnemyTank/EnemyTank.tscn" id="12_t11kh"]
+[ext_resource type="PackedScene" uid="uid://djtiaon75wvmx" path="res://Scenes/Utils/Movers/ChaserMover.tscn" id="13_5t4eg"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yeolc"]
 stream_count = 2
@@ -129,22 +130,91 @@ scale = Vector2(2.7399976, 1)
 
 [node name="EnemyContainer" type="Node" parent="." unique_id=540027685]
 
-[node name="DebugSpawner" parent="EnemyContainer" unique_id=600436774 instance=ExtResource("8_yeolc")]
-chaser_scene = ExtResource("9_ilrmw")
-interval = 10.0
-max_count = 3
+[node name="DebugSpawner1-C3" parent="EnemyContainer" unique_id=2054768122 instance=ExtResource("8_yeolc")]
+scene = ExtResource("6_v5c15")
+interval = 5.0
+max_count = 2
 
-[node name="DebugSpawner2" parent="EnemyContainer" unique_id=1600457098 instance=ExtResource("8_yeolc")]
-position = Vector2(963, 0)
-chaser_scene = ExtResource("6_v5c15")
-interval = 10.0
-max_count = 3
+[node name="DebugSpawner1-C2" parent="EnemyContainer" unique_id=1301922426 instance=ExtResource("8_yeolc")]
+position = Vector2(0, 268)
+scene = ExtResource("6_v5c15")
+interval = 5.0
+max_count = 2
 
-[node name="DebugSpawner3" parent="EnemyContainer" unique_id=1393707995 instance=ExtResource("8_yeolc")]
-position = Vector2(963, 544)
-chaser_scene = ExtResource("10_86rlm")
+[node name="DebugSpawner1-S" parent="EnemyContainer" unique_id=713843102 instance=ExtResource("8_yeolc")]
+position = Vector2(0, 268)
+scene = ExtResource("9_ilrmw")
+max_count = 1
+start_delay = 5.0
+
+[node name="DebugSpawner2-C" parent="EnemyContainer" unique_id=1216864345 instance=ExtResource("8_yeolc")]
+position = Vector2(627, 0)
+scene = ExtResource("6_v5c15")
+interval = 4.0
+max_count = 2
+start_delay = 15.0
+
+[node name="DebugSpawner2-C2" parent="EnemyContainer" unique_id=704800248 instance=ExtResource("8_yeolc")]
+position = Vector2(960, 100)
+scene = ExtResource("6_v5c15")
+interval = 3.0
+max_count = 3
+start_delay = 15.0
+
+[node name="DebugSpawner2-S" parent="EnemyContainer" unique_id=829272313 instance=ExtResource("8_yeolc")]
+position = Vector2(960, 186)
+scene = ExtResource("9_ilrmw")
+interval = 3.0
+max_count = 2
+start_delay = 15.0
+
+[node name="DebugSpawner2-S2" parent="EnemyContainer" unique_id=972231191 instance=ExtResource("8_yeolc")]
+position = Vector2(790, 546)
+scene = ExtResource("9_ilrmw")
+interval = 4.0
+max_count = 1
+start_delay = 15.0
+
+[node name="DebugSpawner3 - SB" parent="EnemyContainer" unique_id=600436774 instance=ExtResource("8_yeolc")]
+position = Vector2(500, 546)
+scene = ExtResource("10_86rlm")
+interval = 5.0
+max_count = 2
+start_delay = 30.0
+
+[node name="DebugSpawner3 - S" parent="EnemyContainer" unique_id=1677798071 instance=ExtResource("8_yeolc")]
+position = Vector2(714, 546)
+scene = ExtResource("9_ilrmw")
+interval = 5.0
+max_count = 3
+start_delay = 30.0
+
+[node name="DebugSpawner3 - S2" parent="EnemyContainer" unique_id=1117499337 instance=ExtResource("8_yeolc")]
+position = Vector2(960, 389)
+scene = ExtResource("9_ilrmw")
+interval = 10.0
+max_count = 1
+start_delay = 30.0
+
+[node name="DebugSpawner4 - T" parent="EnemyContainer" unique_id=879998594 instance=ExtResource("8_yeolc")]
+position = Vector2(500, 546)
+scene = ExtResource("12_t11kh")
 interval = 20.0
 max_count = 2
+start_delay = 60.0
+
+[node name="DebugSpawner4 - C" parent="EnemyContainer" unique_id=623854256 instance=ExtResource("8_yeolc")]
+position = Vector2(960, 268)
+scene = ExtResource("13_5t4eg")
+interval = 2.0
+start_delay = 70.0
+
+[node name="DebugSpawner4 - SB" parent="EnemyContainer" unique_id=2097230090 instance=ExtResource("8_yeolc")]
+position = Vector2(485, 0)
+scene = ExtResource("10_86rlm")
+interval = 2.0
+max_count = 1
+start_delay = 75.0
 
 [node name="BulletPool" parent="." unique_id=348025644 instance=ExtResource("5_v5c15")]
 object_type = 1
@@ -162,6 +232,3 @@ object_type = 9
 stream = SubResource("AudioStreamPlaylist_yeolc")
 volume_db = -7.965
 autoplay = true
-
-[node name="EnemyTank" parent="." unique_id=1755448434 instance=ExtResource("12_t11kh")]
-position = Vector2(427, 102)
