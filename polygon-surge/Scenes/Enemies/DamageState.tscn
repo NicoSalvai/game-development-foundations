@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4dlpgiqjxrrw"]
+
+[ext_resource type="Script" uid="uid://dlsh7203dce8v" path="res://Scenes/Enemies/DamageState.gd" id="1_mr5w8"]
+
+[node name="DamageState" type="Node" unique_id=1641954417]
+script = ExtResource("1_mr5w8")

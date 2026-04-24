@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://smgoc7tayqna" path="res://Scenes/Utils/Components/HpComponent.tscn" id="1_iiq2q"]
 [ext_resource type="Script" uid="uid://l7ccoku6fnab" path="res://Scenes/Enemies/EnemyBase.gd" id="1_p6c21"]
 [ext_resource type="PackedScene" uid="uid://d1b75sd41gjye" path="res://Scenes/Utils/Components/HurtBox.tscn" id="3_2a3kf"]
-[ext_resource type="PackedScene" uid="uid://dnnyydny0hkso" path="res://Scenes/Utils/DebugLabel.tscn" id="4_2a3kf"]
 [ext_resource type="AudioStream" uid="uid://bhmp4pxe0amub" path="res://Assets/Audio/hurt.wav" id="5_m1s7c"]
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=1755448434]
@@ -22,8 +21,6 @@ collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1428841236]
-
-[node name="DebugLabel" parent="." unique_id=199768765 instance=ExtResource("4_2a3kf")]
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1427950636]
 stream = ExtResource("5_m1s7c")

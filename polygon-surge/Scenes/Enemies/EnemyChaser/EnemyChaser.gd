@@ -3,7 +3,7 @@ extends EnemyBase
 
 @onready var chaser_mover: ChaserMover = $ChaserMover
 @onready var visuals: Node2D = $Visuals
-@onready var chaser_damage_visuals: ChaserDamageVisuals = $Visuals/ChaserDamageVisuals
+@onready var damage_visuals: DamageVisuals = $Visuals/DamageVisuals
 
 var _player: CharacterBody2D
 
@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 	rotate_to()
 	chaser_mover.move(_player.global_position, delta)
 	move_and_slide()
-	_debug()
 
 
 func rotate_to() -> void:
@@ -28,4 +27,4 @@ func rotate_to() -> void:
 
 func _on_hurt_box_hitted(damage: int, source_position: Vector2) -> void:
 	super(damage, source_position)
-	chaser_damage_visuals.on_damaged(hp_component.current_hp, source_position)
+	damage_visuals.on_damaged(hp_component.percentage_hp, source_position)

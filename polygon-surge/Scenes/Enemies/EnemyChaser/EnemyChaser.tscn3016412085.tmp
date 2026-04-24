@@ -26,12 +26,12 @@ max_hp = 30
 [node name="DamageVisuals" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="0" unique_id=963253111 instance=ExtResource("4_vhit2")]
 
 [node name="DamageState" parent="Visuals/DamageVisuals" index="0" unique_id=1641954417 node_paths=PackedStringArray("reveals") instance=ExtResource("4_ixn6j")]
-threshold = 0.67
+threshold = 0.66
 particles = 5
 reveals = [NodePath("../../Armor2/Crack"), NodePath("../../Armor/Crack")]
 
 [node name="DamageState2" parent="Visuals/DamageVisuals" index="1" unique_id=1730771492 node_paths=PackedStringArray("reveals") instance=ExtResource("4_ixn6j")]
-threshold = 0.34
+threshold = 0.33
 particles = 6
 reveals = [NodePath("../../Armor3/Crack"), NodePath("../../Armor/Crack/Leak"), NodePath("../../Armor2/Crack/Leak")]
 

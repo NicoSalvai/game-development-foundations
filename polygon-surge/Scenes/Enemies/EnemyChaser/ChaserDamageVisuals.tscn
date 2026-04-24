@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cp7qu8b8cya0i"]
-
-[ext_resource type="Script" uid="uid://buld3ixb3yj00" path="res://Scenes/Enemies/EnemyChaser/ChaserDamageVisuals.gd" id="1_getim"]
-
-[node name="ChaserDamageVisuals" type="Node" unique_id=963253111]
-script = ExtResource("1_getim")
