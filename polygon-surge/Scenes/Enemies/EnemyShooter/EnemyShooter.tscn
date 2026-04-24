@@ -97,7 +97,7 @@ polygon = PackedVector2Array(1, 2, -12, 1, -13, -2)
 
 [node name="ShooterComponent" parent="Visuals" parent_id_path=PackedInt32Array(2147426656) index="7" unique_id=57505907 instance=ExtResource("4_yxk41")]
 position = Vector2(9, 0)
-fire_rate = 0.3
+fire_rate = 0.4
 object_type = 9
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=1428841236]
