@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bb0xxu7c8flw4"]
 
 [ext_resource type="PackedScene" uid="uid://dc5tyhaqp7syt" path="res://Scenes/Utils/Shooter/ShooterComponent.tscn" id="1_4kpic"]
-[ext_resource type="Script" uid="uid://da6xn4jui7o4n" path="res://SpreadShooterComponent.gd" id="2_3dsmy"]
+[ext_resource type="Script" uid="uid://da6xn4jui7o4n" path="res://Scenes/Utils/Shooter/SpreadShooterComponent.gd" id="2_3dsmy"]
 
 [node name="SpreadShooterComponent" unique_id=57505907 instance=ExtResource("1_4kpic")]
 script = ExtResource("2_3dsmy")
