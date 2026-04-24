@@ -58,7 +58,7 @@ func _handle_shooting() -> void:
 	match _weapon_mode:
 		WeaponMode.SHOTGUN:
 			if spread_shooter.shoot(controller.shoot_pressed):
-				animation_player.play("shoot")
+				animation_player.play("shotgun_shoot")
 				shoot_sound.play()
 				camera.add_trauma(0.2)
 		WeaponMode.PISTOL:
@@ -114,10 +114,10 @@ func _toggle_weapon() -> void:
 		animation_player.play("sniper_morph")
 	elif _weapon_mode == WeaponMode.SNIPER:
 		_weapon_mode = WeaponMode.SHOTGUN
-		animation_player.play("pistol_morph")
+		animation_player.play("shotgun_morph")
 	elif _weapon_mode == WeaponMode.SHOTGUN:
 		_weapon_mode = WeaponMode.PISTOL
-		#animation_player.play("pistol_morph")
+		animation_player.play("pistol_morph")
 
 func _on_sniper_fired() -> void:
 	charge_sound.stop()
