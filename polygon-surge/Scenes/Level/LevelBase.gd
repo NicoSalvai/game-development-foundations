@@ -34,7 +34,7 @@ func _start_room(index: int) -> void:
 
 
 func _on_room_cleared() -> void:
-	if _current_room_index == rooms.size() - 1:
+	if _current_room_index >= rooms.size() -1:
 		level_cleared.emit()
 		return
 	rooms[_current_room_index].exit_door.open()

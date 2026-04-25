@@ -15,5 +15,4 @@ func start() -> void:
 
 
 func _on_room_cleared() -> void:
-	exit_door.open()
 	room_cleared.emit()
