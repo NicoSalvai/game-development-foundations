@@ -2,20 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://wui1h6f2snbs" path="res://Scenes/Player/Player.tscn" id="1_3ke2t"]
 [ext_resource type="Script" uid="uid://c6johde8ya3de" path="res://Scenes/Level/LevelBase.gd" id="1_fs2k4"]
-[ext_resource type="PackedScene" uid="uid://d3n1cv7by487a" path="res://Scenes/Props/Pilar.tscn" id="2_v5l78"]
 [ext_resource type="Environment" uid="uid://ctktu5mpgfpbq" path="res://Resources/Environment/Env.tres" id="2_yqkkm"]
+[ext_resource type="TileSet" uid="uid://ba837yksgrb33" path="res://Resources/TileSet.tres" id="3_y3j2c"]
 [ext_resource type="PackedScene" uid="uid://cbwk2nckt6fk6" path="res://Scenes/Level/Components/ObjectFactory.tscn" id="4_dle53"]
 [ext_resource type="PackedScene" uid="uid://bnnxmdp6ty0r" path="res://Scenes/Level/Components/Pool.tscn" id="5_v5c15"]
-[ext_resource type="Texture2D" uid="uid://ccvrjqnwfo5c8" path="res://Assets/FX/circle_05.png" id="5_yeolc"]
-[ext_resource type="PackedScene" uid="uid://bf665bmw0kss1" path="res://Scenes/Props/Wall.tscn" id="6_6ehlo"]
-[ext_resource type="PackedScene" uid="uid://dmpbsbnjped72" path="res://Scenes/Enemies/EnemyChaser/EnemyChaser.tscn" id="6_v5c15"]
 [ext_resource type="AudioStream" uid="uid://buqt6xle5oy4n" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Intro.ogg" id="8_kt428"]
-[ext_resource type="PackedScene" uid="uid://6wpucfriskie" path="res://Scenes/Level/DebugSpawner.tscn" id="8_yeolc"]
 [ext_resource type="AudioStream" uid="uid://divrs3xxqaju7" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Loop.ogg" id="9_6ehlo"]
-[ext_resource type="PackedScene" uid="uid://cv58hlveqnpmo" path="res://Scenes/Enemies/EnemyShooter/EnemyShooter.tscn" id="9_ilrmw"]
-[ext_resource type="PackedScene" uid="uid://b1xwm0jc8axkb" path="res://Scenes/Enemies/EnemySpikeBall/EnemySpikeBall.tscn" id="10_86rlm"]
-[ext_resource type="PackedScene" uid="uid://c48qnq578ruvh" path="res://Scenes/Enemies/EnemyTank/EnemyTank.tscn" id="12_t11kh"]
-[ext_resource type="PackedScene" uid="uid://djtiaon75wvmx" path="res://Scenes/Utils/Movers/ChaserMover.tscn" id="13_5t4eg"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yeolc"]
 stream_count = 2
@@ -26,11 +18,8 @@ stream_1 = ExtResource("9_6ehlo")
 script = ExtResource("1_fs2k4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=941040611]
+visible = false
 color = Color(0.22745098, 0.22745098, 0.22745098, 1)
-
-[node name="Background" type="Polygon2D" parent="." unique_id=194789125]
-color = Color(0.039215688, 0.05882353, 0.078431375, 1)
-polygon = PackedVector2Array(-100, -100, 1100, -100, 1100, 700, -100, 700)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=589947489]
 layer = -1
@@ -50,171 +39,14 @@ color = Color(0.0054784957, 0.008633356, 0.012654005, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1804686649]
 environment = ExtResource("2_yqkkm")
 
+[node name="Rooms" type="Node2D" parent="." unique_id=1593722086]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms" unique_id=1097402556]
+tile_set = ExtResource("3_y3j2c")
+
 [node name="Player" parent="." unique_id=398367969 instance=ExtResource("1_3ke2t")]
-position = Vector2(386, 222)
 
 [node name="ObjectFactory" parent="." unique_id=957719445 instance=ExtResource("4_dle53")]
-
-[node name="LightContainer" type="Node" parent="." unique_id=1730367071]
-
-[node name="PointLight2D" type="PointLight2D" parent="LightContainer" unique_id=472634483]
-position = Vector2(500, 250)
-color = Color(1, 0.9607843, 0.8784314, 0.8980392)
-shadow_enabled = true
-texture = ExtResource("5_yeolc")
-texture_scale = 3.0
-
-[node name="PointLight2D2" type="PointLight2D" parent="LightContainer" unique_id=1433087989]
-position = Vector2(-67, -64)
-color = Color(1, 0.9607843, 0.8784314, 1)
-shadow_enabled = true
-texture = ExtResource("5_yeolc")
-texture_scale = 5.0
-
-[node name="PointLight2D3" type="PointLight2D" parent="LightContainer" unique_id=744027459]
-position = Vector2(1070, -75)
-color = Color(1, 0.9607843, 0.8784314, 1)
-shadow_enabled = true
-texture = ExtResource("5_yeolc")
-texture_scale = 5.0
-
-[node name="PointLight2D4" type="PointLight2D" parent="LightContainer" unique_id=1975032261]
-position = Vector2(1078, 678)
-color = Color(1, 0.9607843, 0.8784314, 1)
-shadow_enabled = true
-texture = ExtResource("5_yeolc")
-texture_scale = 5.0
-
-[node name="PointLight2D5" type="PointLight2D" parent="LightContainer" unique_id=1472703355]
-position = Vector2(-72, 672)
-color = Color(1, 0.9607843, 0.8784314, 1)
-shadow_enabled = true
-texture = ExtResource("5_yeolc")
-texture_scale = 5.0
-
-[node name="TerrainContainer" type="Node" parent="." unique_id=1536264001]
-
-[node name="Pilar" parent="TerrainContainer" unique_id=838872336 instance=ExtResource("2_v5l78")]
-position = Vector2(200, 100)
-scaling = 3.0
-
-[node name="Pilar2" parent="TerrainContainer" unique_id=1607016537 instance=ExtResource("2_v5l78")]
-position = Vector2(800, 100)
-scaling = 3.0
-
-[node name="Pilar3" parent="TerrainContainer" unique_id=1991199830 instance=ExtResource("2_v5l78")]
-position = Vector2(800, 500)
-scaling = 3.0
-
-[node name="Pilar4" parent="TerrainContainer" unique_id=1657992163 instance=ExtResource("2_v5l78")]
-position = Vector2(200, 500)
-scaling = 3.0
-
-[node name="Wall" parent="TerrainContainer" unique_id=424278789 instance=ExtResource("6_6ehlo")]
-position = Vector2(500, -100)
-scale = Vector2(4, 1)
-
-[node name="Wall2" parent="TerrainContainer" unique_id=811159998 instance=ExtResource("6_6ehlo")]
-position = Vector2(500, 700)
-scale = Vector2(4, 1)
-
-[node name="Wall3" parent="TerrainContainer" unique_id=560111806 instance=ExtResource("6_6ehlo")]
-position = Vector2(-100, 300)
-rotation = 1.5707964
-scale = Vector2(2.7399976, 1)
-
-[node name="Wall4" parent="TerrainContainer" unique_id=1421090778 instance=ExtResource("6_6ehlo")]
-position = Vector2(1100, 300)
-rotation = 1.5707964
-scale = Vector2(2.7399976, 1)
-
-[node name="EnemyContainer" type="Node" parent="." unique_id=540027685]
-
-[node name="DebugSpawner1-C3" parent="EnemyContainer" unique_id=2054768122 instance=ExtResource("8_yeolc")]
-scene = ExtResource("6_v5c15")
-interval = 5.0
-max_count = 2
-
-[node name="DebugSpawner1-C2" parent="EnemyContainer" unique_id=1301922426 instance=ExtResource("8_yeolc")]
-position = Vector2(0, 268)
-scene = ExtResource("6_v5c15")
-interval = 5.0
-max_count = 2
-
-[node name="DebugSpawner1-S" parent="EnemyContainer" unique_id=713843102 instance=ExtResource("8_yeolc")]
-position = Vector2(0, 268)
-scene = ExtResource("9_ilrmw")
-max_count = 1
-start_delay = 5.0
-
-[node name="DebugSpawner2-C" parent="EnemyContainer" unique_id=1216864345 instance=ExtResource("8_yeolc")]
-position = Vector2(627, 0)
-scene = ExtResource("6_v5c15")
-interval = 4.0
-max_count = 2
-start_delay = 15.0
-
-[node name="DebugSpawner2-C2" parent="EnemyContainer" unique_id=704800248 instance=ExtResource("8_yeolc")]
-position = Vector2(960, 100)
-scene = ExtResource("6_v5c15")
-interval = 3.0
-max_count = 3
-start_delay = 15.0
-
-[node name="DebugSpawner2-S" parent="EnemyContainer" unique_id=829272313 instance=ExtResource("8_yeolc")]
-position = Vector2(960, 186)
-scene = ExtResource("9_ilrmw")
-interval = 3.0
-max_count = 2
-start_delay = 15.0
-
-[node name="DebugSpawner2-S2" parent="EnemyContainer" unique_id=972231191 instance=ExtResource("8_yeolc")]
-position = Vector2(790, 546)
-scene = ExtResource("9_ilrmw")
-interval = 4.0
-max_count = 1
-start_delay = 15.0
-
-[node name="DebugSpawner3 - SB" parent="EnemyContainer" unique_id=600436774 instance=ExtResource("8_yeolc")]
-position = Vector2(500, 546)
-scene = ExtResource("10_86rlm")
-interval = 5.0
-max_count = 2
-start_delay = 30.0
-
-[node name="DebugSpawner3 - S" parent="EnemyContainer" unique_id=1677798071 instance=ExtResource("8_yeolc")]
-position = Vector2(714, 546)
-scene = ExtResource("9_ilrmw")
-interval = 5.0
-max_count = 3
-start_delay = 30.0
-
-[node name="DebugSpawner3 - S2" parent="EnemyContainer" unique_id=1117499337 instance=ExtResource("8_yeolc")]
-position = Vector2(960, 389)
-scene = ExtResource("9_ilrmw")
-interval = 10.0
-max_count = 1
-start_delay = 30.0
-
-[node name="DebugSpawner4 - T" parent="EnemyContainer" unique_id=879998594 instance=ExtResource("8_yeolc")]
-position = Vector2(500, 546)
-scene = ExtResource("12_t11kh")
-interval = 20.0
-max_count = 2
-start_delay = 60.0
-
-[node name="DebugSpawner4 - C" parent="EnemyContainer" unique_id=623854256 instance=ExtResource("8_yeolc")]
-position = Vector2(960, 268)
-scene = ExtResource("13_5t4eg")
-interval = 2.0
-start_delay = 70.0
-
-[node name="DebugSpawner4 - SB" parent="EnemyContainer" unique_id=2097230090 instance=ExtResource("8_yeolc")]
-position = Vector2(485, 0)
-scene = ExtResource("10_86rlm")
-interval = 2.0
-max_count = 1
-start_delay = 75.0
 
 [node name="BulletPool" parent="." unique_id=348025644 instance=ExtResource("5_v5c15")]
 object_type = 1

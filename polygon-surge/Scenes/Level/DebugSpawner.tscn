@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://6wpucfriskie"]
-
-[ext_resource type="Script" uid="uid://bjfsjvjls5tgw" path="res://Scenes/Level/DebugSpawner.gd" id="1_p430y"]
-
-[node name="DebugSpawner" type="Node2D" unique_id=600436774]
-script = ExtResource("1_p430y")
-
-[node name="Timer" type="Timer" parent="." unique_id=1715952017]

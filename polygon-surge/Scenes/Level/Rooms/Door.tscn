@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://og2dmecdqfcj"]
+
+[ext_resource type="Script" uid="uid://cbx7qbwb0olka" path="res://Scenes/Level/Rooms/Door.gd" id="1_qegqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qegqx"]
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d182c"]
+size = Vector2(128, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xmpb"]
+size = Vector2(20, 46)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qegqx"]
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
+
+[node name="Door" type="StaticBody2D" unique_id=475763355]
+script = ExtResource("1_qegqx")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2141529004]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(64, 16, -64, 16, -64, -16, 64, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1595034602]
+shape = SubResource("RectangleShape2D_qegqx")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1652702970]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1325910141]
+position = Vector2(0, -53)
+shape = SubResource("RectangleShape2D_d182c")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=117719794]
+position = Vector2(-74, -40)
+shape = SubResource("RectangleShape2D_5xmpb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=1911204266]
+position = Vector2(74, -40)
+shape = SubResource("RectangleShape2D_5xmpb")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=682742424]
+occluder = SubResource("OccluderPolygon2D_qegqx")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered" flags=6]

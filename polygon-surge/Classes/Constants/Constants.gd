@@ -10,7 +10,18 @@ enum ObjectType {
 	ENEMY_HIT_CORE,
 	ENEMY_DEATH,
 	DASH_PARTICLES,
-	ENEMY_BULLET
+	ENEMY_BULLET,
+	ENEMY_CHASER,
+	ENEMY_SHOOTER,
+	ENEMY_SPIKE_BALL,
+	ENEMY_TANK
+}
+
+enum SpawnCategory {
+	NOT_SET, # This is ignored an we log a warning.
+	PERIMETER,
+	CENTER,
+	FLANK
 }
 
 const PLAYER_GROUP: String = "Player"

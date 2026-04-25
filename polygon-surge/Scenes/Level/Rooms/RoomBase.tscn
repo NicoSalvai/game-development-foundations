@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bk41l1nxfojy0"]
+
+[ext_resource type="Script" uid="uid://dgl88m3u7pqdk" path="res://Scenes/Level/Rooms/RoomBase.gd" id="1_kyqj5"]
+[ext_resource type="PackedScene" uid="uid://dsodpmt1j1u4x" path="res://Scenes/Level/Rooms/RoomManager.tscn" id="2_2qx47"]
+[ext_resource type="PackedScene" uid="uid://og2dmecdqfcj" path="res://Scenes/Level/Rooms/Door.tscn" id="2_krctn"]
+[ext_resource type="TileSet" uid="uid://ba837yksgrb33" path="res://Resources/TileSet.tres" id="4_tcg63"]
+
+[node name="RoomBase" type="Node2D" unique_id=1644479422]
+script = ExtResource("1_kyqj5")
+
+[node name="RoomManager" parent="." unique_id=591221590 instance=ExtResource("2_2qx47")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=859142970]
+tile_set = ExtResource("4_tcg63")
+
+[node name="EntryDoor" parent="." unique_id=475763355 instance=ExtResource("2_krctn")]
+position = Vector2(-250, 0)
+rotation = 1.5707964
+
+[node name="ExitDoor" parent="." unique_id=1114209781 instance=ExtResource("2_krctn")]
+position = Vector2(250, 0)
+rotation = 1.5707964
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1246139437]
+
+[node name="Lights" type="Node2D" parent="." unique_id=1929544532]

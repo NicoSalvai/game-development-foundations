@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Polygon Surge"
-run/main_scene="uid://caebnxl0o027g"
+run/main_scene="uid://w8iml5o1oq4r"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://uhgrlccqv2l7"
 

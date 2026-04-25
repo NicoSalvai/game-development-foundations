@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dj7gv28nxf2t7"]
+
+[ext_resource type="Texture2D" uid="uid://ccvrjqnwfo5c8" path="res://Assets/FX/circle_05.png" id="1_pss37"]
+
+[node name="StaticLight" type="PointLight2D" unique_id=256749476]
+color = Color(1, 0.9607843, 0.8784314, 1)
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("1_pss37")
+texture_scale = 5.0
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=48951936]
+color = Color(1, 0.9607843, 0.8784314, 1)
+polygon = PackedVector2Array(2, 2, 0, 3, -2, 2, -2, 0, -2, -2, 0, -3, 2, -2, 2, 0)
