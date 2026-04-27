@@ -32,27 +32,37 @@ func start() -> void:
 
 func _launch_wave(index: int) -> void:
 	var wave: WaveConfig = room_config.waves[index]
-	await get_tree().create_timer(wave.start_delay).timeout
+	
+	var planned: Array = []
+	var activated: Array[SpawnPoint] = []
+	
 	for entry in wave.entries:
-		await _spawn_entry(entry)
-
-
-func _spawn_entry(entry: WaveEntry) -> void:
+		var candidates: Array[SpawnPoint] = _spawn_points.filter(
+			func(sp: SpawnPoint) -> bool:
+				return sp.category == entry.spawn_category
+		)
+		if candidates.is_empty():
+			push_error("RoomManager: no SpawnPoints with category '%s'." % entry.spawn_category)
+			continue
+		for i in entry.count:
+			var sp: SpawnPoint = candidates.pick_random()
+			planned.append({point = sp, type = entry.enemy_type, delay = entry.spawn_delay})
+			if sp not in activated:
+				sp.activate()
+				activated.append(sp)
+	
+	await get_tree().create_timer(wave.start_delay).timeout
+	
+	for sp in activated:
+		sp.deactivate()
+	
 	_is_spawning = true
-	var candidates: Array[SpawnPoint] = _spawn_points.filter(
-		func(sp: SpawnPoint) -> bool:
-			return sp.category == entry.spawn_category
-	)
-	if candidates.is_empty():
-		push_error("RoomManager: no SpawnPoints with category '%s'." % entry.spawn_category)
-		_is_spawning = false
-		return
-	for i in entry.count:
-		var spawn_point: SpawnPoint = candidates.pick_random()
-		SignalHub.create_object.emit(spawn_point.get_spawn_position(), Vector2.ZERO, entry.enemy_type)
+	for i in planned.size():
+		var p = planned[i]
+		SignalHub.create_object.emit(p.point.get_spawn_position(), Vector2.ZERO, p.type)
 		_alive_count += 1
-		if i < entry.count - 1:
-			await get_tree().create_timer(entry.spawn_delay).timeout
+		if i < planned.size() - 1:
+			await get_tree().create_timer(p.delay).timeout
 	_is_spawning = false
 	_check_wave_complete()
 

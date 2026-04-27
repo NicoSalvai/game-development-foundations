@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bqdekxdcrilbk"]
+
+[ext_resource type="FontFile" uid="uid://c8ow2mx7jubjb" path="res://Assets/Fonts/Kenney Future.ttf" id="1_ypxag"]
+
+[resource]
+font = ExtResource("1_ypxag")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.43529412)

@@ -1074,7 +1074,7 @@ script = ExtResource("1_s0eop")
 
 [node name="FrontShooter" parent="Visuals" unique_id=57505907 instance=ExtResource("2_4wape")]
 position = Vector2(14, 0)
-fire_rate = 0.2
+fire_rate = 0.02
 object_type = 1
 
 [node name="ChargedShooterComponent" parent="Visuals" unique_id=2092984974 instance=ExtResource("7_0objx")]

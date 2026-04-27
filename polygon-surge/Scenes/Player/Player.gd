@@ -38,7 +38,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if _is_dead:
 		return
-	if Input.is_action_just_pressed("test"):
+	if Input.is_action_just_pressed("switch"):
 		_toggle_weapon()
 
 	if controller.dash_pressed:
@@ -104,7 +104,7 @@ func _on_hp_component_died() -> void:
 	hurt_box.set_deferred("monitoring", false)
 	camera.add_trauma(1)
 	player_death_visuals.play_death(func():
-		get_tree().paused = true
+		SignalHub.game_over.emit()
 	)
 
 

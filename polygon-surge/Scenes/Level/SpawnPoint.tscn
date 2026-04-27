@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://d03xfxsjsi4eo"]
 
 [ext_resource type="Script" uid="uid://i5wwtcdok4ub" path="res://Scenes/Level/SpawnPoint.gd" id="1_fy7j8"]
+[ext_resource type="Texture2D" uid="uid://b10rpn0nj3mch" path="res://Assets/FX/flare_01.png" id="2_io5sk"]
 
 [node name="SpawnPoint" type="Node2D" unique_id=1160558385]
 script = ExtResource("1_fy7j8")
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=1710234214]
+position = Vector2(0, 2)
+color = Color(0.07450981, 0.17254902, 0.25490198, 0.19607843)
+polygon = PackedVector2Array(-8, -2, -3, 3, 3, 3, 8, -2, 4, -6, 0, -7, -4, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1811965900]
+modulate = Color(0.7411765, 1, 0.54901963, 1)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_io5sk")

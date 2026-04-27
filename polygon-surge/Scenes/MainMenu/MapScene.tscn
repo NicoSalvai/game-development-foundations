@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://5s3a15l27enm"]
+
+[ext_resource type="Script" uid="uid://ckjtl6n6gxlg4" path="res://Scenes/MainMenu/MapScene.gd" id="1_sp0ie"]
+[ext_resource type="Texture2D" uid="uid://03cswrm31uts" path="res://Assets/Background.png" id="2_xjr68"]
+[ext_resource type="LabelSettings" uid="uid://3lnq0oemuqqk" path="res://Resources/Labels/White64.tres" id="3_xjr68"]
+[ext_resource type="PackedScene" uid="uid://cuq8ugq2we67o" path="res://Scenes/Utils/UI/CustomButton.tscn" id="4_fvwaw"]
+
+[node name="MapScene" type="Control" unique_id=1928195653]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sp0ie")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2009387937]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xjr68")
+
+[node name="Panel" type="Panel" parent="." unique_id=22939777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2106864176]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=5992285]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1754630288]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Level selection"
+label_settings = ExtResource("3_xjr68")
+
+[node name="LevelList" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=385394362]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 16
+
+[node name="Button" parent="MarginContainer/VBoxContainer/LevelList" unique_id=1028652376 instance=ExtResource("4_fvwaw")]
+layout_mode = 2
+label = "Level"
+
+[node name="Button2" parent="MarginContainer/VBoxContainer/LevelList" unique_id=1120738294 instance=ExtResource("4_fvwaw")]
+layout_mode = 2
+label = "Level"
+
+[node name="Button3" parent="MarginContainer/VBoxContainer/LevelList" unique_id=964304377 instance=ExtResource("4_fvwaw")]
+layout_mode = 2
+label = "Level"
+
+[node name="BackButton" parent="MarginContainer" unique_id=1798332420 instance=ExtResource("4_fvwaw")]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+label = "Back to menu"
+
+[connection signal="clicked" from="MarginContainer/BackButton" to="." method="_on_back_pressed"]

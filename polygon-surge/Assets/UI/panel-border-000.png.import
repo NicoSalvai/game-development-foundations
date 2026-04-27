@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdidjhqs574j"
-path="res://.godot/imported/tileset_atlas.png-b1153ac5fcbece124e2f6953a5419371.ctex"
+uid="uid://bl0ip4ykf27d7"
+path="res://.godot/imported/panel-border-000.png-de2b1dfeeb6ae07ec8d171a0a1319f85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/tileset_atlas.png"
-dest_files=["res://.godot/imported/tileset_atlas.png-b1153ac5fcbece124e2f6953a5419371.ctex"]
+source_file="res://Assets/UI/panel-border-000.png"
+dest_files=["res://.godot/imported/panel-border-000.png-de2b1dfeeb6ae07ec8d171a0a1319f85.ctex"]
 
 [params]
 

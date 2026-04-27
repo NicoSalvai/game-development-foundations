@@ -21,7 +21,7 @@ radius = 26.019224
 script = ExtResource("2_ne2ji")
 
 [node name="HPComponent" parent="." index="0" unique_id=2138584141]
-max_hp = 150
+max_hp = 90
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtBox" parent_id_path=PackedInt32Array(1028250889) index="0" unique_id=368647595]
 shape = SubResource("CircleShape2D_dcctb")

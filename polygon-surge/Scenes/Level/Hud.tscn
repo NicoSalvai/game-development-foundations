@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://blc5y4i1qg0g8"]
+
+[ext_resource type="Script" uid="uid://cn08xh4mw6jmx" path="res://Scenes/Level/Hud.gd" id="1_7h51e"]
+[ext_resource type="LabelSettings" uid="uid://b65fl84qbudsc" path="res://Resources/Labels/Green64.tres" id="2_6wa0n"]
+[ext_resource type="Texture2D" uid="uid://bor7q6v47mwdq" path="res://Assets/UI/panel-border-005.png" id="2_lngg1"]
+[ext_resource type="LabelSettings" uid="uid://oucjn27n7oi4" path="res://Resources/Labels/Blue64.tres" id="3_ddjc6"]
+[ext_resource type="LabelSettings" uid="uid://bqdekxdcrilbk" path="res://Resources/Labels/White16.tres" id="4_ff7kq"]
+[ext_resource type="PackedScene" uid="uid://cuq8ugq2we67o" path="res://Scenes/Utils/UI/CustomButton.tscn" id="6_kpegp"]
+[ext_resource type="LabelSettings" uid="uid://3lnq0oemuqqk" path="res://Resources/Labels/White64.tres" id="7_ntwwn"]
+
+[node name="HUD" type="Control" unique_id=1512758728]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7h51e")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2003887876]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUDPanel" type="PanelContainer" parent="MarginContainer" unique_id=1381204647]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelBackground" type="NinePatchRect" parent="MarginContainer/HUDPanel" unique_id=1047935283]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_lngg1")
+draw_center = false
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HUDPanel" unique_id=613780284]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxGameOver" type="VBoxContainer" parent="MarginContainer/HUDPanel/MarginContainer" unique_id=328558877]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver" unique_id=792579691]
+layout_mode = 2
+text = "Game Over"
+label_settings = ExtResource("3_ddjc6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver" unique_id=50078751]
+layout_mode = 2
+text = "You have been destroyed..."
+label_settings = ExtResource("4_ff7kq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver" unique_id=1191729265]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver/MarginContainer" unique_id=1248918173]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="CustomButtomRestart" parent="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver/MarginContainer/HBoxContainer" unique_id=1591448778 instance=ExtResource("6_kpegp")]
+layout_mode = 2
+label = "Restart"
+
+[node name="CustomButtomMap" parent="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver/MarginContainer/HBoxContainer" unique_id=1028652376 instance=ExtResource("6_kpegp")]
+layout_mode = 2
+label = "Back to Map"
+
+[node name="VBoxVictory" type="VBoxContainer" parent="MarginContainer/HUDPanel/MarginContainer" unique_id=44815983]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VictoryLabel" type="Label" parent="MarginContainer/HUDPanel/MarginContainer/VBoxVictory" unique_id=1550169276]
+layout_mode = 2
+text = "Vicyory!!!"
+label_settings = ExtResource("2_6wa0n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HUDPanel/MarginContainer/VBoxVictory" unique_id=940629342]
+layout_mode = 2
+text = "Level cleared!"
+label_settings = ExtResource("4_ff7kq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HUDPanel/MarginContainer/VBoxVictory" unique_id=599831214]
+layout_mode = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_right = 96
+
+[node name="CustomButtomMap" parent="MarginContainer/HUDPanel/MarginContainer/VBoxVictory/MarginContainer" unique_id=2081984314 instance=ExtResource("6_kpegp")]
+layout_mode = 2
+label = "Back to Map"
+
+[node name="VBoxPause" type="VBoxContainer" parent="MarginContainer/HUDPanel/MarginContainer" unique_id=8083758]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="PauseLabel" type="Label" parent="MarginContainer/HUDPanel/MarginContainer/VBoxPause" unique_id=544582718]
+layout_mode = 2
+text = "Pause"
+label_settings = ExtResource("7_ntwwn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HUDPanel/MarginContainer/VBoxPause" unique_id=405165559]
+layout_mode = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_right = 48
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer" unique_id=1055702203]
+layout_mode = 2
+theme_override_constants/separation = 128
+
+[node name="CustomButtomMap" parent="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer/HBoxContainer" unique_id=1331879743 instance=ExtResource("6_kpegp")]
+layout_mode = 2
+label = "Back to Map"
+
+[node name="CustomButtomContinue" parent="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer/HBoxContainer" unique_id=1152542896 instance=ExtResource("6_kpegp")]
+layout_mode = 2
+label = "Continue"
+
+[connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver/MarginContainer/HBoxContainer/CustomButtomRestart" to="." method="_on_restart_pressed"]
+[connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver/MarginContainer/HBoxContainer/CustomButtomMap" to="." method="_on_map_pressed"]
+[connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxVictory/MarginContainer/CustomButtomMap" to="." method="_on_map_pressed"]
+[connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer/HBoxContainer/CustomButtomMap" to="." method="_on_map_pressed"]
+[connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer/HBoxContainer/CustomButtomContinue" to="." method="pause_game"]

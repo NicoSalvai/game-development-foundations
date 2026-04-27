@@ -1,8 +1,6 @@
 class_name LevelBase
 extends Node2D
 
-signal level_cleared
-
 @export var rooms: Array[RoomBase] = []
 
 @onready var object_factory: ObjectFactory = $ObjectFactory
@@ -15,7 +13,6 @@ signal level_cleared
 var pools: Dictionary[Constants.ObjectType, Pool] = {}
 var _current_room_index: int = 0
 
-
 func _ready() -> void:
 	SignalHub.create_object.connect(_on_create_object)
 	SignalHub.poolable_returned.connect(_on_poolable_returned)
@@ -24,7 +21,7 @@ func _ready() -> void:
 	pools[bullet_pool_3.object_type] = bullet_pool_3
 	pools[enemy_bullet_pool.object_type] = enemy_bullet_pool
 	_start_room(0)
-	hide_corridors()
+	tile_map_layer.modulate.a = 0.0
 
 
 func _start_room(index: int) -> void:
@@ -35,7 +32,7 @@ func _start_room(index: int) -> void:
 
 func _on_room_cleared() -> void:
 	if _current_room_index >= rooms.size() -1:
-		level_cleared.emit()
+		SignalHub.level_cleared.emit()
 		return
 	rooms[_current_room_index].exit_door.open()
 	rooms[_current_room_index + 1].entry_door.open()
