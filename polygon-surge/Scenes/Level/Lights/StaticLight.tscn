@@ -4,7 +4,6 @@
 
 [node name="StaticLight" type="PointLight2D" unique_id=256749476]
 color = Color(1, 0.9607843, 0.8784314, 1)
-energy = 0.8
 shadow_enabled = true
 shadow_filter = 1
 texture = ExtResource("1_pss37")

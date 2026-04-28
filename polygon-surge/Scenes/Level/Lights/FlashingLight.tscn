@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://da6tfwauvof0j"]
+
+[ext_resource type="PackedScene" uid="uid://dj7gv28nxf2t7" path="res://Scenes/Level/Lights/StaticLight.tscn" id="1_bnyop"]
+[ext_resource type="Script" uid="uid://cqr44psr80vx8" path="res://Scenes/Level/Lights/FlashingLight.gd" id="2_tq4eg"]
+
+[node name="FlashingLight" unique_id=256749476 instance=ExtResource("1_bnyop")]
+script = ExtResource("2_tq4eg")

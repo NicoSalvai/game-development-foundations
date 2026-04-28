@@ -19,8 +19,7 @@ stream_1 = ExtResource("9_6ehlo")
 script = ExtResource("1_fs2k4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=941040611]
-visible = false
-color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+color = Color(0.2901961, 0.2901961, 0.2901961, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=589947489]
 layer = -1
