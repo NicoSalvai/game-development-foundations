@@ -14,6 +14,7 @@ const CUSTOM_BUTTON = preload("uid://cuq8ugq2we67o")
 
 
 func _ready() -> void:
+	GameManager.set_cursor()
 	_build_level_list()
 
 

@@ -148,4 +148,4 @@ label = "Continue"
 [connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxGameOver/MarginContainer/HBoxContainer/CustomButtomMap" to="." method="_on_map_pressed"]
 [connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxVictory/MarginContainer/CustomButtomMap" to="." method="_on_map_pressed"]
 [connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer/HBoxContainer/CustomButtomMap" to="." method="_on_map_pressed"]
-[connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer/HBoxContainer/CustomButtomContinue" to="." method="pause_game"]
+[connection signal="clicked" from="MarginContainer/HUDPanel/MarginContainer/VBoxPause/MarginContainer/HBoxContainer/CustomButtomContinue" to="." method="unpause_game"]

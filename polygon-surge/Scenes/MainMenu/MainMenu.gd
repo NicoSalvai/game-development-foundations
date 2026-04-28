@@ -1,6 +1,8 @@
 class_name MainMenuScene
 extends Control
 
+
+
 @onready var continue_button: CustomButtom = $MarginContainer/VBoxContainer/ContinueButton
 @onready var new_game_button: CustomButtom = $MarginContainer/VBoxContainer/NewGameButton
 @onready var exit_button: CustomButtom = $MarginContainer/VBoxContainer/ExitButton
@@ -8,6 +10,7 @@ extends Control
 
 
 func _ready() -> void:
+	GameManager.set_cursor()
 	continue_button.disable(not GameState.has_progress())
 	UIAudioManager.set_music(music_config.stream)
 
