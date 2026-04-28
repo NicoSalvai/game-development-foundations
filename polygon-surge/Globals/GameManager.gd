@@ -5,7 +5,7 @@ const LEVELS: Dictionary[int, PackedScene] = {
 	1: preload("uid://w8iml5o1oq4r"),
 	2: preload("uid://cjgtvpyjbcp51"),
 	3: preload("uid://drkveleiwf0g2"),
-	4: null,
+	4: preload("uid://b8sdabwbrwuh5"),
 	5: null,
 }
 
