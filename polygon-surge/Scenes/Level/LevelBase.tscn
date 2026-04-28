@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wui1h6f2snbs" path="res://Scenes/Player/Player.tscn" id="1_3ke2t"]
 [ext_resource type="Script" uid="uid://c6johde8ya3de" path="res://Scenes/Level/LevelBase.gd" id="1_fs2k4"]
+[ext_resource type="Shader" uid="uid://bndj27y2ichlv" path="res://Scenes/Utils/background_atmosphere.gdshader" id="2_6ehlo"]
 [ext_resource type="Environment" uid="uid://ctktu5mpgfpbq" path="res://Resources/Environment/Env.tres" id="2_yqkkm"]
 [ext_resource type="TileSet" uid="uid://ba837yksgrb33" path="res://Resources/TileSet.tres" id="3_y3j2c"]
 [ext_resource type="PackedScene" uid="uid://cbwk2nckt6fk6" path="res://Scenes/Level/Components/ObjectFactory.tscn" id="4_dle53"]
@@ -9,6 +10,12 @@
 [ext_resource type="AudioStream" uid="uid://buqt6xle5oy4n" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Intro.ogg" id="8_kt428"]
 [ext_resource type="AudioStream" uid="uid://divrs3xxqaju7" path="res://Assets/Audio/Midnight Electric Circit_mumusi_bgm/Midnight-Electric-Circit_Loop.ogg" id="9_6ehlo"]
 [ext_resource type="PackedScene" uid="uid://blc5y4i1qg0g8" path="res://Scenes/Level/Hud.tscn" id="9_kt428"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yeolc"]
+shader = ExtResource("2_6ehlo")
+shader_parameter/base_color = Color(0.004, 0.008, 0.012, 1)
+shader_parameter/noise_strength = 0.0230000010925
+shader_parameter/noise_scale = 180.000008075
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_yeolc"]
 stream_count = 2
@@ -25,6 +32,7 @@ color = Color(0.33333334, 0.33333334, 0.33333334, 1)
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1322750368]
+material = SubResource("ShaderMaterial_yeolc")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
