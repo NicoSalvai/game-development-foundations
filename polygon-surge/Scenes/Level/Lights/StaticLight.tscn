@@ -11,5 +11,11 @@ texture = ExtResource("1_pss37")
 texture_scale = 5.0
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=48951936]
+position = Vector2(0, -3)
 color = Color(1, 0.9607843, 0.8784314, 1)
 polygon = PackedVector2Array(2, 2, 0, 3, -2, 2, -2, 0, -2, -2, 0, -3, 2, -2, 2, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=828028468]
+position = Vector2(0, -3)
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(3, 2, 0, -2, -3, 2, -3, 0, -6, -5, 6, -5, 3, 0)

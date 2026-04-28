@@ -148,7 +148,7 @@ position = Vector2(551, 0)
 category = 3
 
 [node name="StaticLight" parent="Lights" parent_id_path=PackedInt32Array(1929544532) index="0" unique_id=256749476 instance=ExtResource("6_oo4fl")]
-position = Vector2(-108, -177)
+position = Vector2(-90, -184)
 
 [node name="StaticLight2" parent="Lights" parent_id_path=PackedInt32Array(1929544532) index="1" unique_id=51548016 instance=ExtResource("6_oo4fl")]
-position = Vector2(500, -206)
+position = Vector2(518, -216)

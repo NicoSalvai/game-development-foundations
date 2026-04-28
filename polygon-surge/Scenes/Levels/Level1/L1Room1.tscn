@@ -63,11 +63,9 @@ category = 1
 position = Vector2(473, 250)
 category = 1
 
-[node name="StaticLight" parent="Lights" parent_id_path=PackedInt32Array(1929544532) index="0" unique_id=256749476 instance=ExtResource("4_f57u0")]
-position = Vector2(342, 270)
+[node name="StaticLight2" parent="Lights" parent_id_path=PackedInt32Array(1929544532) index="0" unique_id=1595869749 instance=ExtResource("4_f57u0")]
+position = Vector2(244, -280)
 
-[node name="StaticLight2" parent="Lights" parent_id_path=PackedInt32Array(1929544532) index="1" unique_id=1595869749 instance=ExtResource("4_f57u0")]
-position = Vector2(342, -270)
-
-[node name="StaticLight3" parent="Lights" parent_id_path=PackedInt32Array(1929544532) index="2" unique_id=272007398 instance=ExtResource("4_f57u0")]
-position = Vector2(-427, 0)
+[node name="StaticLight3" parent="Lights" parent_id_path=PackedInt32Array(1929544532) index="1" unique_id=256749476 instance=ExtResource("4_f57u0")]
+position = Vector2(244, 280)
+rotation = 3.1415927
