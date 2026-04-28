@@ -41,6 +41,7 @@ func disable(flag: bool = true) -> void:
 func _on_hover() -> void:
 	if disabled:
 		return
+	UIAudioManager.play_hover()
 	for node in _shader_nodes:
 		(node.material as ShaderMaterial).set_shader_parameter("hovering", true)
 	_animate_pixel(pixel_size_start, 1.0)
@@ -69,4 +70,5 @@ func _animate_pixel(px_from: float, px_to: float) -> void:
 
 func _on_gui_input(event: InputEvent) -> void:
 	if not disabled and event.is_action_pressed("click"):
+		UIAudioManager.play_click()
 		clicked.emit()

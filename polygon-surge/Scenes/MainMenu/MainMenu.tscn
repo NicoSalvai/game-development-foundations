@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cxlm421ap361g" path="res://Scenes/MainMenu/MainMenu.gd" id="1_cdkru"]
 [ext_resource type="Texture2D" uid="uid://03cswrm31uts" path="res://Assets/Background.png" id="2_c7oo3"]
+[ext_resource type="AudioStream" uid="uid://c3g3qkavm8fdl" path="res://Assets/Audio/Still_Breathing_mumusi_bgm/Still-Breathing_Intro_loop.ogg" id="2_vapy7"]
+[ext_resource type="AudioStream" uid="uid://5s734kghw6ic" path="res://Assets/Audio/Still_Breathing_mumusi_bgm/Still-Breathing_loop.ogg" id="3_8qovt"]
 [ext_resource type="LabelSettings" uid="uid://djoixhjx561h3" path="res://Resources/Labels/TitleWhite96.tres" id="3_sg7ab"]
 [ext_resource type="PackedScene" uid="uid://cuq8ugq2we67o" path="res://Scenes/Utils/UI/CustomButton.tscn" id="4_kpx3y"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_0hjx5"]
+stream_count = 2
+stream_0 = ExtResource("2_vapy7")
+stream_1 = ExtResource("3_8qovt")
 
 [node name="MainMenu" type="Control" unique_id=1285789077]
 layout_mode = 3
@@ -13,6 +20,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cdkru")
+
+[node name="MusicConfig" type="AudioStreamPlayer" parent="." unique_id=504559203]
+stream = SubResource("AudioStreamPlaylist_0hjx5")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=677146846]
 layout_mode = 1

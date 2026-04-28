@@ -20,6 +20,7 @@ config/icon="uid://uhgrlccqv2l7"
 SignalHub="*uid://d2wsj3o3jqq8b"
 GameManager="*uid://ykrvpjfggnf6"
 GameState="*uid://kaqniugqce5w"
+UIAudioManager="*uid://b7nhhqw3312c5"
 
 [display]
 

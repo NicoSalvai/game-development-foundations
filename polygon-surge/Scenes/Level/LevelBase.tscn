@@ -62,7 +62,7 @@ object_type = 9
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=757781651]
 stream = SubResource("AudioStreamPlaylist_yeolc")
-volume_db = -7.965
+volume_db = -10.0
 autoplay = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=665249578]

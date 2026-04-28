@@ -15,10 +15,12 @@ const MAP_SCENE: PackedScene = preload("uid://5s3a15l27enm")
 var _selected_level: int = 1
 
 func load_main_scene() -> void:
+	UIAudioManager.play_ui_music()
 	load_scene(MAIN_SCENE)
 	
 	
 func load_map_scene() -> void:
+	UIAudioManager.play_ui_music()
 	load_scene(MAP_SCENE)
 
 
@@ -29,6 +31,7 @@ func load_level_scene(level: int) -> void:
 
 
 func load_selected_level_scene() -> void:
+	UIAudioManager.stop_ui_music()
 	load_scene(LEVELS[_selected_level])
 
 
