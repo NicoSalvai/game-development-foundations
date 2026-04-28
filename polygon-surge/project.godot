@@ -21,6 +21,7 @@ SignalHub="*uid://d2wsj3o3jqq8b"
 GameManager="*uid://ykrvpjfggnf6"
 GameState="*uid://kaqniugqce5w"
 UIAudioManager="*uid://b7nhhqw3312c5"
+SceneTransition="*uid://dkhvmrai0defl"
 
 [display]
 

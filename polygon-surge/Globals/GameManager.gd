@@ -36,5 +36,4 @@ func load_selected_level_scene() -> void:
 
 
 func load_scene(scene: PackedScene) -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_packed(scene)
+	SceneTransition.transition_to(scene)  
