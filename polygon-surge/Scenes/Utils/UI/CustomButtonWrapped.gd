@@ -1,4 +1,4 @@
-class_name CustomButtom
+class_name CustomButtomWrapped
 extends MarginContainer
 
 @export var label: String = "Placeholder"
@@ -9,7 +9,7 @@ extends MarginContainer
 @export var pixel_duration: float = 0.85
 
 @onready var button_label: Label = $Container/ButtonLabel
-@onready var nine_patch: NinePatchRect = $Container/NinePatchRect
+@onready var nine_patch_rect: NinePatchRect = $NinePatchRect
 
 signal clicked 
 
@@ -21,7 +21,7 @@ const CUSTOM_BUTTON_SHADER = preload("uid://2fligb5ut4dq")
 func _ready() -> void:
 	button_label.text = label
 	
-	_shader_nodes = [button_label, nine_patch]
+	_shader_nodes = [button_label, nine_patch_rect]
 	for node in _shader_nodes:
 		var mat := ShaderMaterial.new()
 		mat.shader = load("res://Scenes/Utils/UI/CustomButton.gdshader")

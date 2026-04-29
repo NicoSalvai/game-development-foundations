@@ -175,13 +175,10 @@ label_settings = ExtResource("4_vhbqy")
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
-label = "Unlock"
-disabled = true
 
 [node name="MapButton" parent="MarginContainer" unique_id=354529777 instance=ExtResource("5_vhbqy")]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
-label = "Go to map"
 
 [connection signal="clicked" from="MarginContainer/MapButton" to="." method="_on_map_button_clicked"]

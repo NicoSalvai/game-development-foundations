@@ -14,11 +14,13 @@ void fragment() {
 		effective_size = mix(idle_pixel_min, idle_pixel_max, t);
 	}
 
-	if (effective_size <= 1.0) {
-		COLOR = texture(TEXTURE, UV);
-	}
+	vec4 modulated = COLOR;  // guarda el modulate que Godot ya aplicó
 
-	vec2 texture_size = vec2(textureSize(TEXTURE, 0));
-	vec2 block_uv = floor(UV * texture_size / effective_size) * effective_size / texture_size;
-	COLOR = texture(TEXTURE, block_uv);
+	if (effective_size <= 1.0) {
+		COLOR = texture(TEXTURE, UV) * modulated;
+	} else {
+		vec2 texture_size = vec2(textureSize(TEXTURE, 0));
+		vec2 block_uv = floor(UV * texture_size / effective_size) * effective_size / texture_size;
+		COLOR = texture(TEXTURE, block_uv) * modulated;
+	}
 }

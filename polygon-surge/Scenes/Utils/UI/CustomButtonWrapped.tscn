@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rpu70rufau73"]
 
-[ext_resource type="Script" uid="uid://2rrnppkk30tx" path="res://Scenes/Utils/UI/CustomButton.gd" id="1_cyjyu"]
+[ext_resource type="Script" uid="uid://csh7t7l88l0dw" path="res://Scenes/Utils/UI/CustomButtonWrapped.gd" id="1_cyjyu"]
 [ext_resource type="FontFile" uid="uid://c8ow2mx7jubjb" path="res://Assets/Fonts/Kenney Future.ttf" id="2_3fqib"]
 [ext_resource type="Texture2D" uid="uid://to8qul48lgx4" path="res://Assets/UI/panel-border-013.png" id="3_cyjyu"]
 
