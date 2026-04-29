@@ -15,7 +15,7 @@ const TECH_NODES: Array[Dictionary] = [
 	{ "id": "dash",         "label": "Dash",             "cost": 0, "pre_unlocked": true,  "coming_soon": false, "requires": [],              "stat": Stat.NONE,            "modifier_delta": 0.0  },
 	{ "id": "sniper",       "label": "Sniper",           "cost": 1, "pre_unlocked": false, "coming_soon": false, "requires": ["pistol"],      "stat": Stat.NONE,            "modifier_delta": 0.0  },
 	{ "id": "shotgun",      "label": "Shotgun",          "cost": 1, "pre_unlocked": false, "coming_soon": false, "requires": ["pistol"],      "stat": Stat.NONE,            "modifier_delta": 0.0  },
-	{ "id": "pistol_dmg",   "label": "Pistol +DMG",      "cost": 1, "pre_unlocked": false, "coming_soon": false, "requires": ["pistol"],      "stat": Stat.PISTOL_DAMAGE,   "modifier_delta": 0.25 },
+	{ "id": "pistol_dmg",   "label": "Pistol +DMG",      "cost": 1, "pre_unlocked": false, "coming_soon": false, "requires": ["pistol"],      "stat": Stat.PISTOL_DAMAGE,   "modifier_delta": 0.5 },
 	{ "id": "pistol_rate",  "label": "Pistol +Firerate", "cost": 1, "pre_unlocked": false, "coming_soon": false, "requires": ["pistol"],      "stat": Stat.PISTOL_FIRE_RATE,"modifier_delta": -0.20},
 	{ "id": "sniper_dmg",   "label": "Sniper +DMG",      "cost": 1, "pre_unlocked": false, "coming_soon": false, "requires": ["sniper"],      "stat": Stat.SNIPER_DAMAGE,   "modifier_delta": 0.25 },
 	{ "id": "shotgun_pellets","label": "Shotgun +Spread","cost": 1, "pre_unlocked": false, "coming_soon": false, "requires": ["shotgun"],     "stat": Stat.SHOTGUN_PELLETS, "modifier_delta": 0.33 },
@@ -24,7 +24,7 @@ const TECH_NODES: Array[Dictionary] = [
 	{ "id": "shield",       "label": "Shield",           "cost": 2, "pre_unlocked": false, "coming_soon": true,  "requires": ["max_hp"],      "stat": Stat.NONE,            "modifier_delta": 0.0  },
 ]
 
-var skill_points: int = 2
+var skill_points: int = 0
 var _unlocked_nodes: Array[String] = []
 var _modifiers: Dictionary = {}
 
@@ -38,6 +38,22 @@ func _init_pre_unlocked() -> void:
 	for node in TECH_NODES:
 		if node["pre_unlocked"] and not node["id"] in _unlocked_nodes:
 			_unlocked_nodes.append(node["id"])
+
+func get_save_data() -> Dictionary:
+	return {
+		"skill_points": skill_points,
+		"unlocked_nodes": _unlocked_nodes.duplicate(),
+	}
+
+
+func load_save_data(data: Dictionary) -> void:
+	if data.has("skill_points"):
+		skill_points = data["skill_points"]
+	if data.has("unlocked_nodes"):
+		_unlocked_nodes = []
+		for unlocked in data["unlocked_nodes"]:
+			_unlocked_nodes.append(unlocked) 
+	_compute_modifiers()
 
 
 func add_skill_point() -> void:
@@ -100,6 +116,7 @@ func unlock_node(id: String) -> void:
 	skill_points -= node["cost"]
 	_unlocked_nodes.append(id)
 	_compute_modifiers()
+	SaveManager.save()
 
 
 func relock_node(id: String) -> void:
@@ -109,6 +126,7 @@ func relock_node(id: String) -> void:
 	_unlocked_nodes.erase(id)
 	skill_points += node["cost"]
 	_compute_modifiers()
+	SaveManager.save()
 
 
 func get_modifier(stat: Stat) -> float:

@@ -11,17 +11,14 @@ enum LevelStatus { LOCKED, AVAILABLE, COMPLETED }
 }
 
 var _states: Dictionary[int, LevelStatus] = {
-	1: LevelStatus.COMPLETED,
-	2: LevelStatus.AVAILABLE,
-	3: LevelStatus.AVAILABLE,
-	4: LevelStatus.AVAILABLE,
-	5: LevelStatus.AVAILABLE,
+	1: LevelStatus.AVAILABLE,
 }
 
 # ------------------------------------------------------------------ Ready ---
 
 func _ready() -> void:
 	SignalHub.level_cleared.connect(_on_level_cleared)
+	SaveManager.load_save()
 
 # ----------------------------------------------------------- Level API ---
 
@@ -34,16 +31,32 @@ func set_completed(level_id: int) -> void:
 		TechTreeState.add_skill_point()
 	_states[level_id] = LevelStatus.COMPLETED
 	_states[level_id + 1] = LevelStatus.AVAILABLE
+	SaveManager.save()
 	
 
 func reset() -> void:
 	_states = initial_states.duplicate()
 	TechTreeState.reset()
+	SaveManager.delete_save()
 
 
 func has_progress() -> bool:
 	return LevelStatus.COMPLETED in _states.values()
 
+
+func get_save_data() -> Dictionary:
+	var serialized: Dictionary = {}
+	for key in _states:
+		serialized[str(key)] = _states[key]
+	return { "level_states": serialized }
+
+
+func load_save_data(data: Dictionary) -> void:
+	if not data.has("level_states"):
+		return
+	_states.clear()
+	for key in data["level_states"]:
+		_states[int(key)] = data["level_states"][key] as LevelStatus
 # ---------------------------------------------------------------- Signals ---
 
 func _on_level_cleared() -> void:

@@ -11,7 +11,7 @@ extends Control
 
 func _ready() -> void:
 	GameManager.set_cursor()
-	continue_button.disable(not GameState.has_progress())
+	continue_button.disable(not SaveManager.has_save())
 	UIAudioManager.set_music(music_config.stream)
 
 
