@@ -37,6 +37,9 @@ func disable(flag: bool = true) -> void:
 	disabled = flag
 	if _tween:
 		_tween.kill()
+	for node in _shader_nodes:
+		(node.material as ShaderMaterial).set_shader_parameter("pixel_size", 1.0)
+		(node.material as ShaderMaterial).set_shader_parameter("hovering", false)
 	modulate = Color("c8c8c896") if disabled else Color.WHITE
 
 
@@ -54,6 +57,7 @@ func _on_unhover() -> void:
 		return
 	for node in _shader_nodes:
 		(node.material as ShaderMaterial).set_shader_parameter("hovering", false)
+		(node.material as ShaderMaterial).set_shader_parameter("pixel_size", 1.0)
 
 
 func _animate_pixel(px_from: float, px_to: float) -> void:
