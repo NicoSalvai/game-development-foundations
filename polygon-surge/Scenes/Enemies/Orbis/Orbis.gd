@@ -213,12 +213,6 @@ func _on_died() -> void:
 	
 	# La animación de muerte llama queue_free() al terminar via signal
 	animation_player.play("death")
-	SignalHub.enemy_died.emit()
-
-
-func _on_death_animation_finished() -> void:
-	#queue_free()
-	pass
 
 
 func spawn_death_explosions() -> void:
@@ -233,3 +227,8 @@ func spawn_death_explosions() -> void:
 			Vector2.ZERO,
 			Constants.ObjectType.ENEMY_DEATH
 		)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "death":
+		SignalHub.enemy_died.emit()

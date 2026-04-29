@@ -72,6 +72,7 @@ color_initial_ramp = SubResource("Gradient_vmuse")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1049341176]
 stream = ExtResource("3_saumb")
+volume_db = -9.043
 
 [connection signal="finished" from="CorePartciles" to="." method="_on_particles_finished"]
 [connection signal="finished" from="ArmorParticles" to="." method="_on_particles_finished"]

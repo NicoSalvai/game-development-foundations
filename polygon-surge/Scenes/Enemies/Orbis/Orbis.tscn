@@ -301,3 +301,5 @@ orbit_index = 5
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=508339751]
 stream = ExtResource("6_17hsw")
+
+[connection signal="animation_finished" from="Core/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
