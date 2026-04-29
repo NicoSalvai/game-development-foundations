@@ -109,15 +109,27 @@ func _on_hp_component_died() -> void:
 
 
 func _toggle_weapon() -> void:
-	if _weapon_mode == WeaponMode.PISTOL:
-		_weapon_mode = WeaponMode.SNIPER
-		animation_player.play("sniper_morph")
-	elif _weapon_mode == WeaponMode.SNIPER:
-		_weapon_mode = WeaponMode.SHOTGUN
-		animation_player.play("shotgun_morph")
-	elif _weapon_mode == WeaponMode.SHOTGUN:
-		_weapon_mode = WeaponMode.PISTOL
-		animation_player.play("pistol_morph")
+	var modes := [WeaponMode.PISTOL]
+	if TechTreeState.is_unlocked("sniper"):
+		modes.append(WeaponMode.SNIPER)
+	if TechTreeState.is_unlocked("shotgun"):
+		modes.append(WeaponMode.SHOTGUN)
+
+	var current_index := modes.find(_weapon_mode)
+	var next_index := (current_index + 1) % modes.size()
+	var next_mode := modes[next_index] as WeaponMode
+
+	if next_mode == _weapon_mode:
+		return
+
+	_weapon_mode = next_mode
+	match _weapon_mode:
+		WeaponMode.PISTOL:
+			animation_player.play("pistol_morph")
+		WeaponMode.SNIPER:
+			animation_player.play("sniper_morph")
+		WeaponMode.SHOTGUN:
+			animation_player.play("shotgun_morph")
 
 func _on_sniper_fired() -> void:
 	charge_sound.stop()
