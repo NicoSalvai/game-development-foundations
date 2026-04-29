@@ -1,9 +1,9 @@
 class_name ShooterComponent
 extends Node2D
 
-
 @export var fire_rate: float = 0.25
 @export var object_type: Constants.ObjectType = Constants.ObjectType.NONE
+@export var apply_modifiers: bool = false
 
 var _can_shoot: bool = true
 
@@ -13,6 +13,8 @@ var _can_shoot: bool = true
 func _ready() -> void:
 	assert(object_type != Constants.ObjectType.NONE,
 		"ShooterComponent '%s' has no object_type set" % name)
+	if apply_modifiers:
+		fire_rate = fire_rate * TechTreeState.get_modifier(TechTreeState.Stat.PISTOL_FIRE_RATE)
 	fire_timer.wait_time = fire_rate
 
 

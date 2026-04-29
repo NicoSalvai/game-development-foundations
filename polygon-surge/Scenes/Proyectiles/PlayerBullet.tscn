@@ -18,6 +18,8 @@ polygon = PackedVector2Array(6, 0, -5, -3, -2, 0, -5, 3)
 [node name="HitBox" parent="." index="2" unique_id=1224883489]
 collision_layer = 2
 collision_mask = 81
+apply_modifiers = true
+stat = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0" unique_id=105932401]
 rotation = 1.5707964

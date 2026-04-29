@@ -5,6 +5,12 @@ extends ShooterComponent
 @export var spread_angle: float = 30.0
 
 
+func _ready() -> void:
+	super()
+	if apply_modifiers:
+		pellet_count = roundi(pellet_count * TechTreeState.get_modifier(TechTreeState.Stat.SHOTGUN_PELLETS))
+
+
 func _fire() -> void:
 	_can_shoot = false
 	var angle_step := spread_angle / (pellet_count - 1)

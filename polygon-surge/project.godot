@@ -22,6 +22,7 @@ GameManager="*uid://ykrvpjfggnf6"
 GameState="*uid://kaqniugqce5w"
 UIAudioManager="*uid://b7nhhqw3312c5"
 SceneTransition="*uid://dkhvmrai0defl"
+TechTreeState="*uid://d1im67erp45sc"
 
 [display]
 

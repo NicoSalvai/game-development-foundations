@@ -1076,15 +1076,18 @@ script = ExtResource("1_s0eop")
 position = Vector2(14, 0)
 fire_rate = 0.2
 object_type = 1
+apply_modifiers = true
 
 [node name="ChargedShooterComponent" parent="Visuals" unique_id=2092984974 instance=ExtResource("7_0objx")]
 position = Vector2(14, 0)
 charge_time_min = 0.8
 charge_time_max = 1.2
 object_type = 2
+apply_modifiers = true
 
 [node name="SpreadShooterComponent" parent="Visuals" unique_id=58998365 instance=ExtResource("8_yb677")]
 object_type = 3
+apply_modifiers = true
 
 [node name="ArmorBack" type="Polygon2D" parent="Visuals" unique_id=753813836]
 color = Color(0.23921569, 0.16862746, 0.101960786, 1)
@@ -1201,9 +1204,11 @@ move_lead_strength = 20.0
 [node name="PlayerMover" parent="." unique_id=1133451960 instance=ExtResource("3_ude3g")]
 
 [node name="DashComponent" parent="." unique_id=2092117696 instance=ExtResource("4_jmcll")]
+apply_modifiers = true
 
 [node name="HPComponent" parent="." unique_id=2138584141 instance=ExtResource("8_825xp")]
 max_hp = 50
+apply_modifiers = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=35956219]
 deterministic = true
