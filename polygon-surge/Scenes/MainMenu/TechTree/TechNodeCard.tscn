@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bnkbugokcg6eg"]
+
+[ext_resource type="Script" uid="uid://cp1slydgm8gp1" path="res://Scenes/MainMenu/TechTree/TechNodeCard.gd" id="1_0wu1k"]
+[ext_resource type="Texture2D" uid="uid://dqrndc03a6lgh" path="res://Assets/UI/panel-tech-locked.png" id="1_653ls"]
+[ext_resource type="Texture2D" uid="uid://qmask173h06h" path="res://Assets/UI/panel-tech-available.png" id="2_0wu1k"]
+[ext_resource type="Texture2D" uid="uid://c3vpdhmm4hiv5" path="res://Assets/UI/panel-tech-unlocked.png" id="3_kkmax"]
+[ext_resource type="FontFile" uid="uid://c8ow2mx7jubjb" path="res://Assets/Fonts/Kenney Future.ttf" id="4_83j6p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_haiqu"]
+font = ExtResource("4_83j6p")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wu1k"]
+font = ExtResource("4_83j6p")
+font_size = 10
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TechNodeCard" type="MarginContainer" unique_id=401257084]
+custom_minimum_size = Vector2(256, 0)
+script = ExtResource("1_0wu1k")
+
+[node name="LockedTexture" type="NinePatchRect" parent="." unique_id=1322512774]
+visible = false
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("1_653ls")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="AvailableTexture" type="NinePatchRect" parent="." unique_id=808158640]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_0wu1k")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="UnlockedTexture" type="NinePatchRect" parent="." unique_id=406731538]
+visible = false
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("3_kkmax")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 19
+patch_margin_top = 19
+patch_margin_right = 19
+patch_margin_bottom = 19
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Container" type="MarginContainer" parent="." unique_id=1677612767]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="NameLabel" type="Label" parent="Container" unique_id=1040917052]
+layout_mode = 2
+text = "Placeholder"
+label_settings = SubResource("LabelSettings_haiqu")
+
+[node name="CostLabel" type="Label" parent="Container" unique_id=445830522]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "1Pt"
+label_settings = SubResource("LabelSettings_0wu1k")

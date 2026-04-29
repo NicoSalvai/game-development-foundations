@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://rpu70rufau73"]
+
+[ext_resource type="Script" uid="uid://2rrnppkk30tx" path="res://Scenes/Utils/UI/CustomButton.gd" id="1_cyjyu"]
+[ext_resource type="FontFile" uid="uid://c8ow2mx7jubjb" path="res://Assets/Fonts/Kenney Future.ttf" id="2_3fqib"]
+[ext_resource type="Texture2D" uid="uid://to8qul48lgx4" path="res://Assets/UI/panel-border-013.png" id="3_cyjyu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_orvkd"]
+font = ExtResource("2_3fqib")
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CustomButtomWrapped" type="MarginContainer" unique_id=1028652376]
+offset_right = 94.0
+offset_bottom = 32.0
+size_flags_horizontal = 3
+script = ExtResource("1_cyjyu")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1722036429]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("3_cyjyu")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Container" type="MarginContainer" parent="." unique_id=1441903946]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+
+[node name="ButtonLabel" type="Label" parent="Container" unique_id=922599245]
+layout_mode = 2
+text = "Placeholder"
+label_settings = SubResource("LabelSettings_orvkd")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

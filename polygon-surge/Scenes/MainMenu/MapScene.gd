@@ -46,3 +46,7 @@ func _on_level_pressed(level_id: int) -> void:
 
 func _on_back_pressed() -> void:
 	GameManager.load_main_scene()
+
+
+func _on_tech_tree_button_clicked() -> void:
+	GameManager.load_tech_tree_scene()

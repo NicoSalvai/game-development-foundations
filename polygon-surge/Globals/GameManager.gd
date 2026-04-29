@@ -14,6 +14,7 @@ const LEVELS: Dictionary[int, PackedScene] = {
 
 const MAIN_SCENE: PackedScene = preload("uid://col3etgeo7lt7")
 const MAP_SCENE: PackedScene = preload("uid://5s3a15l27enm")
+const TECH_TREE_SCENE = preload("uid://dw21uejx6473i")
 
 var _selected_level: int = 1
 
@@ -21,6 +22,12 @@ func load_main_scene() -> void:
 	UIAudioManager.play_ui_music()
 	set_cursor()
 	load_scene(MAIN_SCENE)
+
+
+func load_tech_tree_scene() -> void:
+	UIAudioManager.play_ui_music()
+	set_cursor()
+	load_scene(TECH_TREE_SCENE)
 	
 	
 func load_map_scene() -> void:

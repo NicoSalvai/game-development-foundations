@@ -25,3 +25,4 @@ enum SpawnCategory {
 }
 
 const PLAYER_GROUP: String = "Player"
+const TECH_NODE_GROUP: String = "tech_cards"

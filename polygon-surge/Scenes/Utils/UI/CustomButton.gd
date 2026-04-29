@@ -8,8 +8,9 @@ extends MarginContainer
 @export var pixel_size_start: float = 32.0
 @export var pixel_duration: float = 0.85
 
-@onready var button_label: Label = $VBoxContainer/ButtonLabel
-@onready var nine_patch: NinePatchRect = $VBoxContainer/NinePatchRect
+@onready var button_label: Label = $Container/ButtonLabel
+@onready var nine_patch: NinePatchRect = $Container/NinePatchRect
+@onready var nine_patch_rect: NinePatchRect = $NinePatchRect
 
 signal clicked 
 
@@ -20,8 +21,8 @@ const CUSTOM_BUTTON_SHADER = preload("uid://2fligb5ut4dq")
 
 func _ready() -> void:
 	button_label.text = label
-
-	_shader_nodes = [button_label, nine_patch]
+	
+	_shader_nodes = [button_label, nine_patch if nine_patch else nine_patch_rect]
 	for node in _shader_nodes:
 		var mat := ShaderMaterial.new()
 		mat.shader = load("res://Scenes/Utils/UI/CustomButton.gdshader")
@@ -72,3 +73,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if not disabled and event.is_action_pressed("click"):
 		UIAudioManager.play_click()
 		clicked.emit()
+
+func set_label(text: String) -> void:
+	label = text
+	button_label.text = text

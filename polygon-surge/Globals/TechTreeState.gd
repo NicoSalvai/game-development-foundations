@@ -24,7 +24,7 @@ const TECH_NODES: Array[Dictionary] = [
 	{ "id": "shield",       "label": "Shield",           "cost": 2, "pre_unlocked": false, "coming_soon": true,  "requires": ["max_hp"],      "stat": Stat.NONE,            "modifier_delta": 0.0  },
 ]
 
-var skill_points: int = 0
+var skill_points: int = 2
 var _unlocked_nodes: Array[String] = []
 var _modifiers: Dictionary = {}
 

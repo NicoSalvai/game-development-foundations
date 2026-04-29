@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://03cswrm31uts" path="res://Assets/Background.png" id="2_xjr68"]
 [ext_resource type="LabelSettings" uid="uid://3lnq0oemuqqk" path="res://Resources/Labels/White64.tres" id="3_xjr68"]
 [ext_resource type="PackedScene" uid="uid://cuq8ugq2we67o" path="res://Scenes/Utils/UI/CustomButton.tscn" id="4_fvwaw"]
+[ext_resource type="PackedScene" uid="uid://rpu70rufau73" path="res://Scenes/Utils/UI/CustomButtonWrapped.tscn" id="5_3leay"]
 
 [node name="MapScene" type="Control" unique_id=1928195653]
 layout_mode = 3
@@ -73,8 +74,15 @@ label = "Level"
 
 [node name="BackButton" parent="MarginContainer" unique_id=1798332420 instance=ExtResource("4_fvwaw")]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 2
 size_flags_vertical = 8
 label = "Back to menu"
 
+[node name="TechTreeButton" parent="MarginContainer" unique_id=1163957583 instance=ExtResource("5_3leay")]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+label = "Tech Tree"
+
 [connection signal="clicked" from="MarginContainer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="clicked" from="MarginContainer/TechTreeButton" to="." method="_on_tech_tree_button_clicked"]
