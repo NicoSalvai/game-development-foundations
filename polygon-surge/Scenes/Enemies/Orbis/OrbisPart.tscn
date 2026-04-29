@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bo64b4a01f7tt"]
+
+[ext_resource type="Script" uid="uid://dmhnckwr08y0g" path="res://Scenes/Enemies/Orbis/OrbisPart.gd" id="1_ajf12"]
+[ext_resource type="PackedScene" uid="uid://dtxan86q5f0qj" path="res://Scenes/Utils/Components/HitBox.tscn" id="2_ajf12"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5na0"]
+radius = 5.0
+height = 54.0
+
+[node name="OrbisPart" type="Node2D" unique_id=844186197]
+script = ExtResource("1_ajf12")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1897269078]
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(-31, 0, 0, -11, 31, 0, 0, 3)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Polygon2D" unique_id=1313576755]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(-28, -3, 0, -13, 28, -3, 0, -6)
+
+[node name="HitBox" parent="." unique_id=1224883489 instance=ExtResource("2_ajf12")]
+collision_layer = 72
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=845431844]
+position = Vector2(0, -3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_w5na0")

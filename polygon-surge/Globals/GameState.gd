@@ -7,7 +7,7 @@ enum LevelStatus { LOCKED, AVAILABLE, COMPLETED }
 # ------------------------------------------------------------- Level data ---
 
 @export var initial_states: Dictionary[int, LevelStatus] = {
-	1: LevelStatus.AVAILABLE,
+	1: LevelStatus.AVAILABLE
 }
 
 var _states: Dictionary[int, LevelStatus] = {

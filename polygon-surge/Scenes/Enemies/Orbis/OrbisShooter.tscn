@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://6707bpc382lk"]
+
+[ext_resource type="PackedScene" uid="uid://dc5tyhaqp7syt" path="res://Scenes/Utils/Shooter/ShooterComponent.tscn" id="1_knn6k"]
+[ext_resource type="Script" uid="uid://wvfcfgru2gbh" path="res://Scenes/Enemies/Orbis/OrbisShooter.gd" id="1_y6tbm"]
+
+[node name="OrbisShooter" type="Polygon2D" unique_id=14869370]
+color = Color(0.11764706, 0.2509804, 0.35686275, 1)
+polygon = PackedVector2Array(0, -9, -10, 0, -10, 4, 0, 8, 10, 4, 10, 0)
+script = ExtResource("1_y6tbm")
+
+[node name="ShooterComponent" parent="." unique_id=57505907 instance=ExtResource("1_knn6k")]
+rotation = -1.5707964
+object_type = 9
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=81340069]
+color = Color(0.1764706, 0.43137255, 0.5411765, 1)
+polygon = PackedVector2Array(0, -8, -5, 2, -10, 6, 0, 5, 10, 6, 5, 2)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Polygon2D" unique_id=2046954176]
+color = Color(0.7411765, 1, 0.54901963, 1)
+polygon = PackedVector2Array(0, -8, -3, 5, 0, 1, 3, 5)

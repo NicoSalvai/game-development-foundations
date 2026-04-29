@@ -14,7 +14,9 @@ enum ObjectType {
 	ENEMY_CHASER,
 	ENEMY_SHOOTER,
 	ENEMY_SPIKE_BALL,
-	ENEMY_TANK
+	ENEMY_TANK,
+	ORBIS_PART_DEATH,
+	ORBIS
 }
 
 enum SpawnCategory {

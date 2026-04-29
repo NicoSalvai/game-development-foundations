@@ -14,7 +14,9 @@ const PACKED_SCENES_DICT: Dictionary[Constants.ObjectType, PackedScene] = {
 	Constants.ObjectType.ENEMY_CHASER: preload("uid://dmpbsbnjped72"),
 	Constants.ObjectType.ENEMY_SHOOTER: preload("uid://cv58hlveqnpmo"),
 	Constants.ObjectType.ENEMY_SPIKE_BALL: preload("uid://b1xwm0jc8axkb"),
-	Constants.ObjectType.ENEMY_TANK: preload("uid://c48qnq578ruvh")
+	Constants.ObjectType.ENEMY_TANK: preload("uid://c48qnq578ruvh"),
+	Constants.ObjectType.ORBIS_PART_DEATH: preload("uid://cq8gl404rm3a0"),
+	Constants.ObjectType.ORBIS: preload("uid://pvyhfjuwoxtp"),
 }
 
 func create_and_add(object_type: Constants.ObjectType, pos: Vector2, dir: Vector2) -> void:

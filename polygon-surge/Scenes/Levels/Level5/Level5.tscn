@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://csyif8kns53po"]
+
+[ext_resource type="PackedScene" uid="uid://caebnxl0o027g" path="res://Scenes/Level/LevelBase.tscn" id="1_mgnoj"]
+[ext_resource type="PackedScene" uid="uid://8sjd2mu3ip8w" path="res://Scenes/Levels/Level5/L5Room1.tscn" id="2_67y3q"]
+
+[node name="Level5" unique_id=1901084802 node_paths=PackedStringArray("rooms") instance=ExtResource("1_mgnoj")]
+rooms = [NodePath("Rooms/L5Room1")]
+
+[node name="L5Room1" parent="Rooms" parent_id_path=PackedInt32Array(1593722086) index="1" unique_id=1644479422 instance=ExtResource("2_67y3q")]
+position = Vector2(564, 0)
