@@ -5,7 +5,10 @@ extends CharacterBody2D
 @export var orbit_radius: float = 120.0
 @export var throw_damage_threshold: int = 30
 @export var throw_cooldown: float = 1.5
-@export var part_return_time: float = 3.0
+@export var part_return_time: float = 0.8
+@export var minion_spawn_count: int = 2
+@export var minion_spawn_radius: float = 80.0
+@export var minion_spawn_interval: float = 4.0
 
 signal intro_finished
 
@@ -13,20 +16,20 @@ signal intro_finished
 const PHASE_ROTATION := {
 	1: { "speed": 1.3,  "change_interval": 5.0 },
 	2: { "speed": 2.0,  "change_interval": 3.0 },
-	3: { "speed": 2.5,  "change_interval": 1.5 },
+	3: { "speed": 2.8,  "change_interval": 1.2 },
 }
 
 # Fire rate por fase (seteado en ShooterComponents)
 const PHASE_FIRE_RATE := {
 	1: 0.25,
-	2: 0.15,
-	3: 0.075,
+	2: 0.18,
+	3: 0.095,
 }
 
 # Shooters activos por fase (índices 0-5)
 const PHASE_ACTIVE_SHOOTERS := {
 	1: [0, 2, 4],
-	2: [0, 1, 3],
+	2: [0, 1, 3, 4],
 	3: [0, 1, 2, 3, 4, 5],
 }
 
@@ -58,6 +61,7 @@ var _is_dead: bool = false
 @onready var throw_cooldown_timer: Timer = $ThrowCooldownTimer
 @onready var animation_player: AnimationPlayer = $Core/AnimationPlayer
 @onready var hurt_sound: AudioStreamPlayer2D = $HurtSound
+@onready var minion_spawn_timer: Timer = $MinionSpawnTimer
 
 
 func _ready() -> void:
@@ -132,6 +136,11 @@ func _enter_phase(phase: int) -> void:
 
 	_apply_active_shooters(phase)
 	_apply_fire_rate(phase)
+	if phase == 2:
+		minion_spawn_timer.wait_time = minion_spawn_interval
+		minion_spawn_timer.start()
+	else:
+		minion_spawn_timer.stop()
 
 
 func _apply_active_shooters(phase: int) -> void:
@@ -139,8 +148,9 @@ func _apply_active_shooters(phase: int) -> void:
 	for i in shooters.get_child_count():
 		var orbis_shooter: OrbisShooter = shooters.get_child(i)
 		var is_active: bool = i in active_indices
-		orbis_shooter.visible = is_active
+		#orbis_shooter.visible = is_active
 		orbis_shooter.get_shooter().set_process(is_active)
+		orbis_shooter.modulate = "#ffffff" if is_active else "#3a3a3a"
 
 
 func _apply_fire_rate(phase: int) -> void:
@@ -182,6 +192,16 @@ func _destroy_next_part() -> void:
 			part.destroy()
 			return
 
+
+func _on_minion_spawn_timer_timeout() -> void:
+	for i in minion_spawn_count:
+		var angle := randf() * TAU
+		var offset := Vector2(cos(angle), sin(angle)) * randf_range(minion_spawn_radius, minion_spawn_radius * 2.0)
+		SignalHub.create_object.emit(
+			global_position + offset,
+			Vector2.ZERO,
+			Constants.ObjectType.ENEMY_CHASER
+		)
 
 # ── Throw ──────────────────────────────────────────────────────────────────────
 func _check_throw_trigger() -> void:
