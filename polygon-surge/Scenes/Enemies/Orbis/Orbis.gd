@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var throw_cooldown: float = 1.5
 @export var part_return_time: float = 3.0
 
+signal intro_finished
+
 # Rotación por fase [velocidad_base, cambio_cada_N_segundos]
 const PHASE_ROTATION := {
 	1: { "speed": 1.3,  "change_interval": 5.0 },
@@ -24,7 +26,7 @@ const PHASE_FIRE_RATE := {
 # Shooters activos por fase (índices 0-5)
 const PHASE_ACTIVE_SHOOTERS := {
 	1: [0, 2, 4],
-	2: [0, 1, 3, 4],
+	2: [0, 1, 3],
 	3: [0, 1, 2, 3, 4, 5],
 }
 
@@ -59,6 +61,7 @@ var _is_dead: bool = false
 
 
 func _ready() -> void:
+	add_to_group(Constants.ORBIS_BOSS_GROUP)
 	hp_component.died.connect(_on_died)
 	hurt_box.hitted.connect(_on_hurt_box_hitted)
 	throw_cooldown_timer.wait_time = throw_cooldown
@@ -80,6 +83,15 @@ func _fire_active_shooters() -> void:
 	for i in shooters.get_child_count():
 		if i in active_indices:
 			shooters.get_child(i).get_shooter().shoot(true)
+
+
+func play_intro() -> void:
+	_is_dead = true          # bloquea _physics_process
+	set_process(false)       # bloquea shooters
+	hurt_box.monitoring = false
+	animation_player.play("intro")
+	# Al terminar la animación, AnimationPlayer llama _on_intro_animation_finished
+	# via Method Track
 
 
 # ── Rotación ───────────────────────────────────────────────────────────────────
@@ -211,6 +223,7 @@ func _on_died() -> void:
 	for active_part in alive_parts:
 		active_part.destroy()
 	
+	hurt_box.set_deferred("monitorable", false)
 	# La animación de muerte llama queue_free() al terminar via signal
 	animation_player.play("death")
 
@@ -232,3 +245,9 @@ func spawn_death_explosions() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "death":
 		SignalHub.enemy_died.emit()
+	elif anim_name == "intro":
+		_is_dead = false
+		set_process(true)
+		hurt_box.monitoring = true
+		_enter_phase(1)
+		intro_finished.emit()
