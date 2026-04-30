@@ -11,7 +11,7 @@ enum LevelStatus { LOCKED, AVAILABLE, COMPLETED }
 	2: LevelStatus.LOCKED,
 	3: LevelStatus.LOCKED,
 	4: LevelStatus.LOCKED,
-	5: LevelStatus.AVAILABLE,
+	5: LevelStatus.LOCKED,
 }
 
 var _states: Dictionary[int, LevelStatus] = {

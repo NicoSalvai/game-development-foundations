@@ -88,6 +88,8 @@ func _fire_active_shooters() -> void:
 func play_intro() -> void:
 	_is_dead = true          # bloquea _physics_process
 	set_process(false)       # bloquea shooters
+	for part in parts.get_children():
+		part.set_physics_process(false)
 	hurt_box.monitoring = false
 	animation_player.play("intro")
 	# Al terminar la animación, AnimationPlayer llama _on_intro_animation_finished
@@ -248,6 +250,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "intro":
 		_is_dead = false
 		set_process(true)
+		for part in parts.get_children():
+			part.set_physics_process(true)
 		hurt_box.monitoring = true
 		_enter_phase(1)
 		intro_finished.emit()
